@@ -1,10 +1,10 @@
 import Footer from "./components/Footer";
+import Hero from "./components/LandingPage/Hero";
 
 export default function Home() {
   return (
     <div>
-      <h1 className="text-green-300">init</h1>
-      <Footer />
+      <Hero />
     </div>
   );
 }
