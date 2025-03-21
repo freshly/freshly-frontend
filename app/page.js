@@ -1,5 +1,6 @@
 import Footer from "./components/Footer";
 import Hero from "./components/LandingPage/Hero";
+import Sponsors from "./components/LandingPage/Sponsors";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       bg-[size:2rem_3rem]"
     >
       <Hero />
+      <Sponsors />
     </div>
   );
 }
