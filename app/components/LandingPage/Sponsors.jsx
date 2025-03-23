@@ -7,7 +7,7 @@ import FreshlyIcon from "../../../public/freshly-icon-square.png";
 
 export default function Sponsors() {
   const sponsors = [
-    { name: "Hyundai", src: FreshlyIcon },
+    { name: "Beto", src: FreshlyIcon },
     { name: "Mercedes", src: FreshlyIcon },
     { name: "Audi", src: FreshlyIcon },
     { name: "Hyundai", src: FreshlyIcon },
@@ -38,19 +38,11 @@ export default function Sponsors() {
 
   return (
     <div className="bg-white py-6 mt-40">
-      {/* Center the container */}
       <div className="mx-auto max-w-7xl px-4 text-center">
         <h2 className="mb-4 text-2xl font-semibold">
           Trusted By Top Automotive Brands &amp; Platforms
         </h2>
 
-        {/*
-          Override Slick’s defaults:
-            - .slick-list => margin: auto
-            - .slick-track => display: flex; justify-content: center;
-          
-          This helps ensure leftover space is distributed evenly
-        */}
         <Slider
           {...settings}
           className="
