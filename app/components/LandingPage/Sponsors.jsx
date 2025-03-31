@@ -37,8 +37,9 @@ export default function Sponsors() {
   };
 
   return (
-    <div className="bg-white py-6 mt-40">
-      <div className="mx-auto max-w-7xl px-4 text-center">
+    <div className="bg-white pb-6">
+      <div className="border-b-2 border-gray-300 opacity-75"></div>
+      <div className="mx-auto max-w-7xl px-4 text-center my-10">
         <h2 className="mb-4 text-2xl font-semibold">
           Trusted By Top Automotive Brands &amp; Platforms
         </h2>
@@ -62,6 +63,7 @@ export default function Sponsors() {
           ))}
         </Slider>
       </div>
+      <div className="border-b-2 border-gray-300 opacity-75"></div>
     </div>
   );
 }
