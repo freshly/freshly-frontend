@@ -1,13 +1,21 @@
 import Image from "next/image";
+import { Baloo_2 } from "next/font/google";
+
+const baloo2 = Baloo_2({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export default function Product() {
   return (
     <div className="bg-white flex flex-col items-center justify-center py-10">
-      <div className="text-black text-center text-4xl font-semibold">
+      <div
+        className={`text-black text-center text-4xl font-semibold ${baloo2.variable}`}
+      >
         What we offer
       </div>
       <div
-        className={`pt-2 text-center text-xs md:text-[11pt] text-[#9fa0a3] font-light`}
+        className={`pt-2 text-center text-xs md:text-[11pt] text-[#9fa0a3] font-light ${baloo2.variable}`}
       >
         Freshly brings cutting-edge AI technology to your fingertips, with the
         personal touch you expect and deserve.
