@@ -68,6 +68,54 @@ export default function Product() {
           </div>
         </div>
       </div>
+
+      <div className="mt-8 flex flex-col md:flex-row items-center gap-14 px-20">
+        <div className="md:w-1/2">
+          <div className="text-lg font-semibold mb-2">AI-Native</div>
+          <div className="text-xl font-semibold mb-2">
+            Transparency and Insights
+          </div>
+          <p className="text-sm md:text-base text-gray-600">
+            Gain full visibility into your dealership’s performance with the Pam
+            dashboard. Track every customer interaction in real-time, analyze
+            call trends, and monitor customer satisfaction — all in one place.
+            More data, better decisions.
+          </p>
+          <div className="mt-4">
+            <h4 className="text-sm md:text-base font-semibold">
+              One Dashboard to Rule Them All
+            </h4>
+            <p className="text-sm md:text-base text-gray-600 mt-1">
+              An all-in-one hub for your data. Easy to use and packed with
+              features to help you streamline operations and drive revenue.
+            </p>
+          </div>
+        </div>
+
+        <div className="flex md:w-1/2 gap-4 justify-center md:justify-start">
+          <Image
+            src="/freshly-home.png"
+            alt="Freshly Home"
+            width={200}
+            height={200}
+            className="rounded-lg shadow-lg"
+          />
+          <Image
+            src="/cart.png"
+            alt="Cart"
+            width={200}
+            height={200}
+            className="rounded-lg shadow-lg"
+          />
+          <Image
+            src="/choose-shop.png"
+            alt="Choose Shop"
+            width={200}
+            height={200}
+            className="rounded-lg shadow-lg"
+          />
+        </div>
+      </div>
     </div>
   );
 }
