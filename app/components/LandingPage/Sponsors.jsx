@@ -24,7 +24,7 @@ export default function Sponsors() {
   const settings = {
     dots: false,
     infinite: true,
-    slidesToShow: 6,
+    slidesToShow: 7,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
@@ -41,7 +41,7 @@ export default function Sponsors() {
       <div className="border-b-2 border-gray-300 opacity-75"></div>
       <div className="mx-auto max-w-7xl px-4 text-center my-10">
         <h2 className="mb-4 text-2xl font-semibold">
-          Trusted By Top Automotive Brands &amp; Platforms
+          Trusted By Top Brands &amp; Platforms
         </h2>
 
         <Slider
@@ -55,7 +55,7 @@ export default function Sponsors() {
           {sponsors.map((sponsor, idx) => (
             <div key={idx} className="flex items-center justify-center">
               <img
-                src={sponsor.src.src} // If using a plain <img>, note the ".src"
+                src={sponsor.src.src}
                 alt={sponsor.name}
                 className="h-12 w-auto object-contain"
               />
