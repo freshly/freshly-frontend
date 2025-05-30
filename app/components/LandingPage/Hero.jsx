@@ -29,14 +29,14 @@ export default function Hero() {
 
       {/* <Phone3D /> */}
 
-      <div className="bg-gradient-to-br from-[#111111] via-[#111111] to-[#01673c] mx-5 md:mx-20 lg:mx-72 py-8 rounded-[15px] mt-10 opacity-90">
+      <div className="bg-gradient-to-br from-[#111111] via-[#111111] to-[#01673c] mx-5 md:mx-20 lg:mx-72 py-8 rounded-[15px] mt-10 mb-40 opacity-90">
         <div
           className={`text-center font-semibold text-xl text-white ${baloo2.variable}`}
         >
           What can <span className="text-[#01AC66]">freshly</span> do for you?
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 mt-2 px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 mt-2 px-6 mb-12">
           {/* Left Column */}
           <motion.div
             className="flex flex-col items-center text-center text-white p-6 rounded-lg"

@@ -1,55 +1,33 @@
-// "use client";
+"use client";
+import { motion } from "framer-motion";
 
-// import { Canvas } from "@react-three/fiber";
-// import { Html, OrbitControls } from "@react-three/drei";
-
-// export default function Phone() {
-//   return (
-//     <div className="w-full h-screen bg-white">
-//       <Canvas camera={{ position: [0, 0, 5] }}>
-//         <ambientLight intensity={0.5} />
-//         <OrbitControls enableZoom={false} />
-
-//         {/* PHONE BODY */}
-//         <mesh>
-//           {/* Box geometry as a simple "phone" */}
-//           <boxGeometry args={[2, 4, 0.3]} />
-//           <meshStandardMaterial color="black" />
-
-//           {/* HTML Over the “screen” area */}
-//           <Html
-//             transform // allow 3D transform
-//             position={[0, 0, 0.16]} // slightly above the phone’s surface
-//             distanceFactor={1.3} // adjust scaling
-//           >
-//             <div
-//               style={{
-//                 width: "180px",
-//                 height: "380px",
-//                 backgroundColor: "white",
-//                 borderRadius: "16px",
-//                 boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
-//                 display: "flex",
-//                 flexDirection: "column",
-//                 alignItems: "center",
-//                 justifyContent: "center",
-//               }}
-//             >
-//               <img
-//                 src="/freshly-icon-square.png"
-//                 alt="Logo"
-//                 style={{ width: "80px", marginBottom: "1rem" }}
-//               />
-//               <button className="bg-purple-600 text-white px-6 py-3 rounded-lg text-lg font-semibold mb-4">
-//                 💬 Talk to Pam →
-//               </button>
-//               <button className="border-2 border-gray-800 text-gray-800 px-6 py-3 rounded-lg text-lg font-semibold">
-//                 📅 Book a Demo
-//               </button>
-//             </div>
-//           </Html>
-//         </mesh>
-//       </Canvas>
-//     </div>
-//   );
-// }
+export default function Phone() {
+  return (
+    <div
+      className="phone-container"
+      style={{
+        position: "relative",
+        zIndex: 1,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "flex-start",
+        marginTop: "-200px", // Reduced negative margin to move phone down
+        marginBottom: "-300px",
+        height: "600px",
+        width: "100%",
+        padding: "0 20px",
+      }}
+    >
+      <img
+        src="/ClearIphone.png"
+        alt="Clear iPhone"
+        style={{
+          width: "500px",
+          maxWidth: "98%",
+          height: "auto",
+          objectFit: "contain",
+        }}
+      />
+    </div>
+  );
+}
