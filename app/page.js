@@ -2,6 +2,7 @@ import Footer from "./components/Footer";
 import Hero from "./components/LandingPage/Hero";
 import Sponsors from "./components/LandingPage/Sponsors";
 import Product from "./components/LandingPage/Product";
+import Waitlist from "./components/LandingPage/Waitlist";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <div className=" ">
         <Sponsors />
         <Product />
+        <Waitlist />
       </div>
     </div>
   );
