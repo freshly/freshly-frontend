@@ -1,55 +1,108 @@
-// "use client";
+"use client";
+import { motion } from "framer-motion";
+import { Baloo_2 } from "next/font/google";
 
-// import { Canvas } from "@react-three/fiber";
-// import { Html, OrbitControls } from "@react-three/drei";
+const baloo2 = Baloo_2({
+  subsets: ["latin"],
+  display: "swap",
+});
 
-// export default function Phone() {
-//   return (
-//     <div className="w-full h-screen bg-white">
-//       <Canvas camera={{ position: [0, 0, 5] }}>
-//         <ambientLight intensity={0.5} />
-//         <OrbitControls enableZoom={false} />
+export default function Phone() {
+  return (
+    <div
+      className="phone-container"
+      style={{
+        position: "relative",
+        zIndex: 1,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "flex-start",
+        marginTop: "-200px", // Changed from -200px to -250px to move up
+        marginBottom: "-289px",
+        height: "600px",
+        width: "100%",
+        padding: "0 20px",
+      }}
+    >
+      <div
+        style={{
+          position: "relative",
+          backgroundColor: "transparent", // Changed to transparent
+          borderRadius: "20px",
+          padding: "20px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <img
+          src="/ClearIphone.png"
+          alt="Clear iPhone"
+          style={{
+            width: "500px",
+            maxWidth: "98%",
+            height: "auto",
+            objectFit: "contain",
+            position: "relative", // Added position relative
+            zIndex: 1, // Lower z-index for the image
+          }}
+        />
 
-//         {/* PHONE BODY */}
-//         <mesh>
-//           {/* Box geometry as a simple "phone" */}
-//           <boxGeometry args={[2, 4, 0.3]} />
-//           <meshStandardMaterial color="black" />
+        <motion.div
+          style={{
+            position: "absolute",
+            top: "58%",
+            left: "51%", // Changed from 38% to 35% to move left
+            transform: "translate(-50%, -50%)",
+            width: "150px", // Increased from 120px
+            height: "45px", // Increased from 40px
+            background: `linear-gradient(
+              270deg,
+              #01AC66,
+              #FFFFFF,
+              #FD8100,
+              #01AC66
+            )`,
+            backgroundSize: "300% 300%",
+            animation: "gradient 5s ease infinite",
+            borderRadius: "10px", // Slightly increased for larger button
+            padding: "2px", // Border thickness
+            zIndex: 2,
+          }}
+        >
+          <button
+            style={{
+              width: "100%",
+              height: "100%",
+              background: "white",
+              color: "black",
+              border: "none",
+              borderRadius: "8px", // Slightly smaller to account for padding
+              cursor: "pointer",
+              fontSize: "16px", // Increased from 14px
+              fontWeight: "600",
+              fontFamily: baloo2.style.fontFamily,
+              letterSpacing: "0.5px", // Added letter spacing
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              padding: "0",
+            }}
+          >
+            Join the Waitlist!
+          </button>
+        </motion.div>
 
-//           {/* HTML Over the “screen” area */}
-//           <Html
-//             transform // allow 3D transform
-//             position={[0, 0, 0.16]} // slightly above the phone’s surface
-//             distanceFactor={1.3} // adjust scaling
-//           >
-//             <div
-//               style={{
-//                 width: "180px",
-//                 height: "380px",
-//                 backgroundColor: "white",
-//                 borderRadius: "16px",
-//                 boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
-//                 display: "flex",
-//                 flexDirection: "column",
-//                 alignItems: "center",
-//                 justifyContent: "center",
-//               }}
-//             >
-//               <img
-//                 src="/freshly-icon-square.png"
-//                 alt="Logo"
-//                 style={{ width: "80px", marginBottom: "1rem" }}
-//               />
-//               <button className="bg-purple-600 text-white px-6 py-3 rounded-lg text-lg font-semibold mb-4">
-//                 💬 Talk to Pam →
-//               </button>
-//               <button className="border-2 border-gray-800 text-gray-800 px-6 py-3 rounded-lg text-lg font-semibold">
-//                 📅 Book a Demo
-//               </button>
-//             </div>
-//           </Html>
-//         </mesh>
-//       </Canvas>
-//     </div>
-//   );
-// }
+        <style>
+          {`
+            @keyframes gradient {
+              0% { background-position: 0% 50%; }
+              50% { background-position: 100% 50%; }
+              100% { background-position: 0% 50%; }
+            }
+          `}
+        </style>
+      </div>
+    </div>
+  );
+}

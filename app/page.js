@@ -1,7 +1,9 @@
-import Footer from "./components/Footer";
 import Hero from "./components/LandingPage/Hero";
 import Sponsors from "./components/LandingPage/Sponsors";
 import Product from "./components/LandingPage/Product";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Phone from "./components/LandingPage/Phone";
 import Waitlist from "./components/LandingPage/Waitlist";
 
 export default function Home() {
@@ -14,10 +16,12 @@ export default function Home() {
       >
         <Hero />
       </div>
+      <Phone />
       <div className=" ">
         <Sponsors />
         <Product />
         <Waitlist />
+        <Footer />
       </div>
     </div>
   );

@@ -31,6 +31,7 @@ export default function Hero() {
 
       {/* <Phone3D /> */}
 
+
       <div
         className="
           mx-5 md:mx-20 lg:mx-72
@@ -46,7 +47,7 @@ export default function Hero() {
           do for you?
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 mt-2 px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 mt-2 px-6 mb-12">
           {/* Left Column */}
           <motion.div
             className="flex flex-col items-center text-center text-white p-6 rounded-lg"
