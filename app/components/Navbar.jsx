@@ -1,6 +1,6 @@
-'use client';
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
+"use client";
+import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function Navbar() {
   const [isVisible, setIsVisible] = useState(false);
@@ -16,14 +16,16 @@ export default function Navbar() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-500 transform bg-[#01AC66] shadow-lg ${
-      isVisible ? 'translate-y-0' : '-translate-y-full'
-    }`}>
+    <nav
+      className={`fixed w-full z-50 transition-all duration-500 transform bg-[#01AC66] shadow-lg ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -31,7 +33,7 @@ export default function Navbar() {
             <Link href="/" className="flex items-center">
               <img
                 className="h-8 w-auto"
-                src="/FreshlyLogoNOBG.png"
+                src="/freshly-icon-square.png"
                 alt="Freshly Logo"
               />
             </Link>
@@ -39,20 +41,20 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link 
-              href="/about" 
+            <Link
+              href="/about"
               className="text-sm font-medium text-white hover:text-white/80 transition-colors"
             >
               About
             </Link>
-            <Link 
-              href="/services" 
+            <Link
+              href="/services"
               className="text-sm font-medium text-white hover:text-white/80 transition-colors"
             >
               Services
             </Link>
-            <Link 
-              href="/contact" 
+            <Link
+              href="/contact"
               className="text-sm font-medium text-white hover:text-white/80 transition-colors"
             >
               Contact
@@ -70,12 +72,32 @@ export default function Navbar() {
             >
               <span className="sr-only">Open main menu</span>
               {!isMobileMenuOpen ? (
-                <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <svg
+                  className="block h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
                 </svg>
               ) : (
-                <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <svg
+                  className="block h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               )}
             </button>
@@ -84,7 +106,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile menu */}
-      <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
+      <div className={`md:hidden ${isMobileMenuOpen ? "block" : "hidden"}`}>
         <div className="px-2 pt-2 pb-3 space-y-1 bg-[#01AC66]">
           <Link
             href="/about"
@@ -114,4 +136,4 @@ export default function Navbar() {
       </div>
     </nav>
   );
-} 
+}
