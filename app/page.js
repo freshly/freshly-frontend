@@ -16,6 +16,7 @@ export default function Home() {
         <Hero />
       </div>
       <Phone />
+
       <div className=" ">
         <Sponsors />
         <Product />
