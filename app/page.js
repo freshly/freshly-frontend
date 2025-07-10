@@ -1,5 +1,5 @@
 import Hero from "./components/LandingPage/Hero";
-import FlowingCarousel from "./components/LandingPage/Sponsors";
+import Sponsors from "./components/LandingPage/Sponsors";
 import Product from "./components/LandingPage/Product";
 import Phone from "./components/LandingPage/Phone";
 import Waitlist from "./components/LandingPage/Waitlist";
@@ -25,7 +25,7 @@ export default function Home() {
 
       {/* Everything below sits on a solid white bg at z-10 */}
       <section className="relative z-10 bg-white">
-        <FlowingCarousel />
+        <Sponsors />
         <Product />
         <Waitlist />
       </section>

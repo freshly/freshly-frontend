@@ -9,7 +9,7 @@ const inter = Inter({
   display: "swap",
 });
 
-export default function FlowingCarousel() {
+export default function Sponsors() {
   const items = [
     { id: 1, name: "Beto", color: "bg-blue-500" },
     { id: 2, name: "Beto", color: "bg-green-500" },
