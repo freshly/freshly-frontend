@@ -3,11 +3,9 @@ import React from "react";
 import Image from "next/image";
 import FreshlyIcon from "../../../public/freshly-icon-square.png";
 import { Inter } from "next/font/google";
-import Phone3D from "./Phone";
 import { FiClock, FiShoppingCart } from "react-icons/fi";
 import { motion } from "framer-motion";
 
-// Load Inter at the thin weights
 const inter = Inter({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400"],
@@ -16,7 +14,7 @@ const inter = Inter({
 
 export default function Hero() {
   return (
-    <div className={`${inter.className} font-thin relative`}>
+    <div className={`${inter.className} font-thin relative mb-20 lg:mb-0`}>
       <div className="pt-10 md:pt-20 flex justify-center">
         <Image
           src={FreshlyIcon}
@@ -29,16 +27,9 @@ export default function Hero() {
         Plan, Shop, and Save—Smarter Grocery Shopping with AI.
       </div>
 
-      {/* <Phone3D /> */}
-
-
       <div
         className="
-          mx-5 md:mx-20 lg:mx-72
-          py-8
-          rounded-[15px]
-          mt-10
-          bg-neutral-950
+          mx-5 md:mx-20 lg:mx-72 py-8 rounded-[15px] mt-10 bg-neutral-950
           bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(21,128,61,0.3),rgba(255,255,255,0))]
         "
       >
@@ -47,7 +38,7 @@ export default function Hero() {
           do for you?
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 mt-2 px-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 mt-2 px-6 mb-6 lg:mb-12">
           {/* Left Column */}
           <motion.div
             className="flex flex-col items-center text-center text-white p-6 rounded-lg"
