@@ -22,9 +22,10 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-500 transform bg-[#01AC66] shadow-lg ${
-        isVisible ? "translate-y-0" : "-translate-y-full"
-      }`}
+      className={`fixed w-full z-50 transition-all duration-500 transform bg-neutral-950
+          bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(21,128,61,0.3),rgba(255,255,255,0))] shadow-lg ${
+            isVisible ? "translate-y-0" : "-translate-y-full"
+          }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
