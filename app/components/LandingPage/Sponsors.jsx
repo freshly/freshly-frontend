@@ -4,6 +4,13 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import FreshlyIcon from "../../../public/freshly-icon-square.png";
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400"], // include thin through regular
+  display: "swap",
+});
 
 export default function Sponsors() {
   const sponsors = [
@@ -37,10 +44,10 @@ export default function Sponsors() {
   };
 
   return (
-    <div className="bg-white">
-      <div className="border-b-2 border-gray-300 opacity-75"></div>
+    <div className={`${inter.className} font-light bg-white`}>
+      <div className="border-b-2 border-gray-300 opacity-75" />
       <div className="mx-auto max-w-7xl px-4 text-center my-10">
-        <h2 className="mb-4 text-2xl font-semibold">
+        <h2 className="mb-4 text-2xl font-normal">
           Trusted By Top Brands &amp; Platforms
         </h2>
 
@@ -63,7 +70,7 @@ export default function Sponsors() {
           ))}
         </Slider>
       </div>
-      <div className="border-b-2 border-gray-300 opacity-75"></div>
+      <div className="border-b-2 border-gray-300 opacity-75" />
     </div>
   );
 }

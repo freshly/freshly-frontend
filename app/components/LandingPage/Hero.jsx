@@ -29,9 +29,6 @@ export default function Hero() {
         Plan, Shop, and Save—Smarter Grocery Shopping with AI.
       </div>
 
-      {/* <Phone3D /> */}
-
-
       <div
         className="
           mx-5 md:mx-20 lg:mx-72
