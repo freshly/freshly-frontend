@@ -31,11 +31,7 @@ export default function Hero() {
 
       <div
         className="
-          mx-5 md:mx-20 lg:mx-72
-          py-8
-          rounded-[15px]
-          mt-10
-          bg-neutral-950
+          mx-5 md:mx-20 lg:mx-72 py-8 rounded-[15px] mt-10 bg-neutral-950
           bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(21,128,61,0.3),rgba(255,255,255,0))]
         "
       >
