@@ -3,6 +3,7 @@ import Sponsors from "./components/LandingPage/Sponsors";
 import Product from "./components/LandingPage/Product";
 import Phone from "./components/LandingPage/Phone";
 import Waitlist from "./components/LandingPage/Waitlist";
+import Reviews from "./components/LandingPage/Reviews";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
         <Sponsors />
         <Product />
         <Waitlist />
+        <Reviews />
       </section>
     </div>
   );
