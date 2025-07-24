@@ -1,55 +1,64 @@
-// "use client";
+"use client";
+import React, { useCallback } from "react";
+import { motion } from "framer-motion";
+import { Inter } from "next/font/google";
 
-// import { Canvas } from "@react-three/fiber";
-// import { Html, OrbitControls } from "@react-three/drei";
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+});
 
-// export default function Phone() {
-//   return (
-//     <div className="w-full h-screen bg-white">
-//       <Canvas camera={{ position: [0, 0, 5] }}>
-//         <ambientLight intensity={0.5} />
-//         <OrbitControls enableZoom={false} />
+export default function Phone() {
+  const handleWaitlistClick = useCallback((e) => {
+    e.preventDefault();
+    const el = document.getElementById("waitlist");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
 
-//         {/* PHONE BODY */}
-//         <mesh>
-//           {/* Box geometry as a simple "phone" */}
-//           <boxGeometry args={[2, 4, 0.3]} />
-//           <meshStandardMaterial color="black" />
+  return (
+    <div className="relative z-10 flex justify-center items-start mt-[-200px] mb-[-289px] h-[600px] w-full px-5">
+      <div className="relative bg-transparent rounded-[20px] p-5 flex justify-center items-center">
+        <img
+          src="/ClearIphone.png"
+          alt="Clear iPhone"
+          className="relative z-10 w-[500px] max-w-[98%] h-auto object-contain"
+        />
 
-//           {/* HTML Over the “screen” area */}
-//           <Html
-//             transform // allow 3D transform
-//             position={[0, 0, 0.16]} // slightly above the phone’s surface
-//             distanceFactor={1.3} // adjust scaling
-//           >
-//             <div
-//               style={{
-//                 width: "180px",
-//                 height: "380px",
-//                 backgroundColor: "white",
-//                 borderRadius: "16px",
-//                 boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
-//                 display: "flex",
-//                 flexDirection: "column",
-//                 alignItems: "center",
-//                 justifyContent: "center",
-//               }}
-//             >
-//               <img
-//                 src="/freshly-icon-square.png"
-//                 alt="Logo"
-//                 style={{ width: "80px", marginBottom: "1rem" }}
-//               />
-//               <button className="bg-purple-600 text-white px-6 py-3 rounded-lg text-lg font-semibold mb-4">
-//                 💬 Talk to Pam →
-//               </button>
-//               <button className="border-2 border-gray-800 text-gray-800 px-6 py-3 rounded-lg text-lg font-semibold">
-//                 📅 Book a Demo
-//               </button>
-//             </div>
-//           </Html>
-//         </mesh>
-//       </Canvas>
-//     </div>
-//   );
-// }
+        <motion.div
+          className="absolute top-[58%] left-[51%] -translate-x-1/2 -translate-y-1/2 
+                     w-[150px] h-[45px] rounded-[10px] p-[2px] z-20
+                     bg-[linear-gradient(270deg,#01AC66,#FFFFFF,#FD8100,#01AC66)]
+                     bg-[length:300%_300%]"
+          style={{ animation: "gradient 5s ease infinite" }}
+        >
+          <a
+            href="#waitlist"
+            onClick={handleWaitlistClick}
+            className={`${inter.className} w-full h-full bg-white text-black border-none 
+                        rounded-[8px] cursor-pointer text-base font-semibold
+                        flex items-center justify-center p-0 tracking-[0.5px] no-underline`}
+          >
+            Join the Waitlist!
+          </a>
+        </motion.div>
+
+        <style jsx>{`
+          @keyframes gradient {
+            0% {
+              background-position: 0% 50%;
+            }
+            50% {
+              background-position: 100% 50%;
+            }
+            100% {
+              background-position: 0% 50%;
+            }
+          }
+        `}</style>
+      </div>
+    </div>
+  );
+}
+
