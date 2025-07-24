@@ -1,19 +1,25 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
 export default function Navbar() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show navbar after scrolling down 100px
-      if (window.scrollY > 100) {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY <= 0) {
         setIsVisible(true);
-      } else {
+      } else if (currentScrollY > lastScrollY.current) {
+        // Scrolling down
         setIsVisible(false);
+      } else {
+        // Scrolling up
+        setIsVisible(true);
       }
+      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });

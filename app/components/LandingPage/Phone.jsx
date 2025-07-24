@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { Baloo_2 } from "next/font/google";
+import { useCallback } from "react";
 
 const baloo2 = Baloo_2({
   subsets: ["latin"],
@@ -8,6 +9,14 @@ const baloo2 = Baloo_2({
 });
 
 export default function Phone() {
+  const handleWaitlistClick = useCallback((e) => {
+    e.preventDefault();
+    const el = document.getElementById("waitlist");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
+
   return (
     <div
       className="phone-container"
@@ -70,27 +79,30 @@ export default function Phone() {
             zIndex: 2,
           }}
         >
-          <button
+          <a
+            href="#waitlist"
+            onClick={handleWaitlistClick}
             style={{
               width: "100%",
               height: "100%",
               background: "white",
               color: "black",
               border: "none",
-              borderRadius: "8px", // Slightly smaller to account for padding
+              borderRadius: "8px",
               cursor: "pointer",
-              fontSize: "16px", // Increased from 14px
+              fontSize: "16px",
               fontWeight: "600",
               fontFamily: baloo2.style.fontFamily,
-              letterSpacing: "0.5px", // Added letter spacing
+              letterSpacing: "0.5px",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
               padding: "0",
+              textDecoration: "none"
             }}
           >
             Join the Waitlist!
-          </button>
+          </a>
         </motion.div>
 
         <style>
