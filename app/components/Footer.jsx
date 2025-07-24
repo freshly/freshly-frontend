@@ -1,3 +1,4 @@
+// app/components/Footer.jsx
 "use client";
 import React from "react";
 import { Linkedin, Instagram } from "lucide-react";
@@ -11,64 +12,62 @@ export default function Footer() {
       <div className="border-t border-white/20" />
 
       {/* logo + nav + social */}
-      <div className="max-w-7xl mx-auto px-4 py-6 flex items-center justify-between">
+      <div
+        className="
+          max-w-7xl mx-auto px-4 py-6
+          flex 
+          flex-row justify-between items-center space-y-0
+        "
+      >
         {/* logo */}
         <img
           src="/freshly-icon-square.png"
           alt="Freshly Logo"
-          className="w-24 h-12 object-contain"
+          className="w-10 h-10 md:w-24 md:h-12 object-contain"
         />
 
-        {/* nav links + socials */}
-        <div className="flex items-center space-x-8">
-          {/* links */}
-          <nav className="flex items-center space-x-8 text-[8pt] md:text-sm font-light">
-            <a
-              href="/about"
-              className="text-white/90 hover:text-white transition-colors"
-            >
-              About
-            </a>
-            <a
-              href="/contact"
-              className="text-white/90 hover:text-white transition-colors"
-            >
-              Contact
-            </a>
-            <a
-              href="/faqs"
-              className="text-white/90 hover:text-white transition-colors"
-            >
-              FAQs
-            </a>
-          </nav>
+        {/* nav links */}
+        <nav
+          className="
+            flex space-x-6
+            text-sm font-light text-white/90
+            hover:text-white transition-colors
+          "
+        >
+          <a href="/about" className="hover:text-white">
+            About
+          </a>
+          <a href="/contact" className="hover:text-white">
+            Contact
+          </a>
+          <a href="/faqs" className="hover:text-white">
+            FAQs
+          </a>
+        </nav>
 
-          {/* social icons */}
-          <div className="flex items-center space-x-4">
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white/70 hover:text-white transition-colors"
-            >
-              <Instagram size={20} />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white/70 hover:text-white transition-colors"
-            >
-              <Linkedin size={20} />
-            </a>
-          </div>
+        {/* social icons */}
+        <div className="flex items-center space-x-4">
+          <a
+            href="https://www.instagram.com/joinfreshly?igsh=b2RnNjUwMGhncXZr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/70 hover:text-white transition-colors"
+          >
+            <Instagram size={20} />
+          </a>
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/70 hover:text-white transition-colors"
+          >
+            <Linkedin size={20} />
+          </a>
         </div>
       </div>
 
-      {/* bottom divider */}
-      {/* <div className="border-t border-white/20" /> */}
-
       {/* copyright */}
+
       <div className="max-w-7xl mx-auto px-4 py-4 text-center text-xs text-white/70">
         © {currentYear} Freshly. All Rights Reserved.
       </div>
