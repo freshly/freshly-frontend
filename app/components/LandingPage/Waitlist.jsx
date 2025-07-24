@@ -12,6 +12,7 @@ const inter = Inter({
 export default function Waitlist() {
   return (
     <div
+      id="waitlist"
       className={`
         ${inter.className}
         font-light relative py-10 h-screen w-screen bg-neutral-950

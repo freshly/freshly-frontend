@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
 export default function Navbar() {
@@ -49,10 +49,10 @@ export default function Navbar() {
               About
             </Link>
             <Link
-              href="/services"
+              href="/faqs"
               className="text-sm font-medium text-white hover:text-white/80 transition-colors"
             >
-              Services
+              FAQs
             </Link>
             <Link
               href="/contact"
@@ -61,7 +61,7 @@ export default function Navbar() {
               Contact
             </Link>
             <button className="bg-white text-[#01AC66] px-4 py-2 rounded-md text-sm font-medium hover:bg-white/90 transition-colors">
-              Get Started
+              Join Waitlist Now
             </button>
           </div>
 
@@ -117,11 +117,11 @@ export default function Navbar() {
             About
           </Link>
           <Link
-            href="/services"
+            href="/faqs"
             className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/10"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            Services
+            FAQs
           </Link>
           <Link
             href="/contact"
@@ -131,7 +131,7 @@ export default function Navbar() {
             Contact
           </Link>
           <button className="w-full text-left px-3 py-2 rounded-md text-base font-medium bg-white text-[#01AC66] hover:bg-white/90 transition-colors">
-            Get Started
+            Join Waitlist Now
           </button>
         </div>
       </div>
