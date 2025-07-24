@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Mail, ArrowRight, Check } from "lucide-react";
 
-// 1) Import & configure Inter
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
