@@ -3,23 +3,17 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
 export default function Navbar() {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY <= 0) {
+      // Show navbar after scrolling down 100px
+      if (window.scrollY > 100) {
         setIsVisible(true);
-      } else if (currentScrollY > lastScrollY.current) {
-        // Scrolling down
-        setIsVisible(false);
       } else {
-        // Scrolling up
-        setIsVisible(true);
+        setIsVisible(false);
       }
-      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
