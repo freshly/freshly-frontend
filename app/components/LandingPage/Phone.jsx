@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useCallback } from "react";
 import { motion } from "framer-motion";
 import { Inter } from "next/font/google";
 
@@ -9,6 +9,14 @@ const inter = Inter({
 });
 
 export default function Phone() {
+  const handleWaitlistClick = useCallback((e) => {
+    e.preventDefault();
+    const el = document.getElementById("waitlist");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
+
   return (
     <div className="relative z-10 flex justify-center items-start mt-[-200px] mb-[-289px] h-[600px] w-full px-5">
       <div className="relative bg-transparent rounded-[20px] p-5 flex justify-center items-center">
@@ -25,14 +33,15 @@ export default function Phone() {
                      bg-[length:300%_300%]"
           style={{ animation: "gradient 5s ease infinite" }}
         >
-          <button
-            className={`w-full h-full bg-gray-100 opacity-90 text-black border-none 
-                        rounded-[8px] cursor-pointer text-base font-normal
-                        flex items-center justify-center p-0 tracking-[0.5px]
-                        ${inter.className}`}
+          <a
+            href="#waitlist"
+            onClick={handleWaitlistClick}
+            className={`${inter.className} w-full h-full bg-white text-black border-none 
+                        rounded-[8px] cursor-pointer text-base font-semibold
+                        flex items-center justify-center p-0 tracking-[0.5px] no-underline`}
           >
             Join the Waitlist!
-          </button>
+          </a>
         </motion.div>
 
         <style jsx>{`
@@ -52,3 +61,4 @@ export default function Phone() {
     </div>
   );
 }
+

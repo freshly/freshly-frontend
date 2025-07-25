@@ -1,6 +1,15 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { Inter } from "next/font/google";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["200", "300", "400"], // extra-light, light, regular
+  display: "swap",
+});
 
 export default function Navbar() {
   const [isVisible, setIsVisible] = useState(false);
@@ -22,12 +31,14 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-500 transform bg-neutral-950
-          bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(21,128,61,0.3),rgba(255,255,255,0))] shadow-lg ${
+      className={`${
+        inter.className
+      } fixed w-full z-50 transition-all duration-500 transform bg-neutral-950
+          md:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(21,128,61,0.3),rgba(255,255,255,0))] shadow-lg ${
             isVisible ? "translate-y-0" : "-translate-y-full"
           }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -44,24 +55,24 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-8">
             <Link
               href="/about"
-              className="text-sm font-medium text-white hover:text-white/80 transition-colors"
+              className="text-sm font-light text-white hover:text-white/80 transition-colors"
             >
               About
             </Link>
             <Link
-              href="/services"
-              className="text-sm font-medium text-white hover:text-white/80 transition-colors"
+              href="/faqs"
+              className="text-sm font-light text-white hover:text-white/80 transition-colors"
             >
-              Services
+              FAQs
             </Link>
             <Link
               href="/contact"
-              className="text-sm font-medium text-white hover:text-white/80 transition-colors"
+              className="text-sm font-light text-white hover:text-white/80 transition-colors"
             >
               Contact
             </Link>
-            <button className="bg-white text-[#01AC66] px-4 py-2 rounded-md text-sm font-medium hover:bg-white/90 transition-colors">
-              Get Started
+            <button className="bg-white text-[rgb(21,128,60)] px-4 py-2 rounded-md text-sm font-medium hover:bg-white/90 transition-colors">
+              Join Waitlist Now
             </button>
           </div>
 
@@ -108,30 +119,30 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div className={`md:hidden ${isMobileMenuOpen ? "block" : "hidden"}`}>
-        <div className="px-2 pt-2 pb-3 space-y-1 bg-[#01AC66]">
+        <div className="px-2 pt-2 pb-3 space-y-1 bg-neutral-950">
           <Link
             href="/about"
-            className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/10"
+            className="block px-3 py-2 rounded-md text-base font-light text-white hover:bg-white/10"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             About
           </Link>
           <Link
-            href="/services"
-            className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/10"
+            href="/faqs"
+            className="block px-3 py-2 rounded-md text-base font-light text-white hover:bg-white/10"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            Services
+            FAQs
           </Link>
           <Link
             href="/contact"
-            className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/10"
+            className="block px-3 py-2 rounded-md text-base font-light text-white hover:bg-white/10"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Contact
           </Link>
-          <button className="w-full text-left px-3 py-2 rounded-md text-base font-medium bg-white text-[#01AC66] hover:bg-white/90 transition-colors">
-            Get Started
+          <button className="w-full text-left px-3 py-2 rounded-md text-base font-light bg-white text-[rgb(21,128,60)] hover:bg-white/90 transition-colors">
+            Join Waitlist Now
           </button>
         </div>
       </div>

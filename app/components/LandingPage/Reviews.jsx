@@ -65,11 +65,9 @@ export default function ReviewsCarousel() {
       <div className="border-white/25 mb-20 border-b rounded mx-20" />
 
       <div className="max-w-xl mx-auto text-center px-4">
-        <h2 className="text-3xl font-bold mb-2">
-          What Our Customers Are Saying
-        </h2>
+        <h2 className="text-3xl font-light mb-2">What Our Users Are Saying</h2>
         <p className="text-gray-400 mb-6">
-          Hear from those who have partnered with us.
+          Hear from those who have trusted with us.
         </p>
         <button
           onClick={() => setPlaying((v) => !v)}
