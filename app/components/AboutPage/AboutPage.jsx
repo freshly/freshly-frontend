@@ -35,7 +35,7 @@ const AboutPage = () => {
                 <div className="space-y-4 text-neutral-600">
                   <div className="flex items-center gap-2">
                     <svg
-                      className="w-5 h-5 text-emerald-600"
+                      className="w-5 h-5 text-[rgb(21,128,60)]"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -49,14 +49,14 @@ const AboutPage = () => {
                     </svg>
                     <a
                       href="mailto:davidgendy1@gmail.com"
-                      className="hover:text-emerald-600 transition-colors"
+                      className="hover:text-[rgb(21,128,60)] transition-colors"
                     >
                       davidgendy1@gmail.com
                     </a>
                   </div>
                   <div className="flex items-center gap-2">
                     <svg
-                      className="w-5 h-5 text-emerald-600"
+                      className="w-5 h-5 text-[rgb(21,128,60)]"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -70,14 +70,14 @@ const AboutPage = () => {
                     </svg>
                     <a
                       href="tel:703-473-5256"
-                      className="hover:text-emerald-600 transition-colors"
+                      className="hover:text-[rgb(21,128,60)] transition-colors"
                     >
                       703-473-5256
                     </a>
                   </div>
                   <div className="flex items-center gap-2">
                     <svg
-                      className="w-5 h-5 text-emerald-600"
+                      className="w-5 h-5 text-[rgb(21,128,60)]"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -87,7 +87,7 @@ const AboutPage = () => {
                       href="https://instagram.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-emerald-600 transition-colors"
+                      className="hover:text-[rgb(21,128,60)] transition-colors"
                     >
                       @davidgendy
                     </a>
@@ -160,7 +160,7 @@ const AboutPage = () => {
 
             <div className="space-y-8">
               <div>
-                <h3 className="text-lg md:text-xl font-light mb-4 text-center md:text-left text-emerald-400">
+                <h3 className="text-lg md:text-xl font-light mb-4 text-center md:text-left text-[rgb(21,128,60)]">
                   The Problem
                 </h3>
                 <p className="leading-relaxed px-10 md:px-0 text-gray-300">
@@ -179,7 +179,7 @@ const AboutPage = () => {
               </div>
 
               <div>
-                <h3 className="text-lg md:text-xl font-light text-center md:text-left mb-4 text-emerald-400">
+                <h3 className="text-lg md:text-xl font-light text-center md:text-left mb-4 text-[rgb(21,128,60)]">
                   The Solution
                 </h3>
                 <p className="leading-relaxed px-10 md:px-0 text-gray-300">
