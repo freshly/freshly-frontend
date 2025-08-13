@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import {
@@ -47,12 +46,12 @@ export default function ContactPage() {
     setLoading(true);
 
     try {
-      const res = await fetch(`${API_BASE}/api/contact`, {
+      const res = await fetch(`${API_BASE}/api/contact/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          first_name: firstName,
-          last_name: lastName,
+          first: firstName,
+          last: lastName,
           email,
           message,
         }),
