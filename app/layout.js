@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${inter.className} antialiased min-h-screen flex flex-col overflow-x-hidden`}
+        className={`${inter.variable} ${inter.className} antialiased min-h-screen flex flex-col overflow-x-hidden scroll-smooth`}
       >
         <Navbar />
         <main className="flex-grow">{children}</main>

@@ -2,6 +2,8 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Inter } from "next/font/google";
+import { usePathname, useRouter } from "next/navigation";
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
@@ -28,6 +30,21 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const goToWaitlist = () => {
+    setIsMobileMenuOpen(false);
+    if (pathname === "/") {
+      document.getElementById("waitlist")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    } else {
+      router.push("/#waitlist");
+    }
+  };
 
   return (
     <nav
@@ -71,7 +88,10 @@ export default function Navbar() {
             >
               Contact
             </Link>
-            <button className="bg-white text-[rgb(21,128,60)] px-4 py-2 rounded-md text-sm font-medium hover:bg-white/90 transition-colors">
+            <button
+              onClick={goToWaitlist}
+              className="bg-white text-[rgb(21,128,60)] px-4 py-2 rounded-md text-sm font-medium hover:bg-white/90 transition-colors"
+            >
               Join Waitlist Now
             </button>
           </div>
@@ -141,7 +161,10 @@ export default function Navbar() {
           >
             Contact
           </Link>
-          <button className="w-full text-left px-3 py-2 rounded-md text-base font-light bg-white text-[rgb(21,128,60)] hover:bg-white/90 transition-colors">
+          <button
+            onClick={goToWaitlist}
+            className="w-full text-left px-3 py-2 rounded-md text-base font-light bg-white text-[rgb(21,128,60)] hover:bg-white/90 transition-colors"
+          >
             Join Waitlist Now
           </button>
         </div>

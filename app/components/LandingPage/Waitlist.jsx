@@ -43,7 +43,7 @@ export default function Waitlist() {
   return (
     <div
       id="waitlist"
-      className={`
+      className={`scroll-mt-24
         ${inter.className}
         font-light relative py-10 h-screen w-screen bg-neutral-950
         bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(21,128,61,0.3),rgba(255,255,255,0))]
