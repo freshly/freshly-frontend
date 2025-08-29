@@ -161,7 +161,7 @@ const AboutPage = () => {
             <div className="space-y-8">
               <div>
                 <h3 className="text-lg md:text-xl font-light mb-4 text-center md:text-left text-[rgb(21,128,60)]">
-                  The Problem
+                  Problem
                 </h3>
                 <p className="leading-relaxed px-10 md:px-0 text-gray-300">
                   Grocery shopping is way more stressful than it should be —
@@ -180,7 +180,7 @@ const AboutPage = () => {
 
               <div>
                 <h3 className="text-lg md:text-xl font-light text-center md:text-left mb-4 text-[rgb(21,128,60)]">
-                  The Solution
+                  Idea
                 </h3>
                 <p className="leading-relaxed px-10 md:px-0 text-gray-300">
                   That's where Freshly comes in — my solution to the chaos of
@@ -194,6 +194,9 @@ const AboutPage = () => {
               </div>
 
               <div>
+                <h3 className="text-lg md:text-xl font-light mb-4 text-center md:text-left text-[rgb(21,128,60)]">
+                  Solution
+                </h3>
                 <p className="leading-relaxed px-10 md:px-0 text-gray-300">
                   Freshly solves these everyday challenges through a seamless
                   app experience powered by smart technology. It automates
