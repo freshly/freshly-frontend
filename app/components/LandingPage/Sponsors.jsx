@@ -10,17 +10,15 @@ const inter = Inter({
 });
 
 export default function Sponsors() {
+  // Now each item has its own height in pixels
   const items = [
-    { id: 1, name: "Beto", color: "bg-blue-500" },
-    { id: 2, name: "Beto", color: "bg-green-500" },
-    { id: 3, name: "Beto", color: "bg-purple-500" },
-    { id: 4, name: "Beto", color: "bg-red-500" },
-    { id: 5, name: "Beto", color: "bg-yellow-500" },
-    { id: 6, name: "Beto", color: "bg-pink-500" },
-    { id: 7, name: "Beto", color: "bg-indigo-500" },
-    { id: 8, name: "Beto", color: "bg-orange-500" },
-    { id: 9, name: "Beto", color: "bg-teal-500" },
-    { id: 10, name: "Beto", color: "bg-cyan-500" },
+    { id: 1, src: "/costco.png", alt: "Costco", height: 48 },
+    { id: 2, src: "/instacart.png", alt: "Instacart", height: 40 },
+    { id: 3, src: "/walmart.png", alt: "Walmart", height: 48 },
+    { id: 4, src: "/target.png", alt: "Target", height: 72 },
+    { id: 5, src: "/hmart.png", alt: "Hmart", height: 32 },
+    { id: 6, src: "/tjoes.png", alt: "Trader Joe's", height: 32 },
+    { id: 7, src: "/wfoods.png", alt: "Whole Foods", height: 64 },
   ];
 
   const duplicated = [...items, ...items];
@@ -42,16 +40,16 @@ export default function Sponsors() {
         >
           {duplicated.map((item, i) => (
             <div
-              key={i}
+              key={`${item.id}-${i}`}
               className="flex-shrink-0 mx-8 flex items-center justify-center"
             >
-              <div
-                className={`${item.color} rounded-lg p-6 shadow-lg hover:shadow-xl 
-                transition-shadow duration-300 min-w-[120px] h-16 flex items-center justify-center`}
-              >
-                <span className="text-white font-light text-sm">
-                  {item.name}
-                </span>
+              <div className="min-w-[120px] flex items-center justify-center p-2">
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  style={{ height: `${item.height}px` }}
+                  className="w-auto object-contain"
+                />
               </div>
             </div>
           ))}

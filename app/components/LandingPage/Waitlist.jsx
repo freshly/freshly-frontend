@@ -1,17 +1,48 @@
 "use client";
-import React from "react";
-import WaitlistForm from "./WaitlistForm";
+import React, { useState } from "react";
 import { Inter } from "next/font/google";
+import WaitlistForm from "./WaitlistForm";
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["200", "300", "400"], // extra-light, light, regular
+  weight: ["200", "300", "400"],
   display: "swap",
 });
 
 export default function Waitlist() {
+  const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState(null);
+  const API_BASE = "http://localhost:8000";
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    setError(null);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    try {
+      const res = await fetch(`${API_BASE}/api/waitlist/`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (!res.ok) throw new Error(await res.text());
+      setIsSubmitted(true);
+    } catch (err) {
+      console.error(err);
+      setError("Unable to join the waitlist. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div
+      id="waitlist"
       className={`
         ${inter.className}
         font-light relative py-10 h-screen w-screen bg-neutral-950
@@ -19,39 +50,43 @@ export default function Waitlist() {
       `}
     >
       <div className="flex items-center justify-center min-h-screen px-4">
-        <div className="w-full max-w-4xl p-8">
-          <div className="text-center space-y-12">
-            <div className="space-y-6">
-              <h1 className="text-4xl md:text-6xl tracking-tight text-white">
-                Something Amazing
-                <br />
-                <span className="text-white font-light">Coming Soon</span>
-              </h1>
-              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-                We're building the next generation platform that will transform
-                how you work. Join thousands of others waiting for early access.
-              </p>
+        <div className="w-full max-w-4xl p-8 text-center space-y-12">
+          {/* Header */}
+          <div className="space-y-6">
+            <h1 className="text-4xl md:text-6xl tracking-tight text-white">
+              Something Amazing
+              <br />
+              <span className="font-light">Coming Soon</span>
+            </h1>
+            <p className="text-xl text-gray-300 mx-auto">
+              We're building the next generation platform that will transform
+              how you work.
+            </p>
+          </div>
+
+          {/* Form */}
+          <WaitlistForm
+            email={email}
+            onEmailChange={handleEmailChange}
+            onSubmit={handleSubmit}
+            isLoading={isLoading}
+            isSubmitted={isSubmitted}
+          />
+          {error && <p className="text-red-400 text-sm">{error}</p>}
+
+          {/* Footer stats */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-10">
+            <div className="text-center space-y-2">
+              <div className="text-2xl font-light text-white">10,000+</div>
+              <div className="text-sm text-gray-400">People waiting</div>
             </div>
-
-            <WaitlistForm />
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-10">
-              <div className="text-center space-y-2">
-                <div className="text-2xl font-light text-white">10,000+</div>
-                <div className="text-sm text-gray-400">People waiting</div>
-              </div>
-              <div className="text-center space-y-2">
-                <div className="text-2xl font-light text-white">Q1 2024</div>
-                <div className="text-sm text-gray-400">Expected launch</div>
-              </div>
-              <div className="text-center space-y-2">
-                <div className="text-2xl font-light text-white">
-                  Early Access
-                </div>
-                <div className="text-sm text-gray-400">
-                  For waitlist members
-                </div>
-              </div>
+            <div className="text-center space-y-2">
+              <div className="text-2xl font-light text-white">Q1 2024</div>
+              <div className="text-sm text-gray-400">Expected launch</div>
+            </div>
+            <div className="text-center space-y-2">
+              <div className="text-2xl font-light text-white">Early Access</div>
+              <div className="text-sm text-gray-400">For waitlist members</div>
             </div>
           </div>
         </div>

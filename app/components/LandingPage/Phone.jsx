@@ -1,108 +1,64 @@
 "use client";
+import React, { useCallback } from "react";
 import { motion } from "framer-motion";
-import { Baloo_2 } from "next/font/google";
+import { Inter } from "next/font/google";
 
-const baloo2 = Baloo_2({
+const inter = Inter({
   subsets: ["latin"],
   display: "swap",
 });
 
 export default function Phone() {
+  const handleWaitlistClick = useCallback((e) => {
+    e.preventDefault();
+    const el = document.getElementById("waitlist");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
+
   return (
-    <div
-      className="phone-container"
-      style={{
-        position: "relative",
-        zIndex: 1,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "flex-start",
-        marginTop: "-200px", // Changed from -200px to -250px to move up
-        marginBottom: "-289px",
-        height: "600px",
-        width: "100%",
-        padding: "0 20px",
-      }}
-    >
-      <div
-        style={{
-          position: "relative",
-          backgroundColor: "transparent", // Changed to transparent
-          borderRadius: "20px",
-          padding: "20px",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+    <div className="relative z-10 flex justify-center items-start mt-[-200px] mb-[-289px] h-[600px] w-full px-5">
+      <div className="relative bg-transparent rounded-[20px] p-5 flex justify-center items-center">
         <img
           src="/ClearIphone.png"
           alt="Clear iPhone"
-          style={{
-            width: "500px",
-            maxWidth: "98%",
-            height: "auto",
-            objectFit: "contain",
-            position: "relative", // Added position relative
-            zIndex: 1, // Lower z-index for the image
-          }}
+          className="relative z-10 w-[500px] max-w-[98%] h-auto object-contain"
         />
 
         <motion.div
-          style={{
-            position: "absolute",
-            top: "58%",
-            left: "51%", // Changed from 38% to 35% to move left
-            transform: "translate(-50%, -50%)",
-            width: "150px", // Increased from 120px
-            height: "45px", // Increased from 40px
-            background: `linear-gradient(
-              270deg,
-              #01AC66,
-              #FFFFFF,
-              #FD8100,
-              #01AC66
-            )`,
-            backgroundSize: "300% 300%",
-            animation: "gradient 5s ease infinite",
-            borderRadius: "10px", // Slightly increased for larger button
-            padding: "2px", // Border thickness
-            zIndex: 2,
-          }}
+          className="absolute top-[58%] left-[51%] -translate-x-1/2 -translate-y-1/2 
+                     w-[150px] h-[45px] rounded-[10px] p-[2px] z-20
+                     bg-[linear-gradient(270deg,#01AC66,#FFFFFF,#FD8100,#01AC66)]
+                     bg-[length:300%_300%]"
+          style={{ animation: "gradient 5s ease infinite" }}
         >
-          <button
-            style={{
-              width: "100%",
-              height: "100%",
-              background: "white",
-              color: "black",
-              border: "none",
-              borderRadius: "8px", // Slightly smaller to account for padding
-              cursor: "pointer",
-              fontSize: "16px", // Increased from 14px
-              fontWeight: "600",
-              fontFamily: baloo2.style.fontFamily,
-              letterSpacing: "0.5px", // Added letter spacing
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              padding: "0",
-            }}
+          <a
+            href="#waitlist"
+            onClick={handleWaitlistClick}
+            className={`${inter.className} w-full h-full bg-white text-black border-none 
+                        rounded-[8px] cursor-pointer text-base font-semibold
+                        flex items-center justify-center p-0 tracking-[0.5px] no-underline`}
           >
             Join the Waitlist!
-          </button>
+          </a>
         </motion.div>
 
-        <style>
-          {`
-            @keyframes gradient {
-              0% { background-position: 0% 50%; }
-              50% { background-position: 100% 50%; }
-              100% { background-position: 0% 50%; }
+        <style jsx>{`
+          @keyframes gradient {
+            0% {
+              background-position: 0% 50%;
             }
-          `}
-        </style>
+            50% {
+              background-position: 100% 50%;
+            }
+            100% {
+              background-position: 0% 50%;
+            }
+          }
+        `}</style>
       </div>
     </div>
   );
 }
+
