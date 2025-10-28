@@ -54,13 +54,12 @@ export default function Waitlist() {
           {/* Header */}
           <div className="space-y-6">
             <h1 className="text-4xl md:text-6xl tracking-tight text-white">
-              Something Amazing
+              Real People
               <br />
-              <span className="font-light">Coming Soon</span>
+              <span className="font-light">Real Grocery Struggles</span>
             </h1>
             <p className="text-xl text-gray-300 mx-auto">
-              We're building the next generation platform that will transform
-              how you work.
+             Help us help you on the issues of grocery shopping! 
             </p>
           </div>
 
@@ -77,11 +76,11 @@ export default function Waitlist() {
           {/* Footer stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-10">
             <div className="text-center space-y-2">
-              <div className="text-2xl font-light text-white">10,000+</div>
+              <div className="text-2xl font-light text-white">1,000+</div>
               <div className="text-sm text-gray-400">People waiting</div>
             </div>
             <div className="text-center space-y-2">
-              <div className="text-2xl font-light text-white">Q1 2024</div>
+              <div className="text-2xl font-light text-white">Q1 2026</div>
               <div className="text-sm text-gray-400">Expected launch</div>
             </div>
             <div className="text-center space-y-2">

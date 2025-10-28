@@ -19,15 +19,15 @@ export default function Product() {
       <h1 className="text-black text-center pt-10 text-4xl font-light">
         What we offer
       </h1>
-      <p className="pt-2 text-center text-xs md:text-[11pt] text-[#9fa0a3] font-light">
-        Freshly brings cutting-edge AI technology to your fingertips, with the
-        personal touch you expect and deserve.
+      <p className="pt-2 text-center text-2xl md:text-[16pt] text-[#9fa0a3] font-light">
+        Plan your meals, shop for groceries, discover new recipes, and get
+        everything delivered — all from one intelligent app.
       </p>
 
       <div className="mt-8 flex flex-col md:flex-row items-center gap-14 px-20">
         <div className="flex md:w-1/2 gap-4 justify-center md:justify-start">
           <Image
-            src="/grocery-cart.png"
+            src="/pantry.png"
             alt="Grocery Cart"
             width={200}
             height={200}
@@ -49,23 +49,26 @@ export default function Product() {
           />
         </div>
         <div className="md:w-1/2">
-          <div className="text-lg font-normal text-black mb-2">AI-Native</div>
-          <div className="text-xl font-normal mb-2">
-            Transparency and Insights
+          <div className="text-xl font-semibold mb-2">
+            AI-Powered Personalization
           </div>
           <p className="text-sm md:text-base text-gray-600">
-            Gain full visibility into your dealership’s performance with the Pam
-            dashboard. Track every customer interaction in real-time, analyze
-            call trends, and monitor customer satisfaction — all in one place.
-            More data, better decisions.
+            Freshly uses advanced AI to make every part of your experience
+            smarter and more personalized. From creating weekly meal plans and
+            grocery lists to suggesting recipes that fit your lifestyle, Freshly
+            adapts to you. The AI even helps you order ingredients and restock
+            your pantry automatically — so you spend less time planning and more
+            time enjoying your meals.
           </p>
           <div className="mt-4">
-            <h4 className="text-sm md:text-base font-normal">
-              One Dashboard to Rule Them All
+            <h4 className="text-xl font-semibold mb-2">
+              Real-Time Inventory Tracking
             </h4>
             <p className="text-sm md:text-base text-gray-600 mt-1">
-              An all-in-one hub for your data. Easy to use and packed with
-              features to help you streamline operations and drive revenue.
+              Keep your kitchen organized with automatic inventory tracking. The
+              app updates your pantry as you scan, shop, or cook — showing you
+              exactly what’s in stock and what’s running low. No more guessing,
+              overbuying, or forgetting essentials.
             </p>
           </div>
         </div>
@@ -73,23 +76,24 @@ export default function Product() {
 
       <div className="mt-8 flex flex-col md:flex-row items-center gap-14 px-20">
         <div className="md:w-1/2">
-          <div className="text-lg font-normal text-black mb-2">AI-Native</div>
-          <div className="text-xl font-normal mb-2">
-            Transparency and Insights
+          <div className="text-xl font-semibold mb-2">
+            Pantry-to-Recipe Generator
           </div>
           <p className="text-sm md:text-base text-gray-600">
-            Gain full visibility into your dealership’s performance with the Pam
-            dashboard. Track every customer interaction in real-time, analyze
-            call trends, and monitor customer satisfaction — all in one place.
-            More data, better decisions.
+            Turn what you already have into creative meals. Freshly’s generator
+            instantly suggests recipes based on your available ingredients and
+            dietary preferences. It’s a simple way to reduce waste, save money,
+            and discover new dishes without another grocery trip.
           </p>
           <div className="mt-4">
-            <h4 className="text-sm md:text-base font-normal">
-              One Dashboard to Rule Them All
+            <h4 className="text-xl font-semibold mb-2">
+              Waste Reduction Metrics
             </h4>
             <p className="text-sm md:text-base text-gray-600 mt-1">
-              An all-in-one hub for your data. Easy to use and packed with
-              features to help you streamline operations and drive revenue.
+              See the real impact of your habits. Freshly tracks your food usage
+              and expiration dates to help you cut waste and shop smarter. Over
+              time, you’ll see insights into how much you’ve saved — in both
+              money and food — promoting a more sustainable lifestyle.
             </p>
           </div>
         </div>
@@ -143,23 +147,26 @@ export default function Product() {
           />
         </div>
         <div className="md:w-1/2">
-          <div className="text-lg font-normal text-black mb-2">AI-Native</div>
-          <div className="text-xl font-normal mb-2">
-            Transparency and Insights
+          <div className="text-xl font-semibold mb-2">
+            Smart Price Comparison
           </div>
           <p className="text-sm md:text-base text-gray-600">
-            Gain full visibility into your dealership’s performance with the Pam
-            dashboard. Track every customer interaction in real-time, analyze
-            call trends, and monitor customer satisfaction — all in one place.
-            More data, better decisions.
+            Stop overpaying for groceries. Freshly automatically compares prices
+            across local stores in real time, helping you find the best deals
+            for everything on your list. Whether it’s weekly staples or
+            specialty items, you’ll always know where to shop for the best value
+            — without sacrificing quality.
           </p>
           <div className="mt-4">
-            <h4 className="text-sm md:text-base font-normal">
-              One Dashboard to Rule Them All
+            <h4 className="text-xl font-semibold mb-2">
+              Seamless Delivery Integration
             </h4>
             <p className="text-sm md:text-base text-gray-600 mt-1">
-              An all-in-one hub for your data. Easy to use and packed with
-              features to help you streamline operations and drive revenue.
+              Get your groceries delivered straight to your door — fast, easy,
+              and reliable. Freshly connects you directly with trusted local
+              partners, letting you place, track, and receive your order all
+              within the app. No extra tabs, no third-party services — just one
+              smooth shopping experience.
             </p>
           </div>
         </div>

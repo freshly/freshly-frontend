@@ -12,31 +12,11 @@ const inter = Inter({
 });
 
 export default function Navbar() {
-  const [isVisible, setIsVisible] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // Show navbar after scrolling down 100px
-      if (window.scrollY > 100) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <nav
-      className={`${
-        inter.className
-      } fixed w-full z-50 transition-all duration-500 transform bg-neutral-950
-          md:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(21,128,61,0.3),rgba(255,255,255,0))] shadow-lg ${
-            isVisible ? "translate-y-0" : "-translate-y-full"
-          }`}
+      className={`${inter.className} fixed w-full z-50 transition-all duration-500 transform bg-neutral-950 md:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(21,128,61,0.3),rgba(255,255,å255,0))] shadow-lg translate-y-0 `}
     >
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">

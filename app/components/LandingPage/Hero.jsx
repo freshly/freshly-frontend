@@ -23,8 +23,9 @@ export default function Hero() {
         />
       </div>
 
-      <div className="pt-2 text-center text-xs md:text-[11pt] font-normal text-[#9fa0a3]">
-        Plan, Shop, and Save—Smarter Grocery Shopping with AI.
+      <div className="pt-2 text-center text-lg md:text-[16pt] font-normal text-[#9fa0a3]">
+        <span className=" text-[#00A86B]">Smarter Shopping. </span>{" "}
+        <span className="text-[#FD8100]">Healthier Living.</span>
       </div>
 
       <div
@@ -34,7 +35,7 @@ export default function Hero() {
         "
       >
         <div className="text-center font-thin text-xl text-white">
-          What can <span className="font-normal text-[#01AC66]">freshly</span>{" "}
+          What can <span className="font-normal text-[#01AC66]">Freshly</span>{" "}
           do for you?
         </div>
 

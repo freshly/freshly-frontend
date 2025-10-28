@@ -26,7 +26,7 @@ export default function Home() {
 
       {/* Everything below sits on a solid white bg at z-10 */}
       <section className="relative z-10 bg-white">
-        <Sponsors />
+        {/*<Sponsors />*/}
         <Product />
         <Waitlist />
         <Reviews />
