@@ -29,7 +29,7 @@ export default function Home() {
         {/*<Sponsors />*/}
         <Product />
         <Waitlist />
-        <Reviews />
+        {/*<Reviews />*/}
       </section>
     </div>
   );
