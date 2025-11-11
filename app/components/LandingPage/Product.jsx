@@ -9,165 +9,147 @@ const inter = Inter({
 export default function Product() {
   return (
     <div
-      className={`${inter.className} relative inset-0 -z-10 h-full w-full bg-white 
-        bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)]
-        bg-[size:2rem_3rem] pb-10`}
+      className={`${inter.className} relative inset-0 min-h-screen w-full bg-gradient-to-b from-white to-[#f7f9f8] pb-16`}
     >
       {/* bg-[radial-gradient(circle_500px_at_50%_200px,#E4FDF3,transparent)]" */}
       <div className="absolute bottom-0 left-0 right-0 top-0 -z-50 " />
 
-      <h1 className="text-black text-center pt-10 text-4xl font-light">
-        What we offer
+      <h1 className="text-black text-center pt-10 text-3xl md:text-5xl font-medium">
+        Smarter Grocery Shopping, Powered by AI.
       </h1>
-      <p className="pt-2 text-center text-2xl md:text-[16pt] text-[#9fa0a3] font-light">
-        Plan your meals, shop for groceries, discover new recipes, and get
-        everything delivered — all from one intelligent app.
+      <p className="pt-4 text-center text-xl md:text-2xl text-gray-500 font-normal max-w-2xl mx-auto md:mx-0 leading-relaxed">
+        Plan meals, track your pantry, and shop efficiently - all in one app.
       </p>
 
-      <div className="mt-8 flex flex-col md:flex-row items-center gap-14 px-20">
-        <div className="flex md:w-1/2 gap-4 justify-center md:justify-start">
+      <div className="mt-12 flex flex-col md:flex-row items-center gap-100 px-8 md:px-20 py-10 bg-white shadow-md rounded-2xl">
+        <div className="flex md:w-1/2 gap-6 md:gap-10 justify-center md:justify-start">
           <Image
             src="/pantry.png"
             alt="Grocery Cart"
-            width={200}
-            height={200}
-            className="rounded-lg shadow-lg"
+            width={300}
+            height={300}
+            className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
           />
           <Image
             src="/cart.png"
             alt="Cart"
-            width={200}
-            height={200}
-            className="rounded-lg shadow-lg"
+            width={300}
+            height={300}
+            className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
           />
           <Image
             src="/choose-shop.png"
             alt="Choose Shop"
-            width={200}
-            height={200}
-            className="rounded-lg shadow-lg"
+            width={300}
+            height={300}
+            className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
           />
         </div>
         <div className="md:w-1/2">
-          <div className="text-xl font-semibold mb-2">
-            AI-Powered Personalization
+          <div className="text-3xl md:text-4xl font-semibold mb-2 text-center md:text-left">
+            AI-Powered Personalzation
           </div>
-          <p className="text-sm md:text-base text-gray-600">
-            Freshly uses advanced AI to make every part of your experience
-            smarter and more personalized. From creating weekly meal plans and
-            grocery lists to suggesting recipes that fit your lifestyle, Freshly
-            adapts to you. The AI even helps you order ingredients and restock
-            your pantry automatically — so you spend less time planning and more
-            time enjoying your meals.
-          </p>
+          <ul className="list-disc pl-8 space-y-2 text-gray-700 max-w-2xl mx-auto md:mx-0 leading-relaxed">
+            <li className="text-sm md:text-3xl text-black">Personalized weekly meal plans built by AI for your goals and diet.</li>
+            <li className="text-sm md:text-3xl text-black">Smart recipe suggestions using what’s already in your pantry.</li>
+          </ul>
           <div className="mt-4">
-            <h4 className="text-xl font-semibold mb-2">
+            <h4 className="text-3xl md:text-4xl font-semibold mb-2 text-center md:text-left">
               Real-Time Inventory Tracking
             </h4>
-            <p className="text-sm md:text-base text-gray-600 mt-1">
-              Keep your kitchen organized with automatic inventory tracking. The
-              app updates your pantry as you scan, shop, or cook — showing you
-              exactly what’s in stock and what’s running low. No more guessing,
-              overbuying, or forgetting essentials.
-            </p>
+            <ul className="list-disc pl-8 space-y-2 text-gray-700 max-w-2xl mx-auto md:mx-0 leading-relaxed">
+              <li className="text-black text-sm md:text-3xl"> Automatically track what’s in stock and what’s running low.</li>
+              <li className="text-black text-sm md:text-3xl"> Organize grocery lists by category for faster shopping.</li>
+            </ul>
           </div>
         </div>
       </div>
 
-      <div className="mt-8 flex flex-col md:flex-row items-center gap-14 px-20">
+      <div className="mt-12 flex flex-col md:flex-row items-center gap-12 px-8 md:px-20 py-10 bg-white shadow-md rounded-2xl">
         <div className="md:w-1/2">
-          <div className="text-xl font-semibold mb-2">
+          <div className="text-3xl md:text-4xl font-semibold mb-2 text-center md:text-left">
             Pantry-to-Recipe Generator
           </div>
-          <p className="text-sm md:text-base text-gray-600">
-            Turn what you already have into creative meals. Freshly’s generator
-            instantly suggests recipes based on your available ingredients and
-            dietary preferences. It’s a simple way to reduce waste, save money,
-            and discover new dishes without another grocery trip.
-          </p>
+          <ul className="list-disc pl-8 space-y-2 text-gray-700 max-w-2xl mx-auto md:mx-0 leading-relaxed text-sm md:text-base">
+            <li className="text-black text-sm md:text-3xl">Turn your pantry into recipes instantly with AI suggestions.</li>
+            <li className="text-black text-sm md:text-3xl">Discover new dishes, reduce waste, and save money effortlessly.</li>
+          </ul>
           <div className="mt-4">
-            <h4 className="text-xl font-semibold mb-2">
+            <h4 className="text-3xl md:text-4xl font-semibold mb-2 text-center md:text-left">
               Waste Reduction Metrics
             </h4>
-            <p className="text-sm md:text-base text-gray-600 mt-1">
-              See the real impact of your habits. Freshly tracks your food usage
-              and expiration dates to help you cut waste and shop smarter. Over
-              time, you’ll see insights into how much you’ve saved — in both
-              money and food — promoting a more sustainable lifestyle.
-            </p>
+            <ul className="list-disc pl-8 space-y-2 text-gray-700 max-w-2xl mx-auto md:mx-0 leading-relaxed text-sm md:text-base mt-1">
+              <li className="text-black text-sm md:text-3xl">Track your food usage, expiration dates, and total savings.</li>
+              <li className="text-black text-sm md:text-3xl">Cut waste, spend smarter, and live more sustainably over time.</li>
+            </ul>
           </div>
         </div>
-        <div className="flex md:w-1/2 gap-4 justify-center md:justify-start">
+        <div className="flex md:w-1/2 gap-6 md:gap-10 justify-center md:justify-start">
           <Image
             src="/freshly-home.png"
             alt="Freshly Home"
-            width={200}
-            height={200}
-            className="rounded-lg shadow-lg"
+            width={300}
+            height={300}
+            className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
           />
           <Image
             src="/cart.png"
             alt="Cart"
-            width={200}
-            height={200}
-            className="rounded-lg shadow-lg"
+            width={300}
+            height={300}
+            className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
           />
           <Image
             src="/choose-shop.png"
             alt="Choose Shop"
-            width={200}
-            height={200}
-            className="rounded-lg shadow-lg"
+            width={300}
+            height={300}
+            className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
           />
         </div>
       </div>
 
-      <div className="mt-8 flex flex-col md:flex-row items-center gap-14 px-20">
-        <div className="flex md:w-1/2 gap-4 justify-center md:justify-start">
+      <div className="mt-12 flex flex-col md:flex-row items-center gap-100 px-8 md:px-20 py-10 bg-white shadow-md rounded-2xl">
+        <div className="flex md:w-1/2 gap-6 md:gap-10 justify-center md:justify-start">
           <Image
             src="/34.png"
             alt="Feature 3a"
-            width={200}
-            height={200}
-            className="rounded-lg shadow-lg"
+            width={300}
+            height={300}
+            className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
           />
           <Image
             src="/35.png"
             alt="Feature 3b"
-            width={200}
-            height={200}
-            className="rounded-lg shadow-lg"
+            width={300}
+            height={300}
+            className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
           />
           <Image
             src="/51.png"
             alt="Feature 3c"
-            width={200}
-            height={200}
-            className="rounded-lg shadow-lg"
+            width={300}
+            height={300}
+            className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
           />
         </div>
         <div className="md:w-1/2">
-          <div className="text-xl font-semibold mb-2">
+          <div className="text-3xl md:text-4xl font-semibold mb-2 text-center md:text-left">
             Smart Price Comparison
           </div>
-          <p className="text-sm md:text-base text-gray-600">
-            Stop overpaying for groceries. Freshly automatically compares prices
-            across local stores in real time, helping you find the best deals
-            for everything on your list. Whether it’s weekly staples or
-            specialty items, you’ll always know where to shop for the best value
-            — without sacrificing quality.
-          </p>
+          <ul className="list-disc pl-8 space-y-2 text-gray-700 max-w-2xl mx-auto md:mx-0 leading-relaxed text-sm md:text-base">
+            <li className="text-black text-sm md:text-3xl">Compare grocery prices across stores automatically in real time.</li>
+            <li className="text-black text-sm md:text-3xl"> Save money without sacrificing quality or convenience.</li>
+          </ul>
           <div className="mt-4">
-            <h4 className="text-xl font-semibold mb-2">
+            <h4 className="text-3xl md:text-4xl font-semibold mb-2 text-center md:text-left">
               Seamless Delivery Integration
             </h4>
-            <p className="text-sm md:text-base text-gray-600 mt-1">
-              Get your groceries delivered straight to your door — fast, easy,
-              and reliable. Freshly connects you directly with trusted local
-              partners, letting you place, track, and receive your order all
-              within the app. No extra tabs, no third-party services — just one
-              smooth shopping experience.
-            </p>
+            <ul className="list-disc pl-8 space-y-2 text-gray-700 max-w-2xl mx-auto md:mx-0 leading-relaxed text-sm md:text-base mt-1">
+              <li className="text-black text-sm md:text-3xl">Get groceries delivered fast and reliably with local partners.</li>
+              <li className="text-black text-sm md:text-3xl">Place, track, and receive orders directly within the app.</li>
+              <li className="text-black text-sm md:text-3xl">Enjoy a smooth, all-in-one shopping and delivery experience.</li>
+            </ul>
           </div>
         </div>
       </div>

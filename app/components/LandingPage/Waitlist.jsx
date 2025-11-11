@@ -76,11 +76,11 @@ export default function Waitlist() {
           {/* Footer stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-10">
             <div className="text-center space-y-2">
-              <div className="text-2xl font-light text-white">1,000+</div>
+              <div className="text-2xl font-light text-white">5,000+</div>
               <div className="text-sm text-gray-400">People waiting</div>
             </div>
             <div className="text-center space-y-2">
-              <div className="text-2xl font-light text-white">Q1 2026</div>
+              <div className="text-2xl font-light text-white">EOY 2025</div>
               <div className="text-sm text-gray-400">Expected launch</div>
             </div>
             <div className="text-center space-y-2">

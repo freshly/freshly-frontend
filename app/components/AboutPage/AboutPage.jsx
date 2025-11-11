@@ -127,7 +127,7 @@ const AboutPage = () => {
                   <h2 className="text-3xl font-light mb-2 text-neutral-950">
                     George Abdallah
                   </h2>
-                  <p className="text-gray-600 font-medium">Co-Founder & CTO</p>
+                  <p className="text-gray-600 font-medium">CTO & Co-Founder</p>
                 </div>
 
                 <div className="space-y-4 text-neutral-600">

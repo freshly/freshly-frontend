@@ -15,6 +15,8 @@ const inter = Inter({
 export default function Hero() {
   return (
     <div className={`${inter.className} font-thin relative mb-20 lg:mb-0`}>
+                bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(21,128,61,0.3),rgba(255,255,255,0))]
+
       <div className="pt-10 md:pt-20 flex justify-center">
         <Image
           src={FreshlyIcon}
@@ -30,27 +32,27 @@ export default function Hero() {
 
       <div
         className="
-          mx-5 md:mx-20 lg:mx-72 py-8 rounded-[15px] mt-10 bg-neutral-950
-          bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(21,128,61,0.3),rgba(255,255,255,0))]
+          mx-5 md:mx-20 lg:mx-72 py-8 rounded-[15px] mt-10 bg-[#4C4D59]
         "
       >
-        <div className="text-center font-thin text-xl text-white">
+        
+        <div className="text-center font-light text-3xl text-white">
           What can <span className="font-normal text-[#01AC66]">Freshly</span>{" "}
           do for you?
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 mt-2 px-6 mb-6 lg:mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 mt-2 px-6 mb-6 lg:mb-12 ">
           {/* Left Column */}
           <motion.div
             className="flex flex-col items-center text-center text-white p-6 rounded-lg"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
-            <FiClock size={40} className="text-[#01AC66] mb-3" />
-            <div className="text-lg md:text-2xl font-light">
+            <FiClock size={50} className="text-[#01AC66] mb-3" />
+            <div className="text-2xl md:text-3xl font-normal">
               Save Time &amp; Money
             </div>
-            <div className="text-gray-300 font-light mt-2 max-w-md text-sm">
+            <div className="text-gray-300 font-light mt-2 max-w-md text-lg">
               The AI-powered app automates meal planning, creates smart shopping
               lists, and compares prices to simplify grocery shopping and cut
               costs.
@@ -63,11 +65,11 @@ export default function Hero() {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
-            <FiShoppingCart size={40} className="text-[#01AC66] mb-3" />
-            <div className="text-lg md:text-2xl font-light">
+            <FiShoppingCart size={50} className="text-[#01AC66] mb-3" />
+            <div className="text-2xl md:text-3xl font-normal">
               Personalized Shopping
             </div>
-            <div className="text-gray-300 font-light mt-2 max-w-md text-sm">
+            <div className="text-gray-300 font-light mt-2 max-w-md text-lg">
               Get tailored recipes, track pantry items, reduce waste, and choose
               eco-friendly options for smarter, healthier shopping.
             </div>
