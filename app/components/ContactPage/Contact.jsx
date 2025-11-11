@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
   Mail,
@@ -96,7 +97,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className={`min-h-screen bg-white relative ${inter.className}`}>
+    <div className={`min-h-screen bg-white relative ${inter.className} mt-10`}>
       {/* Loading Spinner Overlay */}
       {loading && (
         <div
@@ -310,9 +311,14 @@ export default function ContactPage() {
               Help us revolutionize the way people shop for groceries and make
               healthy eating accessible to everyone.
             </p>
-            <Button className="h-12 text-neutral-300 bg-transparent border border-gray-600 hover:bg-[rgba(21,128,61,0.3)]">
-              Join Waitlist Now
-              <ArrowRight className="w-4 h-4 ml-2 text-neutral-300" />
+            <Button
+              asChild
+              className="h-12 text-neutral-300 bg-transparent border border-gray-600 hover:bg-[rgba(21,128,61,0.3)]"
+            >
+              <Link href="/#waitlist">
+                Join Waitlist Now
+                <ArrowRight className="w-4 h-4 ml-2 text-neutral-300" />
+              </Link>
             </Button>
           </div>
         </div>

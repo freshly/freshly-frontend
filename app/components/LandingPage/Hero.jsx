@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import FreshlyIcon from "../../../public/freshly-icon-square.png";
+import lgo from "../../../public/lgo.png";
 import { Inter } from "next/font/google";
 import { FiClock, FiShoppingCart } from "react-icons/fi";
 import { motion } from "framer-motion";
@@ -15,33 +15,34 @@ const inter = Inter({
 export default function Hero() {
   return (
     <div className={`${inter.className} font-thin relative mb-20 lg:mb-0`}>
-                bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(21,128,61,0.3),rgba(255,255,255,0))]
-
-      <div className="pt-10 md:pt-20 flex justify-center">
+      <div className="flex w-full flex-col items-center justify-center px-6 pt-35">
         <Image
-          src={FreshlyIcon}
+          src={lgo}
           alt="Freshly Icon"
-          className="w-[125px] h-[125px] md:w-[200px] md:h-[200px]"
+          className="h-40 w-40 object-contain md:h-40 md:w-40 "
+          priority
         />
+        <p className="mt-4 text-5xl font-semibold text-[#01AC66]">Freshly</p>
       </div>
-
-      <div className="pt-2 text-center text-lg md:text-[16pt] font-normal text-[#9fa0a3]">
+      <div className="pt-2 text-center text-lg md:text-3xl font-semibold text-[#9fa0a3]">
         <span className=" text-[#00A86B]">Smarter Shopping. </span>{" "}
         <span className="text-[#FD8100]">Healthier Living.</span>
       </div>
-
       <div
         className="
-          mx-5 md:mx-20 lg:mx-72 py-8 rounded-[15px] mt-10 bg-[#4C4D59]
+          mx-5 md:mx-20 lg:mx-72 py-8 rounded-[15px] mt-10 bg-neutral-950
         "
       >
         
-        <div className="text-center font-light text-3xl text-white">
-          What can <span className="font-normal text-[#01AC66]">Freshly</span>{" "}
-          do for you?
+        <div className="text-center font-normal text-3xl text-white">
+         So, what everyday problem does <span className="font-normal text-[#01AC66]">Freshly</span>{" "}
+          solve?
+        </div>
+          <div className="text-center font-light text-2xl text-white mt-10">
+            Grocery shopping & meal planning today is...
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 mt-2 px-6 mb-6 lg:mb-12 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 mt-[-10px] px-6 mb-6 lg:mb-12 ">
           {/* Left Column */}
           <motion.div
             className="flex flex-col items-center text-center text-white p-6 rounded-lg"
@@ -50,12 +51,10 @@ export default function Hero() {
           >
             <FiClock size={50} className="text-[#01AC66] mb-3" />
             <div className="text-2xl md:text-3xl font-normal">
-              Save Time &amp; Money
+              Time consuming &amp; Disorganized
             </div>
-            <div className="text-gray-300 font-light mt-2 max-w-md text-lg">
-              The AI-powered app automates meal planning, creates smart shopping
-              lists, and compares prices to simplify grocery shopping and cut
-              costs.
+            <div className="text-gray-300 font-light mt-2 max-w-md text-2xl">
+              Hours wasted deciding what to cook and what to buy. Forgotten items, duplicate purchases, and messy lists. Constantly juggling recipes, preferences, and pantry leftovers.
             </div>
           </motion.div>
 
@@ -67,11 +66,10 @@ export default function Hero() {
           >
             <FiShoppingCart size={50} className="text-[#01AC66] mb-3" />
             <div className="text-2xl md:text-3xl font-normal">
-              Personalized Shopping
+              Wasteful & Stressful
             </div>
-            <div className="text-gray-300 font-light mt-2 max-w-md text-lg">
-              Get tailored recipes, track pantry items, reduce waste, and choose
-              eco-friendly options for smarter, healthier shopping.
+            <div className="text-gray-300 font-light mt-2 max-w-md text-2xl">
+             Up to 30% of groceries end up in the trash each week. Overbuying and unused ingredients drain your budget. The entire process feels repetitive, tiring, and frustrating.
             </div>
           </motion.div>
         </div>

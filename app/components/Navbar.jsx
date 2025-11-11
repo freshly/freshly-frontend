@@ -16,15 +16,15 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`${inter.className} fixed w-full z-50 transition-all duration-500 transform bg-neutral-950 md:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(21,128,61,0.3),rgba(255,255,å255,0))] shadow-lg translate-y-0 `}
+      className={`${inter.className} fixed w-full z-50 transition-all duration-500 transform bg-neutral-950 md:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(21,128,61,0.3),rgba(255,255,å255,0))] shadow-lg translate-y-0 h-max p-4`}
     >
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 w-max h-max ">
             <Link href="/" className="flex items-center">
               <img
-                className="h-8 w-auto"
+                className="h-20 w-auto"
                 src="/freshly-icon-square.png"
                 alt="Freshly Logo"
               />
@@ -34,26 +34,29 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <Link
-              href="/about"
-              className="text-sm font-light text-white hover:text-white/80 transition-colors"
-            >
-              About
-            </Link>
-            <Link
               href="/faqs"
-              className="text-sm font-light text-white hover:text-white/80 transition-colors"
+              className="text-lg font-normal text-white hover:text-white/80 transition-colors"
             >
               FAQs
             </Link>
             <Link
+          href="/about"
+              className="text-lg font-light text-white hover:text-white/80 transition-colors"
+            >
+              Founders
+            </Link>
+            <Link
               href="/contact"
-              className="text-sm font-light text-white hover:text-white/80 transition-colors"
+              className="text-lg font-normal text-white hover:text-white/80 transition-colors"
             >
               Contact
             </Link>
-            <button className="bg-white text-[rgb(21,128,60)] px-4 py-2 rounded-md text-sm font-medium hover:bg-white/90 transition-colors">
+            <Link
+              href="/#waitlist"
+              className="bg-white text-[rgb(21,128,60)] px-4 py-2 rounded-md text-sm font-medium hover:bg-white/90 transition-colors"
+            >
               Join Waitlist Now
-            </button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -121,9 +124,13 @@ export default function Navbar() {
           >
             Contact
           </Link>
-          <button className="w-full text-left px-3 py-2 rounded-md text-base font-light bg-white text-[rgb(21,128,60)] hover:bg-white/90 transition-colors">
+          <Link
+            href="/#waitlist"
+            className="block w-full px-3 py-2 rounded-md text-base font-light bg-white text-[rgb(21,128,60)] hover:bg-white/90 transition-colors"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
             Join Waitlist Now
-          </button>
+          </Link>
         </div>
       </div>
     </nav>

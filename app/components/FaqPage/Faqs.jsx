@@ -233,8 +233,10 @@ const FlipCard = ({ question, answer }) => {
 
 const FaqSection = ({ category, questions }) => {
   return (
-    <section className="py-12">
-      <h2 className="text-2xl font-bold text-gray-900 mb-8">{category}</h2>
+    <section className="py-12 ">
+      <div className="w-full h-full justify-center items-center flex">
+      <h2 className="text-3xl font-bold text-[#FD8100] mb-8">{category}</h2>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {questions.map((qa) => (
           <FlipCard key={qa.id} question={qa.question} answer={qa.answer} />
@@ -246,9 +248,8 @@ const FaqSection = ({ category, questions }) => {
 
 const FaqPage = () => {
   return (
-    <div className={`min-h-screen bg-white ${inter.className}`}>
+    <div className={`min-h-screen bg-white ${inter.className} mt-10`}>
       <div className="relative bg-grid-black">
-        <div className="absolute inset-0 bg-gradient-to-b from-white/50 via-white/70 to-white" />
 
         <div className="container mx-auto px-4 py-16 relative">
           {/* Header with Logo */}

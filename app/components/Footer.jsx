@@ -23,14 +23,14 @@ export default function Footer() {
         <img
           src="/freshly-icon-square.png"
           alt="Freshly Logo"
-          className="w-10 h-10 md:w-24 md:h-12 object-contain"
+          className="w-20 h-20 md:w-25 md:h-25 object-contain"
         />
 
         {/* nav links */}
         <nav
           className="
             flex space-x-6
-            text-sm font-light text-white/90
+            text-2xl font-light text-white/90
             hover:text-white transition-colors
           "
         >
@@ -53,7 +53,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="text-white/70 hover:text-white transition-colors"
           >
-            <Instagram size={20} />
+            <Instagram size={35} />
           </a>
           <a
             href="https://linkedin.com"
@@ -61,14 +61,14 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="text-white/70 hover:text-white transition-colors"
           >
-            <Linkedin size={20} />
+            <Linkedin size={35} />
           </a>
         </div>
       </div>
 
       {/* copyright */}
 
-      <div className="max-w-7xl mx-auto px-4 py-4 text-center text-xs text-white/70">
+      <div className="max-w-7xl mx-auto px-4 py-4 text-center text-sm text-white/70">
         © {currentYear} Freshly. All Rights Reserved.
       </div>
     </footer>

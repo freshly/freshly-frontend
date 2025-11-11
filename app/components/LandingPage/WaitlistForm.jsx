@@ -34,12 +34,12 @@ export default function WaitlistForm({
     <div className={`${inter.className} max-w-md mx-auto space-y-6`}>
       <div className="text-center space-y-2">
         <div className="bg-primary/10 rounded-full flex items-center justify-center mx-auto">
-          <Mail className="w-6 h-6 text-white" />
+          <Mail className="w-10 h-10 text-white" />
         </div>
-        <h2 className="text-2xl font-light text-white pb-5">
+        <h2 className="text-3xl font-light text-white pb-5">
           Join the Waitlist
         </h2>
-        <p className="text-gray-300">
+        <p className="text-gray-300 text-lg">
           Be the first to know when we launch. Get early access and exclusive
           updates.
         </p>
@@ -62,7 +62,7 @@ export default function WaitlistForm({
             type="submit"
             disabled={!email || isLoading}
             variant="outline"
-            size="sm"
+            size="lg"
             className="absolute right-1 top-1 h-10 px-4 !text-white hover:!text-white
               border-white bg-transparent hover:bg-[rgba(21,128,61,0.3)]"
           >
@@ -78,7 +78,7 @@ export default function WaitlistForm({
         </div>
       </form>
 
-      <p className="text-xs text-gray-400 text-center">
+      <p className="text-sm text-gray-400 text-center">
         No spam, ever. We respect your privacy.
       </p>
     </div>

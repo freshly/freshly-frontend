@@ -53,12 +53,12 @@ export default function Waitlist() {
         <div className="w-full max-w-4xl p-8 text-center space-y-12">
           {/* Header */}
           <div className="space-y-6">
-            <h1 className="text-4xl md:text-6xl tracking-tight text-white">
+            <h1 className="text-5xl md:text-7xl tracking-tight text-white">
               Real People
               <br />
               <span className="font-light">Real Grocery Struggles</span>
             </h1>
-            <p className="text-xl text-gray-300 mx-auto">
+            <p className="text-2xl text-gray-300 mx-auto">
              Help us help you on the issues of grocery shopping! 
             </p>
           </div>
@@ -76,16 +76,16 @@ export default function Waitlist() {
           {/* Footer stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-10">
             <div className="text-center space-y-2">
-              <div className="text-2xl font-light text-white">5,000+</div>
-              <div className="text-sm text-gray-400">People waiting</div>
+              <div className="text-3xl font-light text-white">5,000+</div>
+              <div className="text-lg text-gray-400">People waiting</div>
             </div>
             <div className="text-center space-y-2">
-              <div className="text-2xl font-light text-white">EOY 2025</div>
-              <div className="text-sm text-gray-400">Expected launch</div>
+              <div className="text-3xl font-light text-white">EOY 2025</div>
+              <div className="text-lg text-gray-400">Expected launch</div>
             </div>
             <div className="text-center space-y-2">
-              <div className="text-2xl font-light text-white">Early Access</div>
-              <div className="text-sm text-gray-400">For waitlist members</div>
+              <div className="text-3xl font-light text-white">Early Access</div>
+              <div className="text-lg text-gray-400">For waitlist members</div>
             </div>
           </div>
         </div>
