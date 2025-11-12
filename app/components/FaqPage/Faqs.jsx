@@ -1,13 +1,14 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Inter } from "next/font/google";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["200", "300", "400"], // extra-light, light, regular
+  weight: ["200", "300", "400"],
   display: "swap",
 });
 
@@ -194,7 +195,7 @@ const FlipCard = ({ question, answer }) => {
 
   return (
     <div
-      className="relative h-64 w-full cursor-pointer"
+      className="relative h-56 sm:h-64 md:h-72 w-full cursor-pointer"
       style={{ perspective: "1000px" }}
       onClick={() => setIsFlipped(!isFlipped)}
     >
@@ -207,24 +208,29 @@ const FlipCard = ({ question, answer }) => {
       >
         {/* Front of card */}
         <div
-          className="absolute w-full h-full bg-white rounded-xl shadow-lg p-6"
+          className="absolute w-full h-full bg-white rounded-xl shadow-lg p-4 sm:p-5 md:p-6"
           style={{ backfaceVisibility: "hidden" }}
         >
           <div className="h-full flex flex-col justify-between">
-            <h3 className="text-xl font-semibold text-gray-900">{question}</h3>
-            <div className="text-emerald-600 text-sm">Click to flip</div>
+            <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 leading-tight">
+              {question}
+            </h3>
+            <div className="text-emerald-600 text-xs sm:text-sm font-medium">
+              Click to flip
+            </div>
           </div>
         </div>
-
         {/* Back of card */}
         <div
-          className="absolute w-full h-full bg-emerald-50 rounded-xl shadow-lg p-6"
+          className="absolute w-full h-full bg-emerald-50 rounded-xl shadow-lg p-4 sm:p-5 md:p-6 overflow-y-auto"
           style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
           }}
         >
-          <p className="text-gray-700 leading-relaxed">{answer}</p>
+          <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+            {answer}
+          </p>
         </div>
       </div>
     </div>
@@ -233,11 +239,13 @@ const FlipCard = ({ question, answer }) => {
 
 const FaqSection = ({ category, questions }) => {
   return (
-    <section className="py-12 ">
-      <div className="w-full h-full justify-center items-center flex">
-      <h2 className="text-3xl font-bold text-[#FD8100] mb-8">{category}</h2>
+    <section className="py-8 sm:py-10 md:py-12">
+      <div className="w-full h-full justify-center items-center flex mb-6 sm:mb-8">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#FD8100] text-center px-4">
+          {category}
+        </h2>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
         {questions.map((qa) => (
           <FlipCard key={qa.id} question={qa.question} answer={qa.answer} />
         ))}
@@ -248,14 +256,13 @@ const FaqSection = ({ category, questions }) => {
 
 const FaqPage = () => {
   return (
-    <div className={`min-h-screen bg-white ${inter.className} mt-10`}>
+    <div className={`min-h-screen bg-white ${inter.className} mt-16 sm:mt-20 md:mt-24`}>
       <div className="relative bg-grid-black">
-
-        <div className="container mx-auto px-4 py-16 relative">
+        <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 relative">
           {/* Header with Logo */}
-          <div className="text-center mb-16">
-            <div className="flex justify-center mb-6">
-              <div className="relative w-24 h-24">
+          <div className="text-center mb-12 sm:mb-14 md:mb-16">
+            <div className="flex justify-center mb-4 sm:mb-6">
+              <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24">
                 <Image
                   src="/freshly-icon-square.png"
                   alt="Freshly Logo"
@@ -265,10 +272,10 @@ const FaqPage = () => {
                 />
               </div>
             </div>
-            <h1 className="text-4xl md:text-5xl font-light text-neutral-950 mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-neutral-950 mb-3 sm:mb-4 px-4">
               Frequently Asked Questions
             </h1>
-            <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-neutral-600 max-w-2xl mx-auto px-4 sm:px-6">
               Find answers to common questions about Freshly's smart grocery
               shopping assistant.
             </p>
@@ -287,25 +294,27 @@ const FaqPage = () => {
 
       {/* Vision Section with Gradient */}
       <section
-        className="font-light relative py-10 w-screen bg-neutral-950
+        className="font-light relative py-10 sm:py-12 md:py-16 w-full bg-neutral-950
         bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(21,128,61,0.3),rgba(255,255,255,0))]"
       >
-        <div className="container mx-auto px-4 md:py-16 relative">
-          <div className="max-w-4xl mx-0 md:mx-auto">
-            <h2 className="text-xl md:text-3xl font-light mb-6 text-center text-white">
+        <div className="container mx-auto px-4 sm:px-6 relative">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light mb-4 sm:mb-6 text-center text-white px-4">
               Ready to Transform Your Grocery Shopping?
             </h2>
-            <p className="hidden md:block text-center text-neutral-300 mb-8 text-lg">
+            <p className="text-sm sm:text-base md:text-lg text-center text-neutral-300 mb-6 sm:mb-8 px-4 sm:px-6">
               Join Freshly today and experience a smarter way to shop, cook, and
               save.
             </p>
-            <div className="flex justify-center">
+            <div className="flex justify-center px-4">
               <Button
-                className="h-12 text-neutral-300 placeholder-gray-400 bg-transparent border-1 
-              border-gray-600 hover:border-none hover:bg-[rgba(21,128,61,0.3)]"
+                asChild
+                className="h-10 sm:h-12 text-sm sm:text-base text-neutral-300 bg-transparent border border-gray-600 hover:border-transparent hover:bg-[rgba(21,128,61,0.3)] transition-all duration-200 px-4 sm:px-6"
               >
-                Join Waitlist Now
-                <ArrowRight className="w-4 h-4 text-neutral-300" />
+                <Link href="/#waitlist" className="flex items-center gap-2">
+                  Join Waitlist Now
+                  <ArrowRight className="w-4 h-4 text-neutral-300" />
+                </Link>
               </Button>
             </div>
           </div>

@@ -1,13 +1,12 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { Inter } from "next/font/google";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["200", "300", "400"], // extra-light, light, regular
+  weight: ["200", "300", "400"],
   display: "swap",
 });
 
@@ -16,15 +15,15 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`${inter.className} fixed w-full z-50 transition-all duration-500 transform bg-neutral-950 md:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(21,128,61,0.3),rgba(255,255,å255,0))] shadow-lg translate-y-0 h-max p-4`}
+      className={`${inter.className} fixed w-full z-50 transition-all duration-500 bg-neutral-950 md:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(21,128,61,0.3),rgba(255,255,255,0))] shadow-lg`}
     >
       <div className="px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-16 sm:h-18 md:h-20">
           {/* Logo */}
-          <div className="flex-shrink-0 w-max h-max ">
+          <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
               <img
-                className="h-20 w-auto"
+                className="h-12 sm:h-14 md:h-16 lg:h-20 w-auto"
                 src="/freshly-icon-square.png"
                 alt="Freshly Logo"
               />
@@ -32,28 +31,28 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-6 xl:space-x-8">
             <Link
               href="/faqs"
-              className="text-lg font-normal text-white hover:text-white/80 transition-colors"
+              className="text-base lg:text-lg font-normal text-white hover:text-white/80 transition-colors duration-200"
             >
               FAQs
             </Link>
             <Link
-          href="/about"
-              className="text-lg font-light text-white hover:text-white/80 transition-colors"
+              href="/about"
+              className="text-base lg:text-lg font-light text-white hover:text-white/80 transition-colors duration-200"
             >
               Founders
             </Link>
             <Link
               href="/contact"
-              className="text-lg font-normal text-white hover:text-white/80 transition-colors"
+              className="text-base lg:text-lg font-normal text-white hover:text-white/80 transition-colors duration-200"
             >
               Contact
             </Link>
             <Link
               href="/#waitlist"
-              className="bg-white text-[rgb(21,128,60)] px-4 py-2 rounded-md text-sm font-medium hover:bg-white/90 transition-colors"
+              className="bg-white text-[rgb(21,128,60)] px-3 py-1.5 lg:px-4 lg:py-2 rounded-md text-sm lg:text-base font-medium hover:bg-white/90 transition-colors duration-200 whitespace-nowrap"
             >
               Join Waitlist Now
             </Link>
@@ -63,37 +62,13 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-white/10 focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-white/10 focus:outline-none transition-colors duration-200"
+              aria-label="Toggle menu"
             >
-              <span className="sr-only">Open main menu</span>
               {!isMobileMenuOpen ? (
-                <svg
-                  className="block h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
+                <Menu className="h-6 w-6" />
               ) : (
-                <svg
-                  className="block h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
+                <X className="h-6 w-6" />
               )}
             </button>
           </div>
@@ -101,32 +76,36 @@ export default function Navbar() {
       </div>
 
       {/* Mobile menu */}
-      <div className={`md:hidden ${isMobileMenuOpen ? "block" : "hidden"}`}>
-        <div className="px-2 pt-2 pb-3 space-y-1 bg-neutral-950">
+      <div
+        className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
+          isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="px-4 pt-2 pb-4 space-y-2 bg-neutral-950 border-t border-white/10">
           <Link
             href="/about"
-            className="block px-3 py-2 rounded-md text-base font-light text-white hover:bg-white/10"
+            className="block px-4 py-3 rounded-md text-base font-light text-white hover:bg-white/10 transition-colors duration-200"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            About
+            Founders
           </Link>
           <Link
             href="/faqs"
-            className="block px-3 py-2 rounded-md text-base font-light text-white hover:bg-white/10"
+            className="block px-4 py-3 rounded-md text-base font-light text-white hover:bg-white/10 transition-colors duration-200"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             FAQs
           </Link>
           <Link
             href="/contact"
-            className="block px-3 py-2 rounded-md text-base font-light text-white hover:bg-white/10"
+            className="block px-4 py-3 rounded-md text-base font-light text-white hover:bg-white/10 transition-colors duration-200"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Contact
           </Link>
           <Link
             href="/#waitlist"
-            className="block w-full px-3 py-2 rounded-md text-base font-light bg-white text-[rgb(21,128,60)] hover:bg-white/90 transition-colors"
+            className="block w-full px-4 py-3 mt-2 rounded-md text-base font-medium text-center bg-white text-[rgb(21,128,60)] hover:bg-white/90 transition-colors duration-200"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Join Waitlist Now
