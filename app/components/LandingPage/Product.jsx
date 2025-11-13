@@ -57,7 +57,6 @@ export default function Product() {
       <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-white via-orange-50 to-emerald-50 opacity-50" />
       <div 
         className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-tr from-transparent via-[#FD8100]/5 to-[#00A86B]/5"
-        style={{ transform: `translateY(${backgroundOffset}px)` }}
       />
       
       {/* Floating Orbs Animation */}
