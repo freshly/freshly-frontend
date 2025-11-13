@@ -310,8 +310,8 @@ const AboutPage = () => {
                   decisions. As the CTO and Co-Founder of Freshly, I focus on
                   bringing technical vision, creativity, and leadership to a
                   platform built to transform the grocery-shopping experience
-                  through AI. I’m driven by ambition, purpose, and a long-term
-                  goal of building a career rooted in innovation, faith, integrity, and
+                  through AI. I’m driven by ambition, faith, purpose, and a long-term
+                  goal of building a career rooted in innovation, integrity, and
                   impact.
                 </p>
 
