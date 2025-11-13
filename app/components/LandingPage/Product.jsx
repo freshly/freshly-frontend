@@ -140,119 +140,95 @@ export default function Product() {
           ref={(el) => (featuresRef.current[0] = el)}
           className="feature-card opacity-0 mt-16 mx-4 sm:mx-6 lg:mx-auto max-w-7xl"
         >
-          <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden group hover:shadow-3xl transition-all duration-500">
-            {/* Accent Border */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#FD8100] to-[#00A86B] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="relative rounded-3xl bg-white shadow-2xl overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#FD8100]/15 via-transparent to-[#00A86B]/10" />
 
-            <div className="relative bg-white m-[2px] rounded-3xl p-6 sm:p-8 lg:p-12">
+            <div className="relative p-6 sm:p-8 lg:p-12">
               <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
                 {/* Images Gallery */}
                 <div className="w-full lg:w-1/2">
                   <div className="grid grid-cols-3 gap-3 sm:gap-4">
-                    <div
-                      className="col-span-2 row-span-2 relative w-full overflow-hidden rounded-2xl shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-xl"
-                      style={{ aspectRatio: "660 / 1436" }}
-                    >
-                      <Image
-                        src="/pantry.png"
-                        alt="Pantry Management"
-                        fill
-                        sizes="(min-width: 1024px) 45vw, (min-width: 768px) 60vw, 90vw"
-                        className="object-contain"
-                      />
-                    </div>
-                    <div className="space-y-3 sm:space-y-4">
+                    {[
+                      { src: "/pantry.png", ratio: "660 / 1436", alt: "Pantry Management" },
+                      { src: "/p1.png", ratio: "1206 / 2622", alt: "Smart Cart" },
+                      { src: "/p2.png", ratio: "1206 / 2622", alt: "Shop Selection" },
+                    ].map((img) => (
                       <div
-                        className="relative w-full overflow-hidden rounded-xl shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-xl"
-                        style={{ aspectRatio: "1206 / 2622" }}
+                        key={img.src}
+                        className="relative w-full overflow-hidden rounded-2xl border border-[#FD8100]/15 bg-white shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
+                        style={{ aspectRatio: img.ratio }}
                       >
                         <Image
-                          src="/p1.png"
-                          alt="Smart Cart"
+                          src={img.src}
+                          alt={img.alt}
                           fill
-                          sizes="(min-width: 1024px) 18vw, (min-width: 768px) 25vw, 60vw"
+                          sizes="(min-width: 1024px) 15vw, (min-width: 768px) 22vw, 90vw"
                           className="object-contain"
                         />
                       </div>
-                      <div
-                        className="relative w-full overflow-hidden rounded-xl shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-xl"
-                        style={{ aspectRatio: "1206 / 2622" }}
-                      >
-                        <Image
-                          src="/p2.png"
-                          alt="Shop Selection"
-                          fill
-                          sizes="(min-width: 1024px) 18vw, (min-width: 768px) 25vw, 60vw"
-                          className="object-contain"
-                        />
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="w-full lg:w-1/2 space-y-6">
                   <div className="text-center lg:text-left">
-                    <span className="inline-block px-3 py-1 bg-[#FD8100]/10 text-[#FD8100] text-sm font-semibold rounded-full mb-3">
+                    <span className="inline-block px-3 py-1 bg-[#FD8100]/10 text-[#B45309] text-sm font-semibold rounded-full mb-3">
                       AI Intelligence
                     </span>
-                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-4">
+                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
                       AI-Powered Personalization
                     </h2>
                     <div className="space-y-4">
                       <div className="flex items-start gap-3 group/item">
                         <div className="mt-1 w-6 h-6 rounded-full bg-[#FD8100]/10 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#FD8100] transition-colors duration-300">
-                          <span className="text-[#FD8100] group-hover/item:text-white text-sm">
+                          <span className="text-[#B45309] group-hover/item:text-white text-sm">
                             ✓
                           </span>
                         </div>
                         <p className="text-gray-700 text-base sm:text-lg">
-                          Personalized weekly meal plans built by AI for your
-                          goals and diet.
+                          Personalized weekly meal plans built by AI for your goals and diet.
                         </p>
                       </div>
                       <div className="flex items-start gap-3 group/item">
                         <div className="mt-1 w-6 h-6 rounded-full bg-[#FD8100]/10 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#FD8100] transition-colors duration-300">
-                          <span className="text-[#FD8100] group-hover/item:text-white text-sm">
+                          <span className="text-[#B45309] group-hover/item:text-white text-sm">
                             ✓
                           </span>
                         </div>
                         <p className="text-gray-700 text-base sm:text-lg">
-                          Smart recipe suggestions using what's already in your
-                          pantry.
+                          Smart recipe suggestions using what's already in your pantry.
                         </p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="pt-6 border-t border-gray-100 text-center lg:text-left">
-                    <span className="inline-block px-3 py-1 bg-[#00A86B]/10 text-[#00A86B] text-sm font-semibold rounded-full mb-3">
+                  <div className="pt-6 border-t border-[#FD8100]/15 text-center lg:text-left">
+                    <span className="inline-block px-3 py-1 bg-[#00A86B]/15 text-[#00A86B] text-sm font-semibold rounded-full mb-3">
                       Inventory Management
                     </span>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-black mb-4">
+                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
                       Real-Time Inventory Tracking
                     </h3>
                     <div className="space-y-4">
                       <div className="flex items-start gap-3 group/item">
-                        <div className="mt-1 w-6 h-6 rounded-full bg-[#00A86B]/10 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#00A86B] transition-colors duration-300">
+                        <div className="mt-1 w-6 h-6 rounded-full bg-[#00A86B]/15 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#00A86B] transition-colors duration-300">
                           <span className="text-[#00A86B] group-hover/item:text-white text-sm">
                             ✓
                           </span>
                         </div>
                         <p className="text-gray-700 text-base sm:text-lg">
-                          Automatically track what's in stock and what's running
-                          low.
+                          Automatically track what's in stock and what's running low.
                         </p>
                       </div>
                       <div className="flex items-start gap-3 group/item">
-                        <div className="mt-1 w-6 h-6 rounded-full bg-[#00A86B]/10 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#00A86B] transition-colors duration-300">
+                        <div className="mt-1 w-6 h-6 rounded-full bg-[#00A86B]/15 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#00A86B] transition-colors duration-300">
                           <span className="text-[#00A86B] group-hover/item:text-white text-sm">
                             ✓
                           </span>
                         </div>
                         <p className="text-gray-700 text-base sm:text-lg">
-                          Organize grocery lists by category for faster
-                          shopping.
+                          Organize grocery lists by category for faster shopping.
                         </p>
                       </div>
                     </div>
@@ -268,116 +244,95 @@ export default function Product() {
           ref={(el) => (featuresRef.current[1] = el)}
           className="feature-card opacity-0 mt-16 mx-4 sm:mx-6 lg:mx-auto max-w-7xl"
         >
-          <div className="relative bg-gradient-to-r from-[#FD8100] to-[#00A86B] p-[2px] rounded-3xl">
-            <div className="bg-white rounded-3xl p-6 sm:p-8 lg:p-12">
-              <div className="flex flex-col lg:flex-row-reverse items-center gap-8 lg:gap-12">
+          <div className="relative rounded-3xl bg-[#F1FFF7] shadow-2xl overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#00A86B]/30 via-transparent to-transparent" />
+
+            <div className="relative p-6 sm:p-8 lg:p-12">
+              <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
                 {/* Images Gallery */}
                 <div className="w-full lg:w-1/2">
-                  <div className="relative">
-                    <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                  <div className="grid grid-cols-3 gap-3 sm:gap-4">
+                    {[
+                      { src: "/home.png", alt: "Freshly Home", ratio: "750 / 1624" },
+                      { src: "/quick.png", alt: "Quick Recipes", ratio: "750 / 1624" },
+                      { src: "/cart.png", alt: "Smart Cart", ratio: "750 / 1624" },
+                    ].map((img) => (
                       <div
-                        className="relative w-full overflow-hidden rounded-2xl shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-xl"
-                        style={{ aspectRatio: "750 / 1624" }}
+                        key={img.src}
+                        className="relative w-full overflow-hidden rounded-2xl border border-[#00A86B]/25 bg-white shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
+                        style={{ aspectRatio: img.ratio }}
                       >
                         <Image
-                          src="/home.png"
-                          alt="Freshly Home"
+                          src={img.src}
+                          alt={img.alt}
                           fill
-                          sizes="(min-width: 1024px) 20vw, (min-width: 768px) 30vw, 80vw"
+                          sizes="(min-width: 1024px) 15vw, (min-width: 768px) 22vw, 90vw"
                           className="object-contain"
                         />
                       </div>
-                      <div
-                        className="relative w-full overflow-hidden rounded-2xl shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-xl"
-                        style={{ aspectRatio: "750 / 1624" }}
-                      >
-                        <Image
-                          src="/34.png"
-                          alt="Smart Shopping"
-                          fill
-                          sizes="(min-width: 1024px) 20vw, (min-width: 768px) 30vw, 80vw"
-                          className="object-contain"
-                        />
-                      </div>
-                    </div>
-                    <div
-                      className="mt-3 sm:mt-4 relative w-full overflow-hidden rounded-2xl shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-xl"
-                      style={{ aspectRatio: "750 / 1624" }}
-                    >
-                      <Image
-                        src="/quick.png"
-                        alt="Choose Your Store"
-                        fill
-                        sizes="(min-width: 1024px) 42vw, (min-width: 768px) 60vw, 90vw"
-                        className="object-contain"
-                      />
-                    </div>
+                    ))}
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="w-full lg:w-1/2 space-y-6">
                   <div className="text-center lg:text-left">
-                    <span className="inline-block px-3 py-1 bg-[#FD8100]/10 text-[#FD8100] text-sm font-semibold rounded-full mb-3">
+                    <span className="inline-block px-3 py-1 bg-[#00A86B]/15 text-[#00A86B] text-sm font-semibold rounded-full mb-3">
                       Recipe Magic
                     </span>
-                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-4">
+                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
                       Pantry-to-Recipe Generator
                     </h2>
                     <div className="space-y-4">
                       <div className="flex items-start gap-3 group/item">
-                        <div className="mt-1 w-6 h-6 rounded-full bg-[#FD8100]/10 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#FD8100] transition-colors duration-300">
-                          <span className="text-[#FD8100] group-hover/item:text-white text-sm">
+                        <div className="mt-1 w-6 h-6 rounded-full bg-[#00A86B]/15 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#00A86B] transition-colors duration-300">
+                          <span className="text-[#00A86B] group-hover/item:text-white text-sm">
                             ✨
                           </span>
                         </div>
                         <p className="text-gray-700 text-base sm:text-lg">
-                          Turn your pantry into recipes instantly with AI
-                          suggestions.
+                          Turn your pantry into recipes instantly with AI suggestions.
                         </p>
                       </div>
                       <div className="flex items-start gap-3 group/item">
-                        <div className="mt-1 w-6 h-6 rounded-full bg-[#FD8100]/10 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#FD8100] transition-colors duration-300">
-                          <span className="text-[#FD8100] group-hover/item:text-white text-sm">
+                        <div className="mt-1 w-6 h-6 rounded-full bg-[#00A86B]/15 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#00A86B] transition-colors duration-300">
+                          <span className="text-[#00A86B] group-hover/item:text-white text-sm">
                             💡
                           </span>
                         </div>
                         <p className="text-gray-700 text-base sm:text-lg">
-                          Discover new dishes, reduce waste, and save money
-                          effortlessly.
+                          Discover new dishes, reduce waste, and save money effortlessly.
                         </p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="pt-6 border-t border-gray-100 text-center lg:text-left">
-                    <span className="inline-block px-3 py-1 bg-[#00A86B]/10 text-[#00A86B] text-sm font-semibold rounded-full mb-3">
+                  <div className="pt-6 border-t border-[#00A86B]/20 text-center lg:text-left">
+                    <span className="inline-block px-3 py-1 bg-[#00A86B]/15 text-[#00A86B] text-sm font-semibold rounded-full mb-3">
                       Sustainability
                     </span>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-black mb-4">
+                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
                       Waste Reduction Metrics
                     </h3>
                     <div className="space-y-4">
                       <div className="flex items-start gap-3 group/item">
-                        <div className="mt-1 w-6 h-6 rounded-full bg-[#00A86B]/10 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#00A86B] transition-colors duration-300">
+                        <div className="mt-1 w-6 h-6 rounded-full bg-[#00A86B]/15 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#00A86B] transition-colors duration-300">
                           <span className="text-[#00A86B] group-hover/item:text-white text-sm">
                             📊
                           </span>
                         </div>
                         <p className="text-gray-700 text-base sm:text-lg">
-                          Track your food usage, expiration dates, and total
-                          savings.
+                          Track your food usage, expiration dates, and total savings.
                         </p>
                       </div>
                       <div className="flex items-start gap-3 group/item">
-                        <div className="mt-1 w-6 h-6 rounded-full bg-[#00A86B]/10 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#00A86B] transition-colors duration-300">
+                        <div className="mt-1 w-6 h-6 rounded-full bg-[#00A86B]/15 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#00A86B] transition-colors duration-300">
                           <span className="text-[#00A86B] group-hover/item:text-white text-sm">
                             🌱
                           </span>
                         </div>
                         <p className="text-gray-700 text-base sm:text-lg">
-                          Cut waste, spend smarter, and live more sustainably
-                          over time.
+                          Cut waste, spend smarter, and live more sustainably over time.
                         </p>
                       </div>
                     </div>
@@ -393,8 +348,8 @@ export default function Product() {
           ref={(el) => (featuresRef.current[2] = el)}
           className="feature-card opacity-0 mt-16 mx-4 sm:mx-6 lg:mx-auto max-w-7xl mb-20"
         >
-          <div className="relative bg-[#FFFBF5] rounded-3xl shadow-2xl overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#FD8100]/15 to-[#00A86B]/15 opacity-60" />
+          <div className="relative bg-[#FFFCF9] rounded-3xl shadow-2xl overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#FD8100]/20 via-transparent to-[#00A86B]/15 opacity-70" />
 
             <div className="relative p-6 sm:p-8 lg:p-12">
               <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
@@ -443,7 +398,7 @@ export default function Product() {
                 {/* Content */}
                 <div className="w-full lg:w-1/2 space-y-6">
                   <div className="text-center lg:text-left">
-                    <span className="inline-block px-3 py-1 bg-[#FD8100]/10 text-[#FD8100] text-sm font-semibold rounded-full mb-3">
+                    <span className="inline-block px-3 py-1 bg-[#FD8100]/10 text-[#B45309] text-sm font-semibold rounded-full mb-3">
                       Smart Savings
                     </span>
                     <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
@@ -451,8 +406,8 @@ export default function Product() {
                     </h2>
                     <div className="space-y-4">
                       <div className="flex items-start gap-3 group/item">
-                        <div className="mt-1 w-6 h-6 rounded-full bg-[#FD8100]/10 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#FD8100] transition-colors duration-300">
-                          <span className="text-[#FD8100] group-hover/item:text-white text-sm">
+                        <div className="mt-1 w-6 h-6 rounded-full bg-white/70 border border-[#FD8100]/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#FD8100] transition-colors duration-300">
+                          <span className="text-[#B45309] group-hover/item:text-white text-sm">
                             💰
                           </span>
                         </div>
@@ -462,8 +417,8 @@ export default function Product() {
                         </p>
                       </div>
                       <div className="flex items-start gap-3 group/item">
-                        <div className="mt-1 w-6 h-6 rounded-full bg-[#FD8100]/10 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#FD8100] transition-colors duration-300">
-                          <span className="text-[#FD8100] group-hover/item:text-white text-sm">
+                        <div className="mt-1 w-6 h-6 rounded-full bg-white/70 border border-[#FD8100]/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#FD8100] transition-colors duration-300">
+                          <span className="text-[#B45309] group-hover/item:text-white text-sm">
                             🛒
                           </span>
                         </div>
@@ -475,7 +430,7 @@ export default function Product() {
                   </div>
 
                   <div className="pt-6 border-t border-[#00A86B]/15 text-center lg:text-left">
-                    <span className="inline-block px-3 py-1 bg-[#00A86B]/10 text-[#00A86B] text-sm font-semibold rounded-full mb-3">
+                    <span className="inline-block px-3 py-1 bg-[#00A86B]/10 text-[#007A4E] text-sm font-semibold rounded-full mb-3">
                       Delivery Excellence
                     </span>
                     <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
@@ -483,8 +438,8 @@ export default function Product() {
                     </h3>
                     <div className="space-y-4">
                       <div className="flex items-start gap-3 group/item">
-                        <div className="mt-1 w-6 h-6 rounded-full bg-[#00A86B]/10 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#00A86B] transition-colors duration-300">
-                          <span className="text-[#00A86B] group-hover/item:text-white text-sm">
+                        <div className="mt-1 w-6 h-6 rounded-full bg-white/70 border border-[#00A86B]/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#00A86B] transition-colors duration-300">
+                          <span className="text-[#007A4E] group-hover/item:text-white text-sm">
                             🚚
                           </span>
                         </div>
@@ -494,8 +449,8 @@ export default function Product() {
                         </p>
                       </div>
                       <div className="flex items-start gap-3 group/item">
-                        <div className="mt-1 w-6 h-6 rounded-full bg-[#00A86B]/10 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#00A86B] transition-colors duration-300">
-                          <span className="text-[#00A86B] group-hover/item:text-white text-sm">
+                        <div className="mt-1 w-6 h-6 rounded-full bg-white/70 border border-[#00A86B]/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#00A86B] transition-colors duration-300">
+                          <span className="text-[#007A4E] group-hover/item:text-white text-sm">
                             📱
                           </span>
                         </div>
@@ -505,8 +460,8 @@ export default function Product() {
                         </p>
                       </div>
                       <div className="flex items-start gap-3 group/item">
-                        <div className="mt-1 w-6 h-6 rounded-full bg-[#00A86B]/10 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#00A86B] transition-colors duration-300">
-                          <span className="text-[#00A86B] group-hover/item:text-white text-sm">
+                        <div className="mt-1 w-6 h-6 rounded-full bg-white/70 border border-[#00A86B]/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#00A86B] transition-colors duration-300">
+                          <span className="text-[#007A4E] group-hover/item:text-white text-sm">
                             ⭐
                           </span>
                         </div>
