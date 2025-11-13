@@ -23,7 +23,7 @@ export default function Navbar() {
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
               <img
-                className="h-12 sm:h-14 md:h-16 lg:h-20 w-auto"
+                className="h-12 sm:h-14 md:h-16 lg:h-15 w-auto"
                 src="/rl.png"
                 alt="Freshly Logo"
               />

@@ -6,8 +6,8 @@ import {
   Mail,
   Phone,
   Users,
-  Utensils,
-  MessageSquare,
+  Target,
+  Sparkles,
   ArrowRight,
   Home,
   MapPin,
@@ -218,32 +218,53 @@ export default function ContactPage() {
                   {
                     icon: Users,
                     text: "Real People",
-                    color: "text-[#00A86B]",
-                    bg: "bg-[#00A86B]/10",
+                    accent: "#00A86B",
+                    gradient:
+                      "linear-gradient(135deg, rgba(0,168,107,0.15), rgba(255,255,255,0.95))",
+                    shadow: "0 15px 35px rgba(0,168,107,0.18)",
                   },
                   {
-                    icon: Utensils,
-                    text: "Fresh Solutions",
-                    color: "text-[#FD8100]",
-                    bg: "bg-[#FD8100]/10",
+                    icon: Target,
+                    text: "Real Problems",
+                    accent: "#FD8100",
+                    gradient:
+                      "linear-gradient(135deg, rgba(253,129,0,0.18), rgba(255,255,255,0.95))",
+                    shadow: "0 15px 35px rgba(253,129,0,0.2)",
                   },
                   {
-                    icon: MessageSquare,
-                    text: "Quick Response",
-                    color: "text-[#00A86B]",
-                    bg: "bg-[#00A86B]/10",
+                    icon: Sparkles,
+                    text: "Real Solutions",
+                    accent: "#0F172A",
+                    gradient:
+                      "linear-gradient(135deg, rgba(15,23,42,0.12), rgba(255,255,255,0.95))",
+                    shadow: "0 15px 35px rgba(15,23,42,0.15)",
                   },
                 ].map((item, index) => (
                   <motion.div
                     key={index}
                     variants={fadeInUp}
-                    whileHover={{ y: -5 }}
+                    whileHover={{ y: -6 }}
                     className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
                   >
-                    <div className={`${item.bg} p-4 rounded-xl mb-4 mx-auto w-fit`}>
-                      <item.icon className={`h-8 w-8 ${item.color}`} />
+                    <div
+                      className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl border"
+                      style={{
+                        background: item.gradient,
+                        borderColor: `${item.accent}22`,
+                        boxShadow: item.shadow,
+                      }}
+                    >
+                      <item.icon
+                        className="h-7 w-7"
+                        style={{ color: item.accent }}
+                      />
                     </div>
-                    <p className="font-medium text-gray-700">{item.text}</p>
+                    <p
+                      className="text-base font-semibold text-center"
+                      style={{ color: item.accent }}
+                    >
+                      {item.text}
+                    </p>
                   </motion.div>
                 ))}
               </motion.div>
@@ -309,7 +330,7 @@ export default function ContactPage() {
                     </div>
                     <div className="flex-1">
                       <p className="text-sm text-gray-500 mb-1">Location</p>
-                      <p className="text-black font-medium">Virginia, USA</p>
+                      <p className="text-black font-medium">Washignton DC</p>
                     </div>
                   </div>
                 </motion.div>
@@ -319,15 +340,23 @@ export default function ContactPage() {
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
-                  className="bg-black rounded-2xl p-6 text-white"
+                  className="relative overflow-hidden rounded-2xl border border-[#FD8100]/20 bg-[#FFFBF5] p-6 shadow-lg"
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="bg-white/10 p-3 rounded-xl">
-                      <Clock className="h-6 w-6 text-white" />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#FD8100]/10 via-transparent to-[#00A86B]/10" />
+                  <div className="relative flex items-start gap-4">
+                    <div className="rounded-xl bg-white/80 p-3 shadow-sm">
+                      <Clock className="h-6 w-6 text-[#FD8100]" />
                     </div>
                     <div className="flex-1">
-                      <p className="text-sm text-gray-300 mb-1">Response Time</p>
-                      <p className="font-medium">Within 24 hours</p>
+                      <p className="text-sm font-medium text-[#B45309] mb-1">
+                        Response Time
+                      </p>
+                      <p className="text-lg font-semibold text-gray-900">
+                        Within 24 hours
+                      </p>
+                      <p className="text-sm text-gray-600">
+                        We’re quickest Monday through Friday.
+                      </p>
                     </div>
                   </div>
                 </motion.div>

@@ -201,13 +201,16 @@ const AboutPage = () => {
                   </div>
 
                   {/* Image Section */}
-                  <div className="relative h-64 sm:h-80 md:h-full min-h-[400px] order-1 md:order-2">
+                  <div
+                    className="relative order-1 md:order-2 overflow-hidden group"
+                    style={{ aspectRatio: "3168 / 4752", minHeight: "400px" }}
+                  >
                     <Image
                       src="/Aura .png"
                       alt="David Gendy - Founder of Freshly"
                       fill
-                      style={{ objectFit: "cover" }}
-                      className="hover:scale-105 transition-transform duration-500"
+                      sizes="(min-width: 1024px) 40vw, 100vw"
+                      className="object-contain transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
                 </div>
