@@ -532,7 +532,7 @@ export default function Product() {
                 {" "}
                 grocery shopping{" "}
               </span>
-              andw
+              and
               <span className="bg-[#00A86B] bg-clip-text text-transparent">
                 {" "}
                 meal planning{" "}
