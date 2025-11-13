@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import lgo from "../../../public/lgo.png";
+import rl from "../../../public/rl.png"
 import { Inter } from "next/font/google";
 import { FiClock, FiShoppingCart, FiTrendingDown, FiAlertCircle } from "react-icons/fi";
 import { motion, useAnimation, useScroll, useTransform } from "framer-motion";
@@ -161,7 +162,7 @@ export default function Hero() {
             transition={{ type: "spring", stiffness: 300 }}
           >
             <Image
-              src={lgo}
+              src={rl}
               alt="Freshly Icon"
               className="h-32 w-32 sm:h-40 sm:w-40 md:h-44 md:w-44 object-contain drop-shadow-2xl"
               priority
