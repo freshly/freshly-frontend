@@ -260,7 +260,7 @@ export default function ContactPage() {
               >
                 {/* Email Card */}
                 <motion.a
-                  href="mailto:dg@joinfreshly.com"
+                  href="mailto:david@joinfreshly.com"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="block bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group"
