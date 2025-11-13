@@ -1,11 +1,13 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Inter } from "next/font/google";
+import { motion, AnimatePresence } from "framer-motion";
+import { CheckCircle, Users, Calendar, Zap, TrendingUp, Sparkles } from "lucide-react";
 import WaitlistForm from "./WaitlistForm";
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["200", "300", "400"],
+  weight: ["200", "300", "400", "500", "600"],
   display: "swap",
 });
 
@@ -14,8 +16,14 @@ export default function Waitlist() {
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState(null);
+  const [mounted, setMounted] = useState(false);
+  const [hoveredStat, setHoveredStat] = useState(null);
 
   const API_BASE = "http://localhost:8000";
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -25,6 +33,8 @@ export default function Waitlist() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setError(null);
+
     try {
       const res = await fetch(`${API_BASE}/api/waitlist/`, {
         method: "POST",
@@ -41,70 +51,305 @@ export default function Waitlist() {
     }
   };
 
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const stats = [
+    {
+      icon: Users,
+      number: "5,000+",
+      label: "People waiting",
+      color: "from-[#00A86B] to-[#00A86B]/60",
+      delay: 0,
+    },
+    {
+      icon: Calendar,
+      number: "EOY 2025",
+      label: "Expected launch",
+      color: "from-[#FD8100] to-[#FD8100]/60",
+      delay: 0.1,
+    },
+    {
+      icon: Zap,
+      number: "Early Access",
+      label: "For waitlist members",
+      color: "from-[#00A86B] to-[#FD8100]",
+      delay: 0.2,
+    },
+  ];
+
+  if (!mounted) return null;
+
   return (
     <div
       id="waitlist"
-      className={`
-        ${inter.className}
-        font-light relative py-10 sm:py-12 md:py-16 min-h-screen w-full bg-neutral-950
-        bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(21,128,61,0.3),rgba(255,255,255,0))]
-      `}
+      className={`${inter.className} relative min-h-screen w-full bg-black overflow-hidden`}
     >
-      <div className="flex items-center justify-center min-h-screen px-4 sm:px-6 md:px-8">
-        <div className="w-full max-w-5xl p-4 sm:p-6 md:p-8 text-center space-y-8 sm:space-y-10 md:space-y-12">
-          {/* Header */}
-          <div className="space-y-4 sm:space-y-5 md:space-y-6">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight text-white leading-tight">
-              Real People
-              <br />
-              <span className="font-light">Real Grocery Struggles</span>
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mx-auto max-w-2xl px-4">
-              Help us help you on the issues of grocery shopping!
-            </p>
-          </div>
+      {/* Animated Background */}
+      <div className="absolute inset-0">
+        {/* Base gradient */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,#00A86B20_0%,transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,#FD810020_0%,transparent_50%)]" />
+        
+        {/* Animated orbs */}
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.1, 0.2, 0.1],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute top-20 left-20 w-96 h-96 bg-[#00A86B] rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.1, 0.2, 0.1],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+          className="absolute bottom-20 right-20 w-96 h-96 bg-[#FD8100] rounded-full blur-3xl"
+        />
 
-          {/* Form */}
-          <WaitlistForm
-            email={email}
-            onEmailChange={handleEmailChange}
-            onSubmit={handleSubmit}
-            isLoading={isLoading}
-            isSubmitted={isSubmitted}
-          />
-
-          {error && (
-            <p className="text-red-400 text-sm sm:text-base">{error}</p>
-          )}
-
-          {/* Footer stats */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4 md:gap-6 pt-6 sm:pt-8 md:pt-10">
-            <div className="text-center space-y-2">
-              <div className="text-2xl sm:text-3xl md:text-4xl font-light text-white">
-                5,000+
-              </div>
-              <div className="text-base sm:text-lg md:text-xl text-gray-400">
-                People waiting
-              </div>
-            </div>
-            <div className="text-center space-y-2">
-              <div className="text-2xl sm:text-3xl md:text-4xl font-light text-white">
-                EOY 2025
-              </div>
-              <div className="text-base sm:text-lg md:text-xl text-gray-400">
-                Expected launch
-              </div>
-            </div>
-            <div className="text-center space-y-2">
-              <div className="text-2xl sm:text-3xl md:text-4xl font-light text-white">
-                Early Access
-              </div>
-              <div className="text-base sm:text-lg md:text-xl text-gray-400">
-                For waitlist members
-              </div>
-            </div>
-          </div>
+        {/* Floating particles */}
+        <div className="absolute inset-0">
+          {mounted && [...Array(30)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 bg-white/20 rounded-full"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                y: [0, -50, 0],
+                opacity: [0, 0.5, 0],
+              }}
+              transition={{
+                duration: 5 + Math.random() * 5,
+                repeat: Infinity,
+                delay: Math.random() * 5,
+                ease: "easeInOut",
+              }}
+            />
+          ))}
         </div>
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8 py-20">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+          className="w-full max-w-5xl text-center space-y-8 sm:space-y-10 lg:space-y-12"
+        >
+          {/* Header */}
+          <motion.div variants={fadeInUp} className="space-y-6">
+            {/* Badge */}
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ type: "spring", stiffness: 200, delay: 0.3 }}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur border border-white/20 rounded-full"
+            >
+              <Sparkles className="w-4 h-4 text-[#00A86B]" />
+              <span className="text-sm font-medium text-white">Limited Early Access</span>
+            </motion.div>
+
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight text-white leading-tight">
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="block text-[#00A86B] font-medium"
+              >
+                Real People
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="block font-light mt-2"
+              >
+                Real Grocery Struggles
+              </motion.span>
+            </h1>
+            
+            <motion.p
+              variants={fadeInUp}
+              className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 mx-auto max-w-2xl"
+            >
+              Help us help you revolutionize the way you shop for groceries!
+            </motion.p>
+          </motion.div>
+
+          {/* Form Container */}
+          <motion.div
+            variants={fadeInUp}
+            className="relative"
+          >
+            {/* Success Overlay */}
+            <AnimatePresence>
+              {isSubmitted && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  className="absolute inset-0 z-20 flex items-center justify-center"
+                >
+                  <div className="bg-black/90 backdrop-blur-xl rounded-3xl p-8 border border-[#00A86B]/30 shadow-2xl max-w-md w-full">
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
+                      className="w-16 h-16 bg-[#00A86B]/20 rounded-full mx-auto mb-6 flex items-center justify-center"
+                    >
+                      <CheckCircle className="w-8 h-8 text-[#00A86B]" />
+                    </motion.div>
+                    <h3 className="text-2xl font-medium text-white mb-3">
+                      You're on the list!
+                    </h3>
+                    <p className="text-gray-400 mb-6">
+                      We'll notify you as soon as early access opens.
+                    </p>
+                    <button
+                      onClick={() => {
+                        setIsSubmitted(false);
+                        setEmail("");
+                      }}
+                      className="px-6 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full transition-colors duration-300"
+                    >
+                      Join Another Email
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* Form */}
+            <div className={isSubmitted ? "opacity-20 pointer-events-none" : ""}>
+              <WaitlistForm
+                email={email}
+                onEmailChange={handleEmailChange}
+                onSubmit={handleSubmit}
+                isLoading={isLoading}
+                isSubmitted={false}
+              />
+            </div>
+          </motion.div>
+
+          {/* Error Message */}
+          <AnimatePresence>
+            {error && (
+              <motion.p
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                className="text-red-400 text-sm sm:text-base"
+              >
+                {error}
+              </motion.p>
+            )}
+          </AnimatePresence>
+
+          {/* Stats Section */}
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4 lg:gap-6 pt-6 sm:pt-8 lg:pt-10"
+          >
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                custom={index}
+                whileHover={{ y: -5, scale: 1.05 }}
+                onHoverStart={() => setHoveredStat(index)}
+                onHoverEnd={() => setHoveredStat(null)}
+                className="relative group"
+              >
+                <div className="relative bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
+                  {/* Icon */}
+                  <motion.div
+                    animate={{
+                      rotate: hoveredStat === index ? 360 : 0,
+                    }}
+                    transition={{ duration: 0.5 }}
+                    className="mb-4 mx-auto w-fit"
+                  >
+                    <div className={`p-3 rounded-xl bg-gradient-to-r ${stat.color} bg-opacity-20`}>
+                      <stat.icon className="w-6 h-6 text-white" />
+                    </div>
+                  </motion.div>
+
+                  {/* Number */}
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-light text-white mb-2">
+                    {stat.number}
+                  </div>
+                  
+                  {/* Label */}
+                  <div className="text-sm sm:text-base text-gray-400">
+                    {stat.label}
+                  </div>
+
+                  {/* Hover Glow Effect */}
+                  <motion.div
+                    className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${stat.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Additional Info */}
+          <motion.div
+            variants={fadeInUp}
+            className="pt-8 border-t border-white/10"
+          >
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm text-gray-500">
+              <div className="flex items-center gap-2">
+                <TrendingUp className="w-4 h-4 text-[#00A86B]" />
+                <span>Growing Daily</span>
+              </div>
+              <div className="hidden sm:block w-1 h-1 bg-gray-600 rounded-full" />
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-[#FD8100]" />
+                <span>No Spam, Ever</span>
+              </div>
+              <div className="hidden sm:block w-1 h-1 bg-gray-600 rounded-full" />
+              <div className="flex items-center gap-2">
+                <Zap className="w-4 h-4 text-[#00A86B]" />
+                <span>Exclusive Benefits</span>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   );
