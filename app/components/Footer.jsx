@@ -1,7 +1,7 @@
 // app/components/Footer.jsx
 "use client";
 import React from "react";
-import { Linkedin, Instagram } from "lucide-react";
+import { Linkedin, Instagram, Facebook, X } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -40,20 +40,20 @@ export default function Footer() {
             font-light text-white/90
           "
         >
-          <a 
-            href="/about" 
+          <a
+            href="/about"
             className="hover:text-white transition-colors duration-200"
           >
             About
           </a>
-          <a 
-            href="/contact" 
+          <a
+            href="/contact"
             className="hover:text-white transition-colors duration-200"
           >
             Contact
           </a>
-          <a 
-            href="/faqs" 
+          <a
+            href="/faqs"
             className="hover:text-white transition-colors duration-200"
           >
             FAQs
@@ -69,22 +69,38 @@ export default function Footer() {
             className="text-white/70 hover:text-white transition-colors duration-200"
             aria-label="Follow us on Instagram"
           >
-            <Instagram 
-              size={28} 
-              className="sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10" 
+            <Instagram
+              size={28}
+              className="sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10"
             />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.facebook.com/share/1SxCQcPc99/?mibextid=wwXIfr"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white/70 hover:text-white transition-colors duration-200"
             aria-label="Follow us on LinkedIn"
           >
-            <Linkedin 
-              size={28} 
-              className="sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10" 
+            <Facebook
+              size={28}
+              className="sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10"
             />
+          </a>
+          <a
+            href="https://x.com/joinfreshly"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/70 hover:text-white transition-colors duration-200"
+            aria-label="Follow us on LinkedIn"
+          >
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M2.7 3L9.9 13.3L2.84 21H6.3L11.49 15.3L15.9 21H21.16L13.64 10.99L20.3 3H16.84L11.98 8.3L8.04 3H2.7Z"
+                stroke="white"
+                stroke-width="2"
+                stroke-linejoin="round"
+              />
+            </svg>
           </a>
         </div>
       </div>

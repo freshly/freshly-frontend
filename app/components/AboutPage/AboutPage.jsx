@@ -158,7 +158,7 @@ const AboutPage = () => {
                         </motion.a>
 
                         <motion.a
-                          href="https://instagram.com/davidgendyy"
+                          href="https://www.linkedin.com/in/davidgendy/"
                           target="_blank"
                           rel="noopener noreferrer"
                           whileHover={{ x: 5 }}
@@ -174,7 +174,7 @@ const AboutPage = () => {
                             </svg>
                           </div>
                           <span className="text-sm sm:text-base">
-                            @davidgendyy
+                            David-Gendy
                           </span>
                         </motion.a>
                       </div>
@@ -209,7 +209,6 @@ const AboutPage = () => {
                       style={{ objectFit: "cover" }}
                       className="hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-[#00A86B]/10 hover:bg-transparent transition-colors duration-300" />
                   </div>
                 </div>
               </motion.div>
@@ -247,21 +246,21 @@ const AboutPage = () => {
                 <div className="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-gray-100">
                   <div className="text-center">
                     <div className="text-2xl font-semibold text-[#00A86B]">
-                      19
+                      CEO
                     </div>
-                    <div className="text-xs text-gray-500">Age</div>
+                    <div className="text-xs text-gray-500">Role</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-semibold text-[#FD8100]">
-                      GMU
+                      Growth & Innovation
                     </div>
-                    <div className="text-xs text-gray-500">University</div>
+                    <div className="text-xs text-gray-500">Focus</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-semibold text-[#00A86B]">
-                      MIS
+                      Marketing
                     </div>
-                    <div className="text-xs text-gray-500">Major</div>
+                    <div className="text-xs text-gray-500">Expertise</div>
                   </div>
                 </div>
               </motion.div>
@@ -430,7 +429,8 @@ const AboutPage = () => {
                         </motion.a>
 
                         <motion.a
-                          href="tel:703-595-1334"
+                          href="https://www.linkedin.com/in/george-abdallah-226358397/"
+                          target="_blank"
                           whileHover={{ x: 5 }}
                           className="flex items-center gap-3 text-gray-600 hover:text-[#FD8100] transition-colors group"
                         >
@@ -447,7 +447,7 @@ const AboutPage = () => {
                             </svg>
                           </div>
                           <span className="text-sm sm:text-base">
-                            703-595-1334
+                            George-Abdallah
                           </span>
                         </motion.a>
                       </div>
