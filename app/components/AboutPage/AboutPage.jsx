@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import { useEffect, useRef } from "react";
@@ -580,13 +581,15 @@ Freshly is especially helpful for anyone with limited time, energy, or a busy sc
               <p className="text-gray-400 mb-6 text-lg">
                 Ready to join our mission?
               </p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 bg-[#00A86B] text-white font-medium rounded-full hover:bg-[#00A86B]/90 transition-colors duration-300"
-              >
-                Get Started with Freshly
-              </motion.button>
+              <Link href="/#waitlist" className="inline-block">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-3 bg-[#00A86B] text-white font-medium rounded-full hover:bg-[#00A86B]/90 transition-colors duration-300"
+                >
+                  Get Started with Freshly
+                </motion.button>
+              </Link>
             </motion.div>
           </div>
         </div>

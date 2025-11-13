@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import { useEffect, useRef, useState } from "react";
@@ -86,12 +87,18 @@ export default function Product() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fadeIn animation-delay-400">
-              <button className="px-8 py-4 bg-[#FD8100] text-white font-semibold rounded-full hover:bg-[#FD8100]/90 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+              <Link
+                href="/#waitlist"
+                className="px-8 py-4 bg-[#FD8100] text-white font-semibold rounded-full hover:bg-[#FD8100]/90 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-center"
+              >
                 Get Started Free
-              </button>
-              <button className="px-8 py-4 bg-black text-white font-semibold rounded-full hover:bg-gray-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+              </Link>
+              <Link
+                href="/#waitlist"
+                className="px-8 py-4 bg-black text-white font-semibold rounded-full hover:bg-gray-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-center"
+              >
                 Watch Demo
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -499,12 +506,18 @@ export default function Product() {
               Join thousands of users who save time and money every week.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-gradient-to-r from-[#FD8100] to-[#00A86B] text-white font-semibold rounded-full hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+              <Link
+                href="/#waitlist"
+                className="px-8 py-4 bg-gradient-to-r from-[#FD8100] to-[#00A86B] text-white font-semibold rounded-full hover:shadow-2xl transform hover:scale-105 transition-all duration-300 text-center"
+              >
                 Start Your Free Trial
-              </button>
-              <button className="px-8 py-4 bg-white text-black border-2 border-black font-semibold rounded-full hover:bg-black hover:text-white transform hover:scale-105 transition-all duration-300">
+              </Link>
+              <Link
+                href="/#waitlist"
+                className="px-8 py-4 bg-white text-black border-2 border-black font-semibold rounded-full hover:bg-black hover:text-white transform hover:scale-105 transition-all duration-300 text-center"
+              >
                 Download App
-              </button>
+              </Link>
             </div>
           </div>
         </div>
