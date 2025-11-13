@@ -393,8 +393,8 @@ export default function Product() {
           ref={(el) => (featuresRef.current[2] = el)}
           className="feature-card opacity-0 mt-16 mx-4 sm:mx-6 lg:mx-auto max-w-7xl mb-20"
         >
-          <div className="relative bg-black rounded-3xl shadow-2xl overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#FD8100]/20 to-[#00A86B]/20 opacity-50" />
+          <div className="relative bg-[#FFFBF5] rounded-3xl shadow-2xl overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#FD8100]/15 to-[#00A86B]/15 opacity-60" />
 
             <div className="relative p-6 sm:p-8 lg:p-12">
               <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
@@ -402,11 +402,11 @@ export default function Product() {
                 <div className="w-full lg:w-1/2">
                   <div className="grid grid-cols-3 gap-3 sm:gap-4">
                     <div
-                      className="relative w-full overflow-hidden rounded-xl border-2 border-white/20 shadow-lg transition-transform duration-500 hover:scale-110 hover:shadow-2xl"
+                      className="relative w-full overflow-hidden rounded-xl border-2 border-[#FD8100]/15 shadow-lg transition-transform duration-500 hover:scale-110 hover:shadow-2xl bg-white"
                       style={{ aspectRatio: "375 / 812" }}
                     >
                       <Image
-                        src="/choose-shop.png"
+                        src="/34.png"
                         alt="Price Comparison"
                         fill
                         sizes="(min-width: 1024px) 12vw, (min-width: 768px) 20vw, 50vw"
@@ -414,7 +414,7 @@ export default function Product() {
                       />
                     </div>
                     <div
-                      className="relative w-full overflow-hidden rounded-xl border-2 border-white/20 shadow-lg transition-transform duration-500 hover:scale-110 hover:shadow-2xl"
+                      className="relative w-full overflow-hidden rounded-xl border-2 border-[#FD8100]/15 shadow-lg transition-transform duration-500 hover:scale-110 hover:shadow-2xl bg-white"
                       style={{ aspectRatio: "375 / 812" }}
                     >
                       <Image
@@ -426,7 +426,7 @@ export default function Product() {
                       />
                     </div>
                     <div
-                      className="relative w-full overflow-hidden rounded-xl border-2 border-white/20 shadow-lg transition-transform duration-500 hover:scale-110 hover:shadow-2xl"
+                      className="relative w-full overflow-hidden rounded-xl border-2 border-[#FD8100]/15 shadow-lg transition-transform duration-500 hover:scale-110 hover:shadow-2xl bg-white"
                       style={{ aspectRatio: "375 / 812" }}
                     >
                       <Image
@@ -443,64 +443,74 @@ export default function Product() {
                 {/* Content */}
                 <div className="w-full lg:w-1/2 space-y-6">
                   <div className="text-center lg:text-left">
-                    <span className="inline-block px-3 py-1 bg-white/10 text-white text-sm font-semibold rounded-full mb-3 backdrop-blur">
+                    <span className="inline-block px-3 py-1 bg-[#FD8100]/10 text-[#FD8100] text-sm font-semibold rounded-full mb-3">
                       Smart Savings
                     </span>
-                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
+                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
                       Smart Price Comparison
                     </h2>
                     <div className="space-y-4">
                       <div className="flex items-start gap-3 group/item">
-                        <div className="mt-1 w-6 h-6 rounded-full bg-white/10 backdrop-blur flex items-center justify-center flex-shrink-0 group-hover/item:bg-white/20 transition-colors duration-300">
-                          <span className="text-white text-sm">💰</span>
+                        <div className="mt-1 w-6 h-6 rounded-full bg-[#FD8100]/10 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#FD8100] transition-colors duration-300">
+                          <span className="text-[#FD8100] group-hover/item:text-white text-sm">
+                            💰
+                          </span>
                         </div>
-                        <p className="text-white/90 text-base sm:text-lg">
+                        <p className="text-gray-700 text-base sm:text-lg">
                           Compare grocery prices across stores automatically in
                           real time.
                         </p>
                       </div>
                       <div className="flex items-start gap-3 group/item">
-                        <div className="mt-1 w-6 h-6 rounded-full bg-white/10 backdrop-blur flex items-center justify-center flex-shrink-0 group-hover/item:bg-white/20 transition-colors duration-300">
-                          <span className="text-white text-sm">🛒</span>
+                        <div className="mt-1 w-6 h-6 rounded-full bg-[#FD8100]/10 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#FD8100] transition-colors duration-300">
+                          <span className="text-[#FD8100] group-hover/item:text-white text-sm">
+                            🛒
+                          </span>
                         </div>
-                        <p className="text-white/90 text-base sm:text-lg">
+                        <p className="text-gray-700 text-base sm:text-lg">
                           Save money without sacrificing quality or convenience.
                         </p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="pt-6 border-t border-white/10 text-center lg:text-left">
-                    <span className="inline-block px-3 py-1 bg-white/10 text-white text-sm font-semibold rounded-full mb-3 backdrop-blur">
+                  <div className="pt-6 border-t border-[#00A86B]/15 text-center lg:text-left">
+                    <span className="inline-block px-3 py-1 bg-[#00A86B]/10 text-[#00A86B] text-sm font-semibold rounded-full mb-3">
                       Delivery Excellence
                     </span>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
                       Seamless Delivery Integration
                     </h3>
                     <div className="space-y-4">
                       <div className="flex items-start gap-3 group/item">
-                        <div className="mt-1 w-6 h-6 rounded-full bg-white/10 backdrop-blur flex items-center justify-center flex-shrink-0 group-hover/item:bg-white/20 transition-colors duration-300">
-                          <span className="text-white text-sm">🚚</span>
+                        <div className="mt-1 w-6 h-6 rounded-full bg-[#00A86B]/10 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#00A86B] transition-colors duration-300">
+                          <span className="text-[#00A86B] group-hover/item:text-white text-sm">
+                            🚚
+                          </span>
                         </div>
-                        <p className="text-white/90 text-base sm:text-lg">
+                        <p className="text-gray-700 text-base sm:text-lg">
                           Get groceries delivered fast and reliably with local
                           partners.
                         </p>
                       </div>
                       <div className="flex items-start gap-3 group/item">
-                        <div className="mt-1 w-6 h-6 rounded-full bg-white/10 backdrop-blur flex items-center justify-center flex-shrink-0 group-hover/item:bg-white/20 transition-colors duration-300">
-                          <span className="text-white text-sm">📱</span>
+                        <div className="mt-1 w-6 h-6 rounded-full bg-[#00A86B]/10 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#00A86B] transition-colors duration-300">
+                          <span className="text-[#00A86B] group-hover/item:text-white text-sm">
+                            📱
+                          </span>
                         </div>
-                        <p className="text-white/90 text-base sm:text-lg">
+                        <p className="text-gray-700 text-base sm:text-lg">
                           Place, track, and receive orders directly within the
                           app.
                         </p>
                       </div>
                       <div className="flex items-start gap-3 group/item">
-                        <div className="mt-1 w-6 h-6 rounded-full bg-white/10 backdrop-blur flex items-center justify-center flex-shrink-0 group-hover/item:bg-white/20 transition-colors duration-300">
-                          <span className="text-white text-sm">⭐</span>
+                        <div className="mt-1 w-6 h-6 rounded-full bg-[#00A86B]/10 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#00A86B] transition-colors duration-300">
+                          <span className="text-[#00A86B] group-hover/item:text-white text-sm">
+                            ⭐
+                          </span>
                         </div>
-                        <p className="text-white/90 text-base sm:text-lg">
+                        <p className="text-gray-700 text-base sm:text-lg">
                           Enjoy a smooth, all-in-one shopping and delivery
                           experience.
                         </p>

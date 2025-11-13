@@ -81,7 +81,7 @@ export default function Waitlist() {
     },
     {
       icon: Calendar,
-      number: "EOY 2025",
+      number: "Q4 2025",
       label: "Expected launch",
       color: "from-[#FD8100] to-[#FD8100]/60",
       delay: 0.1,

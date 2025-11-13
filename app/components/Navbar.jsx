@@ -24,7 +24,7 @@ export default function Navbar() {
             <Link href="/" className="flex items-center">
               <img
                 className="h-12 sm:h-14 md:h-16 lg:h-20 w-auto"
-                src="/freshly-icon-square.png"
+                src="/rl.png"
                 alt="Freshly Logo"
               />
             </Link>
