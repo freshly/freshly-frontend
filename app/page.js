@@ -15,9 +15,9 @@ export default function Home() {
         <Hero />
       </section>
 
-      <section className="relative z-20 pt-24 lg:block hidden">
+      {/*<section className="relative z-20 pt-24 lg:block hidden">
         <Phone />
-      </section>
+      </section>*/}
 
       {/* Everything below sits on a solid white bg at z-10 */}
       <section className="relative z-10 bg-white">

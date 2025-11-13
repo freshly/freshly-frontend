@@ -187,7 +187,6 @@ const AboutPage = () => {
                           alt="Freshly Icon"
                           fill
                           style={{ objectFit: "contain" }}
-                          className="opacity-80"
                         />
                       </motion.div>
                     </div>

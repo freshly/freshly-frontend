@@ -172,16 +172,10 @@ export default function Hero() {
             variants={itemVariants}
             className="mt-3 sm:mt-4 relative"
           >
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold bg-gradient-to-r from-[#00A86B] via-[#00A86B] to-[#FD8100] bg-clip-text text-transparent">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold bg-[#00A86B] bg-clip-text text-transparent">
               Freshly
             </h1>
             {/* Animated underline */}
-            <motion.div
-              className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#00A86B] to-[#FD8100] rounded-full"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
-            />
           </motion.div>
         </motion.div>
 
@@ -408,7 +402,7 @@ export default function Hero() {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-8 py-3 bg-gradient-to-r from-[#00A86B] to-[#FD8100] text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="px-8 py-3 bg-[#00A86B] text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
                   >
                     Discover the Solution →
                   </motion.button>

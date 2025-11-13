@@ -12,6 +12,10 @@ const inter = Inter({
 export default function Product() {
   const [scrollY, setScrollY] = useState(0);
   const featuresRef = useRef([]);
+  const BACKGROUND_SCROLL_LIMIT = 600;
+  const HERO_SCROLL_LIMIT = 300;
+  const backgroundOffset = Math.min(scrollY, BACKGROUND_SCROLL_LIMIT) * 0.3;
+  const heroOffset = -Math.min(scrollY, HERO_SCROLL_LIMIT) * 0.15;
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -53,7 +57,7 @@ export default function Product() {
       <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-white via-orange-50 to-emerald-50 opacity-50" />
       <div 
         className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-tr from-transparent via-[#FD8100]/5 to-[#00A86B]/5"
-        style={{ transform: `translateY(${scrollY * 0.5}px)` }}
+        style={{ transform: `translateY(${backgroundOffset}px)` }}
       />
       
       {/* Floating Orbs Animation */}
@@ -68,7 +72,7 @@ export default function Product() {
         <div className="relative min-h-[50vh] flex items-center justify-center px-4 sm:px-6 pt-12 pb-8">
           <div 
             className="w-full max-w-5xl mx-auto text-center"
-            style={{ transform: `translateY(${-scrollY * 0.2}px)` }}
+            style={{ transform: `translateY(${heroOffset}px)` }}
           >
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 bg-[#00A86B]/10 border border-[#00A86B]/20 rounded-full animate-bounce-gentle">
@@ -435,7 +439,7 @@ export default function Product() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-6">
               Ready to revolutionize your
-              <span className="bg-gradient-to-r from-[#FD8100] to-[#00A86B] bg-clip-text text-transparent"> grocery shopping</span>?
+              <span className="bg-[#FD8100] bg-clip-text text-transparent"> grocery shopping</span>?
             </h2>
             <p className="text-lg text-gray-600 mb-8">
               Join thousands of users who save time and money every week.
