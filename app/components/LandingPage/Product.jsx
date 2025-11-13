@@ -149,37 +149,50 @@ export default function Product() {
                 {/* Images Gallery */}
                 <div className="w-full lg:w-1/2">
                   <div className="grid grid-cols-3 gap-3 sm:gap-4">
-                    <div className="col-span-2 row-span-2">
+                    <div
+                      className="col-span-2 row-span-2 relative w-full overflow-hidden rounded-2xl shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-xl"
+                      style={{ aspectRatio: "660 / 1436" }}
+                    >
                       <Image
                         src="/pantry.png"
                         alt="Pantry Management"
-                        width={400}
-                        height={400}
-                        className="w-full h-full object-cover rounded-2xl shadow-lg hover:scale-105 transition-transform duration-500 hover:shadow-xl"
+                        fill
+                        sizes="(min-width: 1024px) 45vw, (min-width: 768px) 60vw, 90vw"
+                        className="object-contain"
                       />
                     </div>
                     <div className="space-y-3 sm:space-y-4">
-                      <Image
-                        src="/cart.png"
-                        alt="Smart Cart"
-                        width={200}
-                        height={200}
-                        className="w-full h-auto aspect-square object-cover rounded-xl shadow-lg hover:scale-105 transition-transform duration-500 hover:shadow-xl"
-                      />
-                      <Image
-                        src="/choose-shop.png"
-                        alt="Shop Selection"
-                        width={200}
-                        height={200}
-                        className="w-full h-auto aspect-square object-cover rounded-xl shadow-lg hover:scale-105 transition-transform duration-500 hover:shadow-xl"
-                      />
+                      <div
+                        className="relative w-full overflow-hidden rounded-xl shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-xl"
+                        style={{ aspectRatio: "1206 / 2622" }}
+                      >
+                        <Image
+                          src="/p1.png"
+                          alt="Smart Cart"
+                          fill
+                          sizes="(min-width: 1024px) 18vw, (min-width: 768px) 25vw, 60vw"
+                          className="object-contain"
+                        />
+                      </div>
+                      <div
+                        className="relative w-full overflow-hidden rounded-xl shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-xl"
+                        style={{ aspectRatio: "1206 / 2622" }}
+                      >
+                        <Image
+                          src="/p2.png"
+                          alt="Shop Selection"
+                          fill
+                          sizes="(min-width: 1024px) 18vw, (min-width: 768px) 25vw, 60vw"
+                          className="object-contain"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="w-full lg:w-1/2 space-y-6">
-                  <div>
+                  <div className="text-center lg:text-left">
                     <span className="inline-block px-3 py-1 bg-[#FD8100]/10 text-[#FD8100] text-sm font-semibold rounded-full mb-3">
                       AI Intelligence
                     </span>
@@ -212,7 +225,7 @@ export default function Product() {
                     </div>
                   </div>
 
-                  <div className="pt-6 border-t border-gray-100">
+                  <div className="pt-6 border-t border-gray-100 text-center lg:text-left">
                     <span className="inline-block px-3 py-1 bg-[#00A86B]/10 text-[#00A86B] text-sm font-semibold rounded-full mb-3">
                       Inventory Management
                     </span>
@@ -262,28 +275,41 @@ export default function Product() {
                 <div className="w-full lg:w-1/2">
                   <div className="relative">
                     <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                      <Image
-                        src="/freshly-home.png"
-                        alt="Freshly Home"
-                        width={300}
-                        height={300}
-                        className="w-full h-auto aspect-square object-cover rounded-2xl shadow-lg hover:scale-105 transition-transform duration-500 hover:shadow-xl"
-                      />
-                      <Image
-                        src="/cart.png"
-                        alt="Smart Shopping"
-                        width={300}
-                        height={300}
-                        className="w-full h-auto aspect-square object-cover rounded-2xl shadow-lg hover:scale-105 transition-transform duration-500 hover:shadow-xl"
-                      />
+                      <div
+                        className="relative w-full overflow-hidden rounded-2xl shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-xl"
+                        style={{ aspectRatio: "750 / 1624" }}
+                      >
+                        <Image
+                          src="/home.png"
+                          alt="Freshly Home"
+                          fill
+                          sizes="(min-width: 1024px) 20vw, (min-width: 768px) 30vw, 80vw"
+                          className="object-contain"
+                        />
+                      </div>
+                      <div
+                        className="relative w-full overflow-hidden rounded-2xl shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-xl"
+                        style={{ aspectRatio: "750 / 1624" }}
+                      >
+                        <Image
+                          src="/34.png"
+                          alt="Smart Shopping"
+                          fill
+                          sizes="(min-width: 1024px) 20vw, (min-width: 768px) 30vw, 80vw"
+                          className="object-contain"
+                        />
+                      </div>
                     </div>
-                    <div className="mt-3 sm:mt-4">
+                    <div
+                      className="mt-3 sm:mt-4 relative w-full overflow-hidden rounded-2xl shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-xl"
+                      style={{ aspectRatio: "750 / 1624" }}
+                    >
                       <Image
-                        src="/choose-shop.png"
+                        src="/quick.png"
                         alt="Choose Your Store"
-                        width={600}
-                        height={300}
-                        className="w-full h-auto object-cover rounded-2xl shadow-lg hover:scale-105 transition-transform duration-500 hover:shadow-xl"
+                        fill
+                        sizes="(min-width: 1024px) 42vw, (min-width: 768px) 60vw, 90vw"
+                        className="object-contain"
                       />
                     </div>
                   </div>
@@ -291,7 +317,7 @@ export default function Product() {
 
                 {/* Content */}
                 <div className="w-full lg:w-1/2 space-y-6">
-                  <div>
+                  <div className="text-center lg:text-left">
                     <span className="inline-block px-3 py-1 bg-[#FD8100]/10 text-[#FD8100] text-sm font-semibold rounded-full mb-3">
                       Recipe Magic
                     </span>
@@ -324,7 +350,7 @@ export default function Product() {
                     </div>
                   </div>
 
-                  <div className="pt-6 border-t border-gray-100">
+                  <div className="pt-6 border-t border-gray-100 text-center lg:text-left">
                     <span className="inline-block px-3 py-1 bg-[#00A86B]/10 text-[#00A86B] text-sm font-semibold rounded-full mb-3">
                       Sustainability
                     </span>
@@ -375,33 +401,48 @@ export default function Product() {
                 {/* Images Gallery */}
                 <div className="w-full lg:w-1/2">
                   <div className="grid grid-cols-3 gap-3 sm:gap-4">
-                    <Image
-                      src="/34.png"
-                      alt="Price Comparison"
-                      width={200}
-                      height={200}
-                      className="w-full h-auto aspect-square object-cover rounded-xl shadow-lg hover:scale-110 transition-transform duration-500 hover:shadow-2xl border-2 border-white/20"
-                    />
-                    <Image
-                      src="/35.png"
-                      alt="Store Options"
-                      width={200}
-                      height={200}
-                      className="w-full h-auto aspect-square object-cover rounded-xl shadow-lg hover:scale-110 transition-transform duration-500 hover:shadow-2xl border-2 border-white/20"
-                    />
-                    <Image
-                      src="/51.png"
-                      alt="Delivery Tracking"
-                      width={200}
-                      height={200}
-                      className="w-full h-auto aspect-square object-cover rounded-xl shadow-lg hover:scale-110 transition-transform duration-500 hover:shadow-2xl border-2 border-white/20"
-                    />
+                    <div
+                      className="relative w-full overflow-hidden rounded-xl border-2 border-white/20 shadow-lg transition-transform duration-500 hover:scale-110 hover:shadow-2xl"
+                      style={{ aspectRatio: "375 / 812" }}
+                    >
+                      <Image
+                        src="/choose-shop.png"
+                        alt="Price Comparison"
+                        fill
+                        sizes="(min-width: 1024px) 12vw, (min-width: 768px) 20vw, 50vw"
+                        className="object-contain"
+                      />
+                    </div>
+                    <div
+                      className="relative w-full overflow-hidden rounded-xl border-2 border-white/20 shadow-lg transition-transform duration-500 hover:scale-110 hover:shadow-2xl"
+                      style={{ aspectRatio: "375 / 812" }}
+                    >
+                      <Image
+                        src="/35.png"
+                        alt="Store Options"
+                        fill
+                        sizes="(min-width: 1024px) 12vw, (min-width: 768px) 20vw, 50vw"
+                        className="object-contain"
+                      />
+                    </div>
+                    <div
+                      className="relative w-full overflow-hidden rounded-xl border-2 border-white/20 shadow-lg transition-transform duration-500 hover:scale-110 hover:shadow-2xl"
+                      style={{ aspectRatio: "375 / 812" }}
+                    >
+                      <Image
+                        src="/51.png"
+                        alt="Delivery Tracking"
+                        fill
+                        sizes="(min-width: 1024px) 12vw, (min-width: 768px) 20vw, 50vw"
+                        className="object-contain"
+                      />
+                    </div>
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="w-full lg:w-1/2 space-y-6">
-                  <div>
+                  <div className="text-center lg:text-left">
                     <span className="inline-block px-3 py-1 bg-white/10 text-white text-sm font-semibold rounded-full mb-3 backdrop-blur">
                       Smart Savings
                     </span>
@@ -429,7 +470,7 @@ export default function Product() {
                     </div>
                   </div>
 
-                  <div className="pt-6 border-t border-white/10">
+                  <div className="pt-6 border-t border-white/10 text-center lg:text-left">
                     <span className="inline-block px-3 py-1 bg-white/10 text-white text-sm font-semibold rounded-full mb-3 backdrop-blur">
                       Delivery Excellence
                     </span>
