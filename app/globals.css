@@ -4,17 +4,6 @@
 @custom-variant dark (&:is(.dark *));
 
 @layer utilities {
-  .bg-grid-white {
-    background-size: 30px 30px;
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  }
-  .bg-grid-black {
-    background-size: 30px 30px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
-  }
-
   .perspective-1000 {
     perspective: 1000px;
   }

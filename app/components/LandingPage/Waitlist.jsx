@@ -328,27 +328,7 @@ export default function Waitlist() {
           </motion.div>
 
           {/* Additional Info */}
-          <motion.div
-            variants={fadeInUp}
-            className="pt-8 border-t border-white/10"
-          >
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm text-gray-500">
-              <div className="flex items-center gap-2">
-                <TrendingUp className="w-4 h-4 text-[#00A86B]" />
-                <span>Growing Daily</span>
-              </div>
-              <div className="hidden sm:block w-1 h-1 bg-gray-600 rounded-full" />
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-[#FD8100]" />
-                <span>No Spam, Ever</span>
-              </div>
-              <div className="hidden sm:block w-1 h-1 bg-gray-600 rounded-full" />
-              <div className="flex items-center gap-2">
-                <Zap className="w-4 h-4 text-[#00A86B]" />
-                <span>Exclusive Benefits</span>
-              </div>
-            </div>
-          </motion.div>
+
         </motion.div>
       </div>
     </div>

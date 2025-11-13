@@ -2,9 +2,14 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import lgo from "../../../public/lgo.png";
-import rl from "../../../public/rl.png"
+import rl from "../../../public/rl.png";
 import { Inter } from "next/font/google";
-import { FiClock, FiShoppingCart, FiTrendingDown, FiAlertCircle } from "react-icons/fi";
+import {
+  FiClock,
+  FiShoppingCart,
+  FiTrendingDown,
+  FiAlertCircle,
+} from "react-icons/fi";
 import { motion, useAnimation, useScroll, useTransform } from "framer-motion";
 
 const inter = Inter({
@@ -82,7 +87,7 @@ export default function Hero() {
       <div className="absolute inset-0 -z-10">
         {/* Gradient Mesh Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-white via-orange-50/30 to-emerald-50/30" />
-        
+
         {/* Animated Gradient Orbs */}
         <motion.div
           className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-[#FD8100]/20 to-[#FD8100]/5 rounded-full blur-3xl"
@@ -169,10 +174,7 @@ export default function Hero() {
             />
           </motion.div>
 
-          <motion.div
-            variants={itemVariants}
-            className="mt-3 sm:mt-4 relative"
-          >
+          <motion.div variants={itemVariants} className="mt-3 sm:mt-4 relative">
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold bg-[#00A86B] bg-clip-text text-transparent">
               Freshly
             </h1>
@@ -194,7 +196,7 @@ export default function Hero() {
             <span className="text-[#00A86B]">Smarter Shopping.</span>{" "}
             <span className="text-[#FD8100]">Healthier Living.</span>
           </motion.span>
-          
+
           {/* Animated Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -208,7 +210,9 @@ export default function Hero() {
                 animate={{ scale: [1, 1.5, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               />
-              <span className="text-sm font-medium text-gray-700">AI-Powered Meal Planning</span>
+              <span className="text-sm font-medium text-gray-700">
+                AI-Powered Meal Planning
+              </span>
             </div>
           </motion.div>
         </motion.div>
@@ -257,25 +261,11 @@ export default function Hero() {
                   className="text-center"
                 >
                   <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
-                    So, what everyday problem does{" "}
-                    <span className="bg-gradient-to-r from-[#00A86B] to-[#FD8100] bg-clip-text text-transparent">
-                      Freshly
-                    </span>{" "}
-                    solve?
+                    Grocery shopping & meal planning today is...{" "}
                   </h2>
                 </motion.div>
 
                 {/* Enhanced Subheading */}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8, duration: 0.6 }}
-                  className="text-center mt-8 sm:mt-10"
-                >
-                  <p className="text-xl sm:text-2xl md:text-3xl text-gray-300 font-light">
-                    Grocery shopping & meal planning today is...
-                  </p>
-                </motion.div>
 
                 {/* Enhanced Two Column Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mt-8 sm:mt-10">
@@ -289,13 +279,17 @@ export default function Hero() {
                   >
                     {/* Gradient Border */}
                     <div className="absolute inset-0 bg-gradient-to-r from-[#00A86B]/50 to-[#00A86B]/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    
+
                     <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 sm:p-8 hover:bg-white/10 transition-all duration-300">
                       {/* Icon Container */}
                       <div className="flex justify-center mb-4">
                         <motion.div
                           animate={{ rotate: 360 }}
-                          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                          transition={{
+                            duration: 20,
+                            repeat: Infinity,
+                            ease: "linear",
+                          }}
                           className="relative"
                         >
                           <div className="absolute inset-0 bg-[#00A86B]/20 rounded-full blur-xl" />
@@ -312,9 +306,10 @@ export default function Hero() {
 
                       {/* Description */}
                       <p className="text-gray-400 text-sm sm:text-base md:text-lg text-center leading-relaxed">
-                        Hours wasted deciding what to cook and what to buy. Forgotten
-                        items, duplicate purchases, and messy lists. Constantly juggling
-                        recipes, preferences, and pantry leftovers.
+                        Hours wasted deciding what to cook and what to buy.
+                        Forgotten items, duplicate purchases, and messy lists.
+                        Constantly juggling recipes, preferences, and pantry
+                        leftovers.
                       </p>
 
                       {/* Stats */}
@@ -327,7 +322,11 @@ export default function Hero() {
                         <div className="flex items-center justify-center gap-2">
                           <FiTrendingDown className="w-4 h-4 text-red-400" />
                           <span className="text-sm text-gray-400">
-                            Average: <span className="text-red-400 font-semibold">3+ hours/week</span> wasted
+                            Average:{" "}
+                            <span className="text-red-400 font-semibold">
+                              3+ hours/week
+                            </span>{" "}
+                            wasted
                           </span>
                         </div>
                       </motion.div>
@@ -344,13 +343,17 @@ export default function Hero() {
                   >
                     {/* Gradient Border */}
                     <div className="absolute inset-0 bg-gradient-to-r from-[#FD8100]/0 to-[#FD8100]/50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    
+
                     <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 sm:p-8 hover:bg-white/10 transition-all duration-300">
                       {/* Icon Container */}
                       <div className="flex justify-center mb-4">
                         <motion.div
                           animate={{ y: [0, -5, 0] }}
-                          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                          }}
                           className="relative"
                         >
                           <div className="absolute inset-0 bg-[#FD8100]/20 rounded-full blur-xl" />
@@ -367,9 +370,10 @@ export default function Hero() {
 
                       {/* Description */}
                       <p className="text-gray-400 text-sm sm:text-base md:text-lg text-center leading-relaxed">
-                        Up to 30% of groceries end up in the trash each week. Overbuying
-                        and unused ingredients drain your budget. The entire process feels
-                        repetitive, tiring, and frustrating.
+                        Up to 30% of groceries end up in the trash each week.
+                        Overbuying and unused ingredients drain your budget. The
+                        entire process feels repetitive, tiring, and
+                        frustrating.
                       </p>
 
                       {/* Stats */}
@@ -382,7 +386,11 @@ export default function Hero() {
                         <div className="flex items-center justify-center gap-2">
                           <FiAlertCircle className="w-4 h-4 text-orange-400" />
                           <span className="text-sm text-gray-400">
-                            Average: <span className="text-orange-400 font-semibold">$1,500/year</span> wasted
+                            Average:{" "}
+                            <span className="text-orange-400 font-semibold">
+                              $1,500/year
+                            </span>{" "}
+                            wasted
                           </span>
                         </div>
                       </motion.div>
@@ -444,7 +452,8 @@ export default function Hero() {
       {/* Add gradient animation styles */}
       <style jsx>{`
         @keyframes gradient-x {
-          0%, 100% {
+          0%,
+          100% {
             background-position: 0% 50%;
           }
           50% {

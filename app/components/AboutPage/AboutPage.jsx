@@ -74,9 +74,6 @@ const AboutPage = () => {
               Meet The{" "}
               <span className="text-[#00A86B] font-normal">Founders</span>
             </h1>
-            <p className="text-gray-600 text-base sm:text-lg md:text-xl max-w-2xl mx-auto">
-              The minds behind the revolution in grocery shopping
-            </p>
           </motion.div>
 
           {/* David Gendy - Founder Card */}
@@ -173,7 +170,7 @@ const AboutPage = () => {
                               fill="currentColor"
                               viewBox="0 0 24 24"
                             >
-                              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                              <path d="M4.98 3.5C4.98 5 3.9 6 2.5 6S0 5 0 3.5 1.08 1 2.5 1s2.48 1 2.48 2.5zM.24 8h4.52v14H.24V8zM8.75 8h4.33v1.92h.06c.6-1.14 2.06-2.35 4.24-2.35 4.53 0 5.37 2.98 5.37 6.85V22h-4.52v-6.45c0-1.54-.03-3.52-2.15-3.52-2.15 0-2.48 1.67-2.48 3.4V22H8.75V8z" />
                             </svg>
                           </div>
                           <span className="text-sm sm:text-base">
@@ -227,25 +224,23 @@ const AboutPage = () => {
                 className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 sm:p-8 lg:p-10 xl:p-12 border border-gray-100"
               >
                 <div className="mb-6">
-                  <span className="inline-block px-3 py-1 bg-[#00A86B]/10 text-[#00A86B] text-sm font-medium rounded-full mb-4">
-                    About
-                  </span>
                   <h2 className="text-2xl sm:text-3xl md:text-4xl font-light mb-6 text-black">
                     A Bit About <span className="text-[#00A86B]">David</span>
                   </h2>
                 </div>
                 <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
-                  I'm a 19-year-old Coptic-Orthodox Egyptian American, born and
-                  raised in the U.S. I'm currently pursuing a B.S. in Management
-                  Information Systems at George Mason University with a minor in
-                  Real Estate Development and Government Contracting. As a proud
-                  and practicing Christian, I lead with a relationship-first
-                  mindset—placing faith, family, and community at the heart of
-                  everything I do. I've always carried the vision of building
-                  something of my own, and that entrepreneurial drive is now
-                  coming to life. My journey is just beginning, but every step
-                  is driven by purpose, faith, and a relentless passion to
-                  create impact.
+                  I’m a 19-year-old Coptic-Orthodox Egyptian American, born and
+                  raised in the U.S.. I'm currently pursuing a B.S. in business
+                  with a double concentration in management information systems
+                  & business analytics at George Mason University. I am planning
+                  to pursue a masters degree in AI and Machine Learning post
+                  undergrad. As a proud and practicing Christian, I lead with a
+                  relationship-first mindset—placing faith, family, and
+                  community at the heart of everything I do. I’ve always carried
+                  the vision of building something of my own, and that
+                  entrepreneurial drive is now coming to life. My journey is
+                  just beginning, but every step is driven by purpose, faith,
+                  and a relentless passion to create impact.
                 </p>
 
                 {/* Stats */}
@@ -292,9 +287,6 @@ const AboutPage = () => {
                 className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 sm:p-8 lg:p-10 xl:p-12 border border-gray-100 order-2 lg:order-1"
               >
                 <div className="mb-6">
-                  <span className="inline-block px-3 py-1 bg-[#FD8100]/10 text-[#FD8100] text-sm font-medium rounded-full mb-4">
-                    About
-                  </span>
                   <h2 className="text-2xl sm:text-3xl md:text-4xl font-light mb-6 text-black">
                     A Bit About <span className="text-[#FD8100]">George</span>
                   </h2>
@@ -310,9 +302,9 @@ const AboutPage = () => {
                   decisions. As the CTO and Co-Founder of Freshly, I focus on
                   bringing technical vision, creativity, and leadership to a
                   platform built to transform the grocery-shopping experience
-                  through AI. I’m driven by ambition, faith, purpose, and a long-term
-                  goal of building a career rooted in innovation, integrity, and
-                  impact.
+                  through AI. I’m driven by ambition, faith, purpose, and a
+                  long-term goal of building a career rooted in innovation,
+                  integrity, and impact.
                 </p>
 
                 {/* Placeholder Stats */}
@@ -388,7 +380,7 @@ const AboutPage = () => {
 
                       <div className="space-y-4">
                         <motion.a
-                          href="mailto:ga@joinfreshly.com"
+                          href="mailto:george@joinfreshly.com"
                           whileHover={{ x: 5 }}
                           className="flex items-center gap-3 text-gray-600 hover:text-[#FD8100] transition-colors group"
                         >
@@ -408,7 +400,7 @@ const AboutPage = () => {
                             </svg>
                           </div>
                           <span className="text-sm sm:text-base">
-                            ga@joinfreshly.com
+                            george@joinfreshly.com
                           </span>
                         </motion.a>
 
@@ -429,6 +421,28 @@ const AboutPage = () => {
                                 strokeLinejoin="round"
                                 strokeWidth="2"
                                 d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                              />
+                            </svg>
+                          </div>
+                          <span className="text-sm sm:text-base">
+                            703-595-1334
+                          </span>
+                        </motion.a>
+
+                        <motion.a
+                          href="tel:703-595-1334"
+                          whileHover={{ x: 5 }}
+                          className="flex items-center gap-3 text-gray-600 hover:text-[#FD8100] transition-colors group"
+                        >
+                          <div className="w-10 h-10 rounded-full bg-[#FD8100]/10 flex items-center justify-center group-hover:bg-[#FD8100]/20 transition-colors">
+                            <svg
+                              className="w-5 h-5 text-[#FD8100]"
+                              fill="currentColor"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M4.98 3.5C4.98 5 3.9 6 2.5 6S0 5 0 3.5 1.08 1 2.5 1s2.48 1 2.48 2.5zM.24 8h4.52v14H.24V8zM8.75 8h4.33v1.92h.06c.6-1.14 2.06-2.35 4.24-2.35 4.53 0 5.37 2.98 5.37 6.85V22h-4.52v-6.45c0-1.54-.03-3.52-2.15-3.52-2.15 0-2.48 1.67-2.48 3.4V22H8.75V8z"
                               />
                             </svg>
                           </div>
@@ -501,31 +515,20 @@ const AboutPage = () => {
                   bgColor: "bg-[#FD8100]/10",
                   borderColor: "border-[#FD8100]/20",
                   icon: "🤔",
-                  content: `Grocery shopping is way more stressful than it should be —
-                    especially for people like me. As someone who's anemic, I
-                    often feel drained and low on energy, so walking through
-                    crowded stores, remembering what I need, and planning meals
-                    becomes overwhelming fast. I'm not alone either — studies show
-                    the average person spends over 6 hours a week just planning,
-                    shopping, and prepping meals. That's time and energy many of
-                    us don't have. Wasted food, forgotten items, and unhealthy
-                    food choices pile up. It's a broken system, and I've felt the
-                    effects of it personally. That's why I'm building something
-                    better.`,
+                  content: ` It was 2020, during the Covid lockdown. It was 3 A.M., I was 14, tired, hungry, and stuck at home. My parents couldn’t go out, groceries were running low, and I kept opening the fridge and pantry expecting something to magically appear. There was food, I just didn’t know what to do with any of it. \n\n  That night, I made what I now call a “struggle meal”: two end pieces of bread, ketchup, mayo, and crushed potato chips in the middle. It looked miserable, but that first bite hit. As I ate, one thought kept circling in my head: Why isn’t there something that can just tell me what I can make with what I already have? Something that understands my culture, my tastes, and how I actually eat? \n\n Years later, talking with friends, I realized I wasn’t the only one who felt this way. We all deal with the same thing: grocery shopping and meal planning are way more stressful than they should be. We’re walking through crowded stores, trying to remember what we need, guessing what we’ll actually cook, and still ending up wasting food or defaulting to unhealthy choices. On top of that, studies show we spend over six hours every week just planning, shopping, and prepping meals. Time and energy most of us don’t have.`,
                 },
                 {
                   title: "Idea",
+
                   color: "text-[#00A86B]",
                   bgColor: "bg-[#00A86B]/10",
                   borderColor: "border-[#00A86B]/20",
                   icon: "💡",
-                  content: `That's where Freshly comes in — my solution to the chaos of
-                    grocery shopping. Freshly helps you track what you have, shows
-                    you what to buy, suggests meals based on your diet, and even
-                    compares prices to save you money. For people like me who deal
-                    with low energy from anemia, it makes grocery shopping easier,
-                    faster, and less overwhelming. It's all about saving time,
-                    cutting waste, and making healthy eating simple.`,
+                  content: `After seeing how time-consuming, disorganized, and wasteful the grocery process has become, our idea is to build a single, intelligent system that finally brings the entire experience together. Instead of relying on scattered notes, half-functioning apps, and guesswork, we imagine one unified platform that understands our habits, keeps track of what’s in our kitchen, and helps us make smarter decisions every day.
+
+We want to create a tool that eliminates the chaos, something that reduces the hours spent planning meals, prevents duplicate purchases, and helps households stop wasting food each week. Current apps only solve pieces of the journey; none of them address the full cycle of planning, tracking, organizing, and saving. Our idea is to fill that gap with an all-in-one approach that makes grocery shopping feel clear, structured, and effortless instead of stressful and repetitive.
+
+At its core, the idea is simple: a smarter way for households to manage food. A connected system that helps us stay organized, spend less, waste less, and make weekly grocery planning feel modern, efficient, and actually enjoyable. This is the foundation that sets the stage for the solution we’re building. `,
                 },
                 {
                   title: "Solution",
@@ -533,15 +536,11 @@ const AboutPage = () => {
                   bgColor: "bg-[#00A86B]/10",
                   borderColor: "border-[#00A86B]/20",
                   icon: "🚀",
-                  content: `Freshly solves these everyday challenges through a seamless
-                    app experience powered by smart technology. It automates
-                    grocery planning, reduces decision fatigue, and brings clarity
-                    to an otherwise chaotic process. With a clean interface and
-                    real-time syncing, users can manage their meals and grocery
-                    lists effortlessly from anywhere. The platform is designed to
-                    support those with limited energy or tight schedules, helping
-                    them stay organized and make better food choices with minimal
-                    effort.`,
+                  content: `Freshly solves these everyday challenges through a seamless, easy-to-use app that takes the stress out of planning and shopping. It cuts down decision fatigue by helping users know what meals they can make, what groceries they need, and what they already have at home. Instead of dealing with scattered notes and multiple apps, everything stays organized in one clean, simple interface.
+
+Using smart features like pantry tracking, automatic grocery lists, and price comparison, Freshly brings clarity to a process that usually feels chaotic. The app updates in real time, so users always know what’s running low, what’s about to expire, and where they can save money on their next grocery trip. This reduces waste, prevents duplicate purchases, and helps families stretch their budgets further.
+
+Freshly is especially helpful for anyone with limited time, energy, or a busy schedule. With just a few taps, users can stay on top of meals, find affordable options, and keep their kitchen organized without extra effort. It turns grocery shopping and meal planning into a smoother, simpler part of everyday life, saving time, saving money, and making food choices easier for everyone.`,
                 },
               ].map((section, index) => (
                 <motion.div
@@ -560,7 +559,7 @@ const AboutPage = () => {
                       {section.title}
                     </h3>
                   </div>
-                  <p className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed">
+                  <p className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed whitespace-pre-line">
                     {section.content}
                   </p>
                 </motion.div>

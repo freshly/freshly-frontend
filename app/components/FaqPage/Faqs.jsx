@@ -1,10 +1,10 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Inter } from "next/font/google";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -190,17 +190,52 @@ const faqData = [
   },
 ];
 
-const FlipCard = ({ question, answer }) => {
+// Hook to detect when element is in viewport
+const useInView = (options = {}) => {
+  const [isInView, setIsInView] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsInView(true);
+      }
+    }, { threshold: 0.1, ...options });
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
+  return [ref, isInView];
+};
+
+const FlipCard = ({ question, answer, index }) => {
   const [isFlipped, setIsFlipped] = useState(false);
+  const [ref, isInView] = useInView();
 
   return (
     <div
-      className="relative h-56 sm:h-64 md:h-72 w-full cursor-pointer"
-      style={{ perspective: "1000px" }}
+      ref={ref}
+      className={`relative h-56 sm:h-64 md:h-72 w-full cursor-pointer transition-all duration-700 ${
+        isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+      }`}
+      style={{ 
+        perspective: "1000px",
+        transitionDelay: `${index * 100}ms`
+      }}
       onClick={() => setIsFlipped(!isFlipped)}
     >
       <div
-        className="relative w-full h-full transition-transform duration-500"
+        className={`relative w-full h-full transition-all duration-700 ${
+          isFlipped ? "scale-105" : "scale-100"
+        }`}
         style={{
           transformStyle: "preserve-3d",
           transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
@@ -208,27 +243,28 @@ const FlipCard = ({ question, answer }) => {
       >
         {/* Front of card */}
         <div
-          className="absolute w-full h-full bg-white rounded-xl shadow-lg p-4 sm:p-5 md:p-6"
+          className="absolute w-full h-full bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 p-4 sm:p-5 md:p-6 border-2 border-transparent hover:border-[#FD8100]/20"
           style={{ backfaceVisibility: "hidden" }}
         >
           <div className="h-full flex flex-col justify-between">
             <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 leading-tight">
               {question}
             </h3>
-            <div className="text-emerald-600 text-xs sm:text-sm font-medium">
-              Click to flip
+            <div className="flex items-center gap-2 text-[#00A86B] text-xs sm:text-sm font-medium group">
+              <span>Click to reveal</span>
+              <ChevronDown className="w-4 h-4 group-hover:translate-y-1 transition-transform duration-300" />
             </div>
           </div>
         </div>
         {/* Back of card */}
         <div
-          className="absolute w-full h-full bg-emerald-50 rounded-xl shadow-lg p-4 sm:p-5 md:p-6 overflow-y-auto"
+          className="absolute w-full h-full bg-gradient-to-br from-[#00A86B]/10 to-[#00A86B]/10 rounded-2xl shadow-lg p-4 sm:p-5 md:p-6 overflow-y-auto border-2 border-[#00A86B]/30"
           style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
           }}
         >
-          <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+          <p className="text-sm sm:text-base text-gray-800 leading-relaxed font-light">
             {answer}
           </p>
         </div>
@@ -237,17 +273,25 @@ const FlipCard = ({ question, answer }) => {
   );
 };
 
-const FaqSection = ({ category, questions }) => {
+const FaqSection = ({ category, questions, index }) => {
+  const [ref, isInView] = useInView();
+
   return (
-    <section className="py-8 sm:py-10 md:py-12">
-      <div className="w-full h-full justify-center items-center flex mb-6 sm:mb-8">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#FD8100] text-center px-4">
-          {category}
-        </h2>
+    <section ref={ref} className="py-8 sm:py-10 md:py-12 lg:py-16">
+      <div 
+        className={`w-full h-full justify-center items-center flex mb-6 sm:mb-8 md:mb-10 transition-all duration-700 ${
+          isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        }`}
+      >
+        <div className="relative inline-block">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#FD8100] text-center px-4 relative z-10">
+            {category}
+          </h2>
+        </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
-        {questions.map((qa) => (
-          <FlipCard key={qa.id} question={qa.question} answer={qa.answer} />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
+        {questions.map((qa, idx) => (
+          <FlipCard key={qa.id} question={qa.question} answer={qa.answer} index={idx} />
         ))}
       </div>
     </section>
@@ -255,30 +299,41 @@ const FaqSection = ({ category, questions }) => {
 };
 
 const FaqPage = () => {
+  const [headerRef, headerInView] = useInView();
+
   return (
-    <div className={`min-h-screen bg-white ${inter.className} mt-16 sm:mt-20 md:mt-24`}>
-      <div className="relative bg-grid-black">
-        <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 relative">
+    <div className={`min-h-screen bg-gradient-to-b from-white via-[#FD8100]/5 to-white ${inter.className} mt-16 sm:mt-20 md:mt-24`}>
+      <div className="relative">
+        {/* Animated background elements */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-[#FD8100]/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-40 right-10 w-96 h-96 bg-[#00A86B]/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }}></div>
+          <div className="absolute bottom-20 left-1/2 w-80 h-80 bg-[#FD8100]/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }}></div>
+        </div>
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24 relative z-10">
           {/* Header with Logo */}
-          <div className="text-center mb-12 sm:mb-14 md:mb-16">
-            <div className="flex justify-center mb-4 sm:mb-6">
-              <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24">
-                <Image
-                  src="/freshly-icon-square.png"
-                  alt="Freshly Logo"
-                  fill
-                  style={{ objectFit: "contain" }}
-                  className="opacity-90"
-                />
-              </div>
-            </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-neutral-950 mb-3 sm:mb-4 px-4">
-              Frequently Asked Questions
+          <div 
+            ref={headerRef}
+            className={`text-center mb-12 sm:mb-14 md:mb-16 lg:mb-20 transition-all duration-1000 ${
+              headerInView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"
+            }`}
+          >
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-neutral-950 mb-3 sm:mb-4 md:mb-6 px-4 tracking-tight">
+              Frequently Asked{" "}
+              <span className="text-transparent bg-clip-text bg-[#00A86B] font-normal">
+                Questions
+              </span>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-neutral-600 max-w-2xl mx-auto px-4 sm:px-6">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-neutral-600 max-w-3xl mx-auto px-4 sm:px-6 font-light">
               Find answers to common questions about Freshly's smart grocery
               shopping assistant.
             </p>
+            
+            {/* Decorative line */}
+            <div className="mt-6 sm:mt-8 flex justify-center">
+              <div className="w-32 sm:w-40 h-1 bg-gradient-to-r from-transparent via-[#FD8100] to-transparent rounded-full"></div>
+            </div>
           </div>
 
           {/* FAQ Sections */}
@@ -287,6 +342,7 @@ const FaqPage = () => {
               key={index}
               category={section.category}
               questions={section.questions}
+              index={index}
             />
           ))}
         </div>
@@ -294,32 +350,72 @@ const FaqPage = () => {
 
       {/* Vision Section with Gradient */}
       <section
-        className="font-light relative py-10 sm:py-12 md:py-16 w-full bg-neutral-950
-        bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(21,128,61,0.3),rgba(255,255,255,0))]"
+        className="font-light relative py-12 sm:py-16 md:py-20 lg:py-24 w-full bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(0,168,107,0.4),rgba(253,129,0,0.1),rgba(0,0,0,0))] overflow-hidden"
       >
-        <div className="container mx-auto px-4 sm:px-6 relative">
+        {/* Animated background shapes */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-1/2 -left-1/4 w-96 h-96 bg-[#00A86B]/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute -bottom-1/2 -right-1/4 w-96 h-96 bg-[#FD8100]/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1.5s" }}></div>
+        </div>
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light mb-4 sm:mb-6 text-center text-white px-4">
-              Ready to Transform Your Grocery Shopping?
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-4 sm:mb-6 text-center text-white px-4 leading-tight">
+              Ready to Transform Your{" "}
+              <span className="text-[#FD8100] font-normal">Grocery Shopping</span>?
             </h2>
-            <p className="text-sm sm:text-base md:text-lg text-center text-neutral-300 mb-6 sm:mb-8 px-4 sm:px-6">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-center text-neutral-300 mb-6 sm:mb-8 md:mb-10 px-4 sm:px-6 font-light">
               Join Freshly today and experience a smarter way to shop, cook, and
               save.
             </p>
             <div className="flex justify-center px-4">
               <Button
                 asChild
-                className="h-10 sm:h-12 text-sm sm:text-base text-neutral-300 bg-transparent border border-gray-600 hover:border-transparent hover:bg-[rgba(21,128,61,0.3)] transition-all duration-200 px-4 sm:px-6"
+                className="h-11 sm:h-12 md:h-14 text-sm sm:text-base md:text-lg text-white bg-gradient-to-r from-[#FD8100] to-[#FD8100]/80 hover:from-[#FD8100]/90 hover:to-[#FD8100]/70 border-none transition-all duration-300 px-6 sm:px-8 md:px-10 rounded-full shadow-lg hover:shadow-2xl hover:scale-105 group"
               >
-                <Link href="/#waitlist" className="flex items-center gap-2">
+                <Link href="/#waitlist" className="flex items-center gap-2 sm:gap-3">
                   Join Waitlist Now
-                  <ArrowRight className="w-4 h-4 text-neutral-300" />
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-white group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
               </Button>
+            </div>
+            
+            {/* Trust indicators */}
+            <div className="mt-8 sm:mt-10 md:mt-12 flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-8 text-neutral-400 text-xs sm:text-sm">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-[#00A86B] rounded-full"></div>
+                <span>AI-Powered</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-[#FD8100] rounded-full"></div>
+                <span>Save Money</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-white rounded-full"></div>
+                <span>Reduce Waste</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Add custom animations */}
+      <style jsx global>{`
+        @keyframes pulse {
+          0%, 100% {
+            opacity: 0.6;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 0.8;
+            transform: scale(1.05);
+          }
+        }
+        
+        .animate-pulse {
+          animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+      `}</style>
     </div>
   );
 };
