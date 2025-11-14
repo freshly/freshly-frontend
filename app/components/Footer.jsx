@@ -8,106 +8,61 @@ export default function Footer() {
 
   return (
     <footer className="bg-neutral-950 text-white">
-      {/* top border */}
-      <div className="border-t border-white/20" />
+      <div className="border-t border-white/10" />
 
-      {/* logo + nav + social */}
-      <div
-        className="
-          max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10
-          flex flex-col md:flex-row 
-          justify-between items-center 
-          space-y-6 md:space-y-0
-          gap-4 md:gap-6
-        "
-      >
-        {/* logo */}
-        <div className="flex-shrink-0">
-          <img
-            src="/freshly-icon-square.png"
-            alt="Freshly Logo"
-            className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 object-contain"
-          />
-        </div>
-
-        {/* nav links */}
-        <nav
-          className="
-            flex flex-col sm:flex-row 
-            items-center
-            space-y-3 sm:space-y-0 sm:space-x-4 md:space-x-6 lg:space-x-8
-            text-base sm:text-lg md:text-xl lg:text-2xl 
-            font-light text-white/90
-          "
-        >
-          <a
-            href="/about"
-            className="hover:text-white transition-colors duration-200"
-          >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 sm:py-5 space-y-4 text-center">
+        <nav className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm sm:text-base font-light text-white/90">
+          <a href="/about" className="hover:text-white transition-colors duration-200">
             About
           </a>
-          <a
-            href="/contact"
-            className="hover:text-white transition-colors duration-200"
-          >
+          <a href="/contact" className="hover:text-white transition-colors duration-200">
             Contact
           </a>
-          <a
-            href="/faqs"
-            className="hover:text-white transition-colors duration-200"
-          >
+          <a href="/faqs" className="hover:text-white transition-colors duration-200">
             FAQs
           </a>
         </nav>
 
-        {/* social icons */}
-        <div className="flex items-center space-x-4 sm:space-x-5 md:space-x-6 flex-shrink-0">
+        <div className="flex justify-center items-center space-x-4 sm:space-x-5 text-white/70">
           <a
             href="https://www.instagram.com/joinfreshly?igsh=b2RnNjUwMGhncXZr"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white/70 hover:text-white transition-colors duration-200"
-            aria-label="Follow us on Instagram"
+            className="hover:text-white transition-colors duration-200"
+            aria-label="Instagram"
           >
-            <Instagram
-              size={28}
-              className="sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10"
-            />
+            <Instagram size={22} />
           </a>
           <a
             href="https://www.facebook.com/share/1SxCQcPc99/?mibextid=wwXIfr"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white/70 hover:text-white transition-colors duration-200"
-            aria-label="Follow us on LinkedIn"
+            className="hover:text-white transition-colors duration-200"
+            aria-label="Facebook"
           >
-            <Facebook
-              size={28}
-              className="sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10"
-            />
+            <Facebook size={22} />
           </a>
           <a
             href="https://x.com/joinfreshly"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white/70 hover:text-white transition-colors duration-200"
-            aria-label="Follow us on LinkedIn"
+            className="hover:text-white transition-colors duration-200"
+            aria-label="X (Twitter)"
           >
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path
                 d="M2.7 3L9.9 13.3L2.84 21H6.3L11.49 15.3L15.9 21H21.16L13.64 10.99L20.3 3H16.84L11.98 8.3L8.04 3H2.7Z"
-                stroke="white"
-                stroke-width="2"
-                stroke-linejoin="round"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinejoin="round"
               />
             </svg>
           </a>
         </div>
-      </div>
 
-      {/* copyright */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-center text-xs sm:text-sm text-white/70">
-        © {currentYear} Freshly. All Rights Reserved.
+        <div className="text-xs sm:text-sm text-white/60">
+          © {currentYear} Freshly. All rights reserved.
+        </div>
       </div>
     </footer>
   );

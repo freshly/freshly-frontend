@@ -3,7 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
+import { useSearchParams } from "next/navigation";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -17,12 +18,67 @@ export default function Product() {
   const HERO_SCROLL_LIMIT = 300;
   const backgroundOffset = Math.min(scrollY, BACKGROUND_SCROLL_LIMIT) * 0.3;
   const heroOffset = -Math.min(scrollY, HERO_SCROLL_LIMIT) * 0.15;
+  const searchParams = useSearchParams();
+
+  const scrollIntoWaitlist = useCallback(() => {
+    const el = document.getElementById("waitlist");
+    if (el) {
+      requestAnimationFrame(() =>
+        el.scrollIntoView({ behavior: "smooth", block: "start" })
+      );
+      return true;
+    }
+    return false;
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    const handleIntent = () => {
+      if (window.location.hash === "#waitlist") {
+        scrollIntoWaitlist();
+      }
+    };
+
+    if (window.location.hash === "#waitlist") {
+      scrollIntoWaitlist();
+    }
+
+    window.addEventListener("hashchange", handleIntent);
+    return () => window.removeEventListener("hashchange", handleIntent);
+  }, [scrollIntoWaitlist]);
+
+  useEffect(() => {
+    let shouldScroll = false;
+
+    try {
+      if (sessionStorage.getItem("scrollToWaitlist") === "true") {
+        sessionStorage.removeItem("scrollToWaitlist");
+        shouldScroll = true;
+      }
+    } catch (err) {
+      // ignore storage errors
+    }
+
+    if (searchParams?.get("waitlist") === "1") {
+      shouldScroll = true;
+      if (typeof window !== "undefined") {
+        window.history.replaceState(null, "", "/#waitlist");
+      }
+    }
+
+    if (shouldScroll) {
+      const scrolled = scrollIntoWaitlist();
+      if (!scrolled) {
+        const timeout = setTimeout(() => scrollIntoWaitlist(), 300);
+        return () => clearTimeout(timeout);
+      }
+    }
+  }, [searchParams, scrollIntoWaitlist]);
 
   useEffect(() => {
     const observerOptions = {

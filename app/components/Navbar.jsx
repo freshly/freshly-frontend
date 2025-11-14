@@ -1,6 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import Link from "next/link";
+import { useRouter, usePathname } from "next/navigation";
 import { Inter } from "next/font/google";
 import { Menu, X } from "lucide-react";
 
@@ -12,6 +13,34 @@ const inter = Inter({
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const scrollToWaitlist = useCallback(() => {
+    const target = document.getElementById("waitlist");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
+
+  const handleWaitlistClick = useCallback(
+    (e) => {
+      if (e) e.preventDefault();
+      setIsMobileMenuOpen(false);
+
+      if (pathname === "/") {
+        scrollToWaitlist();
+      } else {
+        try {
+          sessionStorage.setItem("scrollToWaitlist", "true");
+        } catch (err) {
+          // ignore storage errors
+        }
+        router.push("/?waitlist=1#waitlist");
+      }
+    },
+    [pathname, router, scrollToWaitlist]
+  );
 
   return (
     <nav
@@ -50,12 +79,13 @@ export default function Navbar() {
             >
               Contact
             </Link>
-            <Link
+            <a
               href="/#waitlist"
+              onClick={handleWaitlistClick}
               className="bg-white text-[rgb(21,128,60)] px-3 py-1.5 lg:px-4 lg:py-2 rounded-md text-sm lg:text-base font-medium hover:bg-white/90 transition-colors duration-200 whitespace-nowrap"
             >
               Join Waitlist Now
-            </Link>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -103,13 +133,13 @@ export default function Navbar() {
           >
             Contact
           </Link>
-          <Link
+          <a
             href="/#waitlist"
             className="block w-full px-4 py-3 mt-2 rounded-md text-base font-medium text-center bg-white text-[rgb(21,128,60)] hover:bg-white/90 transition-colors duration-200"
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={handleWaitlistClick}
           >
             Join Waitlist Now
-          </Link>
+          </a>
         </div>
       </div>
     </nav>
