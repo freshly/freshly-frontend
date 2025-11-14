@@ -11,19 +11,39 @@ const inter = Inter({
   display: "swap",
 });
 
+const WAITLIST_STORAGE_KEY = "waitlistUser";
+
 export default function Waitlist() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState(null);
   const [mounted, setMounted] = useState(false);
   const [hoveredStat, setHoveredStat] = useState(null);
-
-  const API_BASE = "http://localhost:8000";
+  const [storedSignup, setStoredSignup] = useState(null);
 
   useEffect(() => {
     setMounted(true);
+    if (typeof window === "undefined") return;
+
+    try {
+      const stored = window.localStorage.getItem(WAITLIST_STORAGE_KEY);
+      if (!stored) return;
+      const parsed = JSON.parse(stored);
+      if (parsed?.name && parsed?.email) {
+        setStoredSignup(parsed);
+        setIsSubmitted(true);
+      }
+    } catch (err) {
+      console.error("Failed to read waitlist user from localStorage", err);
+    }
   }, []);
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+    setError(null);
+  };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -35,17 +55,39 @@ export default function Waitlist() {
     setIsLoading(true);
     setError(null);
 
+    const trimmedName = name.trim();
+    const normalizedEmail = email.trim().toLowerCase();
+
     try {
-      const res = await fetch(`${API_BASE}/api/waitlist/`, {
+      const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ name: trimmedName, email: normalizedEmail }),
       });
-      if (!res.ok) throw new Error(await res.text());
+      const data = await res.json().catch(() => null);
+      if (!res.ok) {
+        throw new Error(data?.error || "Unable to join the waitlist. Please try again.");
+      }
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem(
+          WAITLIST_STORAGE_KEY,
+          JSON.stringify({
+            name: trimmedName,
+            email: normalizedEmail,
+            joinedAt: new Date().toISOString(),
+          })
+        );
+      }
+      setStoredSignup({
+        name: trimmedName,
+        email: normalizedEmail,
+      });
       setIsSubmitted(true);
+      setName("");
+      setEmail("");
     } catch (err) {
       console.error(err);
-      setError("Unable to join the waitlist. Please try again.");
+      setError(err.message || "Unable to join the waitlist. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -235,11 +277,14 @@ export default function Waitlist() {
                       You're on the list!
                     </h3>
                     <p className="text-gray-400 mb-6">
-                      We'll notify you as soon as early access opens.
+                      {storedSignup?.email
+                        ? `We'll notify ${storedSignup.email} as soon as early access opens.`
+                        : "We'll notify you as soon as early access opens."}
                     </p>
                     <button
                       onClick={() => {
                         setIsSubmitted(false);
+                        setName("");
                         setEmail("");
                       }}
                       className="px-6 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full transition-colors duration-300"
@@ -254,7 +299,9 @@ export default function Waitlist() {
             {/* Form */}
             <div className={isSubmitted ? "opacity-20 pointer-events-none" : ""}>
               <WaitlistForm
+                name={name}
                 email={email}
+                onNameChange={handleNameChange}
                 onEmailChange={handleEmailChange}
                 onSubmit={handleSubmit}
                 isLoading={isLoading}

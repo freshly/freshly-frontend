@@ -9,14 +9,18 @@ import { motion, AnimatePresence } from "framer-motion";
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export default function WaitlistForm({
+  name,
   email,
+  onNameChange,
   onEmailChange,
   onSubmit,
   isLoading,
   isSubmitted,
 }) {
-  const [isFocused, setIsFocused] = useState(false);
+  const [isEmailFocused, setIsEmailFocused] = useState(false);
+  const [isNameFocused, setIsNameFocused] = useState(false);
   const [isValidEmail, setIsValidEmail] = useState(false);
+  const isValidName = name.trim().length >= 2;
 
   useEffect(() => {
     // Basic email validation
@@ -157,6 +161,61 @@ export default function WaitlistForm({
 
       {/* Form Section */}
       <form onSubmit={onSubmit} className="space-y-4">
+        {/* Name Input */}
+        <motion.div whileTap={{ scale: 0.98 }} className="relative">
+          <div
+            className={`
+              relative rounded-2xl transition-all duration-300
+              ${isNameFocused ? "ring-2 ring-[#00A86B]/50" : ""}
+            `}
+          >
+            <AnimatePresence>
+              {isNameFocused && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="absolute inset-0 bg-gradient-to-r from-[#FD8100]/10 to-[#00A86B]/10 rounded-2xl blur-xl"
+                />
+              )}
+            </AnimatePresence>
+
+            <div className="relative">
+              <Input
+                type="text"
+                placeholder="Enter your name"
+                value={name}
+                onChange={onNameChange}
+                onFocus={() => setIsNameFocused(true)}
+                onBlur={() => setIsNameFocused(false)}
+                required
+                className={`
+                  w-full h-14 sm:h-16 px-5 
+                  text-base sm:text-lg text-white 
+                  placeholder-gray-500 bg-white/5 backdrop-blur
+                  border ${isNameFocused ? "border-[#FD8100]/50" : "border-white/10"}
+                  focus:border-[#FD8100] focus:ring-0 
+                  rounded-2xl transition-all duration-300
+                  ${name && !isValidName ? "border-red-500/50" : ""}
+                `}
+              />
+            </div>
+          </div>
+
+          <AnimatePresence>
+            {name && !isValidName && (
+              <motion.p
+                initial={{ opacity: 0, y: -5 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -5 }}
+                className="text-red-400 text-sm mt-2 ml-2"
+              >
+                Please enter at least 2 characters
+              </motion.p>
+            )}
+          </AnimatePresence>
+        </motion.div>
+
         <motion.div
           whileTap={{ scale: 0.98 }}
           className="relative"
@@ -164,11 +223,11 @@ export default function WaitlistForm({
           {/* Input Container */}
           <div className={`
             relative rounded-2xl transition-all duration-300
-            ${isFocused ? 'ring-2 ring-[#00A86B]/50' : ''}
+            ${isEmailFocused ? 'ring-2 ring-[#00A86B]/50' : ''}
           `}>
             {/* Background gradient on focus */}
             <AnimatePresence>
-              {isFocused && (
+              {isEmailFocused && (
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -184,14 +243,14 @@ export default function WaitlistForm({
                 placeholder="Enter your email address"
                 value={email}
                 onChange={onEmailChange}
-                onFocus={() => setIsFocused(true)}
-                onBlur={() => setIsFocused(false)}
+                onFocus={() => setIsEmailFocused(true)}
+                onBlur={() => setIsEmailFocused(false)}
                 required
                 className={`
                   w-full h-14 sm:h-16 pl-5 pr-32 sm:pr-36 
                   text-base sm:text-lg text-white 
                   placeholder-gray-500 bg-white/5 backdrop-blur
-                  border ${isFocused ? 'border-[#00A86B]/50' : 'border-white/10'}
+                  border ${isEmailFocused ? 'border-[#00A86B]/50' : 'border-white/10'}
                   focus:border-[#00A86B] focus:ring-0 
                   rounded-2xl transition-all duration-300
                   ${email && !isValidEmail ? 'border-red-500/50' : ''}
@@ -206,11 +265,11 @@ export default function WaitlistForm({
               >
                 <Button
                   type="submit"
-                  disabled={!isValidEmail || isLoading}
+                  disabled={!isValidEmail || !isValidName || isLoading}
                   className={`
                     h-10 sm:h-12 px-4 sm:px-6
                     rounded-xl font-medium
-                    ${isValidEmail && !isLoading 
+                    ${isValidEmail && isValidName && !isLoading 
                       ? 'bg-[#00A86B] hover:bg-[#00A86B]/90 text-white' 
                       : 'bg-white/10 text-gray-500 cursor-not-allowed'}
                     transition-all duration-300
