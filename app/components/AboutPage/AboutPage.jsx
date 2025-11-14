@@ -276,19 +276,20 @@ const AboutPage = () => {
                   </h2>
                 </div>
                 <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
-                  I’m a 17-year-old Coptic Orthodox Egyptian and a junior at
-                  Oakton High School with a strong passion for technology,
-                  problem-solving, and building meaningful products. My
-                  interests in sports, math, programming, and AI grew into a
-                  desire to create tools that improve people’s lives. My faith
-                  has always been a steady part of who I am, and being a
-                  committed Christian shapes the way I work, lead, and make
-                  decisions. As the CTO and Co-Founder of Freshly, I focus on
-                  bringing technical vision, creativity, and leadership to a
-                  platform built to transform the grocery-shopping experience
-                  through AI. I’m driven by ambition, faith, purpose, and a
-                  long-term goal of building a career rooted in innovation,
-                  integrity, and impact.
+                  I'm a 17-year-old Coptic Orthodox Egyptian. I’m currently a
+                  junior at Oakton High School with a passion for technology,
+                  problem-solving and product building. My love for mathematics,
+                  programming and AI translated into the ambition of creating
+                  inventions that would help people. I've always been stable in
+                  my identity and background, with my faith being one of the
+                  dominant components of my life. As a devout Christian, my
+                  work, leadership, and decision-making all reflect the ethos of
+                  my belief system. As the CTO and Co-Founder of Freshly, I'm
+                  the technical visionary with a creative and leadership
+                  background to help manifest a platform designed to change the
+                  grocery shopping experience through AI. I'm inspired by
+                  ambition, faith, intention, and a lifelong goal to develop a
+                  career based on innovation, integrity and positive impact.
                 </p>
 
                 {/* Placeholder Stats */}
