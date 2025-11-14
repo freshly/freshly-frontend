@@ -92,7 +92,7 @@ const faqData = [
         id: 10,
         question: "How does the smart inventory management work?",
         answer:
-          "You can update your pantry manually, use barcode scanning, or integrate with a smart fridge (if supported) to track inventory in real time.",
+          "You can update your pantry manually, use barcode scanning, use reciept scanning,or integrate with a smart fridge (if supported) to track inventory in real time.",
       },
       {
         id: 11,

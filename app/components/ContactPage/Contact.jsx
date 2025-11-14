@@ -191,14 +191,6 @@ export default function ContactPage() {
               className="text-center mb-12 sm:mb-16"
             >
               <motion.div variants={fadeInUp} className="mb-8">
-                <motion.img
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                  src="/favicon.png"
-                  alt="Freshly Logo"
-                  className="w-20 h-20 sm:w-24 sm:h-24 object-contain mx-auto mb-6"
-                />
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-black mb-4">
                   Get in <span className="text-[#00A86B] font-normal">Touch</span>
                 </h1>
@@ -281,7 +273,7 @@ export default function ContactPage() {
               >
                 {/* Email Card */}
                 <motion.a
-                  href="mailto:david@joinfreshly.com"
+                  href="mailto:support@freshly.com"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="block bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group"

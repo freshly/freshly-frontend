@@ -566,14 +566,9 @@ export default function Product() {
                 href="/#waitlist"
                 className="px-8 py-4 bg-gradient-to-r from-[#FD8100] to-[#00A86B] text-white font-semibold rounded-full hover:shadow-2xl transform hover:scale-105 transition-all duration-300 text-center"
               >
-                Start Your Free Trial
+                Download
               </Link>
-              <Link
-                href="/#waitlist"
-                className="px-8 py-4 bg-white text-black border-2 border-black font-semibold rounded-full hover:bg-black hover:text-white transform hover:scale-105 transition-all duration-300 text-center"
-              >
-                Download App
-              </Link>
+          
             </div>
           </div>
         </div>
