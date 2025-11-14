@@ -83,14 +83,14 @@ export default function Waitlist() {
       icon: Calendar,
       number: "Q4 2025",
       label: "Expected launch",
-      color: "from-[#FD8100] to-[#FD8100]/60",
+      color: "from-[#00A86B] to-[#FD8100]",
       delay: 0.1,
     },
     {
       icon: Zap,
       number: "Early Access",
       label: "For waitlist members",
-      color: "from-[#00A86B] to-[#FD8100]",
+      color: "from-[#FD8100] to-[#FD8100]/60",
       delay: 0.2,
     },
   ];
