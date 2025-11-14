@@ -114,17 +114,17 @@ const DownloadPage = () => {
     {
       icon: Bell,
       title: "Get Notified First",
-      description: "Join our waitlist and be among the first to know when Freshly launches on your platform.",
+      description: "Join our waitlist & be among the first to know when Freshly launches on your platform.",
     },
     {
       icon: CheckCircle2,
       title: "Exclusive Early Access",
-      description: "Waitlist members get priority access and exclusive launch day benefits.",
+      description: "Waitlist members get priority access & exclusive launch day benefits.",
     },
     {
       icon: Smartphone,
       title: "Universal Experience",
-      description: "Seamless experience across both iOS and Android devices when we launch.",
+      description: "Seamless experience across both iOS & Android devices when we launch.",
     },
   ];
 
@@ -160,7 +160,7 @@ const DownloadPage = () => {
             </h1>
             
             <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-neutral-600 max-w-4xl mx-auto px-4 sm:px-6 font-light mb-6 sm:mb-8">
-              Your AI-powered grocery shopping assistant will be available later this year on both iOS and Android
+              Your favourite AI powered grocery shopping & meal planning all in one app will be available later this year on both iOS & Android
             </p>
             
             {/* Decorative line */}
@@ -228,7 +228,7 @@ const DownloadPage = () => {
                 </h3>
                 
                 <p className="text-base sm:text-lg md:text-xl text-gray-600 font-light leading-relaxed max-w-2xl mx-auto">
-                  We're putting the finishing touches on Freshly to ensure you get the best AI-powered grocery shopping experience. Both iOS and Android apps will launch simultaneously later this year.
+                  We're putting the finishing touches on Freshly to ensure you get the best AI powered grocery shopping & meal planning experience. Both iOS &Android apps will launch simultaneously later this year.
                 </p>
                 
                 <div className="pt-4 sm:pt-6 flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -292,7 +292,7 @@ const DownloadPage = () => {
             </h2>
             
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-neutral-300 mb-6 sm:mb-8 md:mb-10 px-4 sm:px-6 font-light">
-              Join thousands of others waiting for Freshly. Get notified the moment we launch on your platform.
+              Join thous&s of others waiting for Freshly. Get notified the moment we launch on your platform.
             </p>
             
             <Button
@@ -306,7 +306,7 @@ const DownloadPage = () => {
             </Button>
             
             <p className="mt-6 sm:mt-8 text-xs sm:text-sm text-neutral-400 px-4">
-              Available on iOS and Android • Launching Later This Year
+              Available on iOS & Android • Launching Later This Year
             </p>
           </div>
         </div>
