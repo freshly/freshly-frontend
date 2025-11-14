@@ -17,7 +17,6 @@ import {
 import { Inter } from "next/font/google";
 import { Button } from "../../../components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-i
 
 const inter = Inter({
   subsets: ["latin"],
