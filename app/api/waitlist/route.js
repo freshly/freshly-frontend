@@ -37,10 +37,16 @@ const brevoSenderEmail = process.env.BREVO_SENDER_EMAIL;
 const brevoSenderName = process.env.BREVO_SENDER_NAME;
 
 let brevoTransactionalApi = null;
+console.log('[waitlist-api] Preparing Brevo client', {
+  hasApiKey: Boolean(brevoApiKey),
+  hasSenderEmail: Boolean(brevoSenderEmail),
+  hasSenderName: Boolean(brevoSenderName),
+});
 if (brevoApiKey && brevoSenderEmail && brevoSenderName) {
   const brevoClient = Brevo.ApiClient.instance;
   brevoClient.authentications['apiKey'].apiKey = brevoApiKey;
   brevoTransactionalApi = new Brevo.TransactionalEmailsApi();
+  console.log('[waitlist-api] Brevo client initialized');
 } else {
   logContext('Missing Brevo configuration; confirmation emails disabled', {
     hasApiKey: Boolean(brevoApiKey),
@@ -52,6 +58,7 @@ if (brevoApiKey && brevoSenderEmail && brevoSenderName) {
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(request) {
+  console.log('[waitlist-api] POST /api/waitlist route hit');
   const payload = await request.json().catch(() => null);
 
   if (!payload) {
@@ -59,8 +66,18 @@ export async function POST(request) {
     return NextResponse.json({ error: 'Invalid JSON body' }, { status: 400 });
   }
 
+  console.log('[waitlist-api] Raw payload received', {
+    hasName: typeof payload.name === 'string',
+    hasEmail: typeof payload.email === 'string',
+  });
+
   const name = typeof payload.name === 'string' ? payload.name.trim() : '';
   const email = typeof payload.email === 'string' ? payload.email.trim().toLowerCase() : '';
+
+  console.log('[waitlist-api] Parsed payload', {
+    nameLength: name.length,
+    emailPreview: email ? `${email.slice(0, 3)}***` : null,
+  });
 
   if (!name || name.length > 120) {
     logContext('Rejected payload: invalid name', { nameLength: name.length });
@@ -71,6 +88,8 @@ export async function POST(request) {
     logContext('Rejected payload: invalid email', { email });
     return NextResponse.json({ error: 'A valid email is required' }, { status: 400 });
   }
+
+  console.log('[waitlist-api] Validation passed');
 
   const { error } = await supabase.from('users').insert({ name, email });
 
@@ -90,6 +109,7 @@ export async function POST(request) {
 
   if (brevoTransactionalApi) {
     try {
+      console.log('[waitlist-api] Constructing Brevo SendSmtpEmail payload');
       const emailPayload = new Brevo.SendSmtpEmail({
         sender: {
           email: brevoSenderEmail,
@@ -101,11 +121,18 @@ export async function POST(request) {
 <p>We'll notify you early when Freshly launches.</p>
 <p>– The Freshly Team</p>`,
       });
-      await brevoTransactionalApi.sendTransacEmail(emailPayload);
+      console.log('[waitlist-api] Brevo SendSmtpEmail payload constructed');
+      console.log('[waitlist-api] Sending Brevo transactional email');
+      const result = await brevoTransactionalApi.sendTransacEmail(emailPayload);
+      console.log('[waitlist-api] Brevo email send result', {
+        messageId: result?.messageId,
+        data: result,
+      });
     } catch (err) {
       logContext('Failed to send confirmation email via Brevo', {
         email,
         error: err?.message || err,
+        stack: err?.stack,
       });
     }
   }
