@@ -69,9 +69,15 @@ export default function Navbar() {
             </Link>
             <Link
               href="/about"
-              className="text-base lg:text-lg font-light text-white hover:text-white/80 transition-colors duration-200"
+              className="text-base lg:text-lg font-normal text-white hover:text-white/80 transition-colors duration-200"
             >
               Founders
+            </Link>
+                        <Link
+              href="/download"
+              className="text-base lg:text-lg font-normal text-white hover:text-white/80 transition-colors duration-200"
+            >
+              Download
             </Link>
             <Link
               href="/contact"

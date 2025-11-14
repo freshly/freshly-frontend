@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Inter } from "next/font/google";
-import { Button } from "@/components/ui/button";
+import { Button } from "../../../components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
 
 const inter = Inter({

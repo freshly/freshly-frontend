@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Inter } from "next/font/google";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "../../../components/ui/button";
+import { Input } from "../../../components/ui/input";
 import { Mail, ArrowRight, Check, Sparkles, Shield, Bell } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
