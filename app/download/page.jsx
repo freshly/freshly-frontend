@@ -292,7 +292,7 @@ const DownloadPage = () => {
             </h2>
             
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-neutral-300 mb-6 sm:mb-8 md:mb-10 px-4 sm:px-6 font-light">
-              Join thous&s of others waiting for Freshly. Get notified the moment we launch on your platform.
+              Join thousands of others waiting for Freshly. Get notified the moment we launch on your platform.
             </p>
             
             <Button
@@ -305,9 +305,6 @@ const DownloadPage = () => {
               </Link>
             </Button>
             
-            <p className="mt-6 sm:mt-8 text-xs sm:text-sm text-neutral-400 px-4">
-              Available on iOS & Android • Launching Later This Year
-            </p>
           </div>
         </div>
       </section>

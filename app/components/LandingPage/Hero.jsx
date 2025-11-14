@@ -399,23 +399,6 @@ export default function Hero() {
                 </div>
 
                 {/* Call to Action */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.4, duration: 0.6 }}
-                  className="mt-10 text-center"
-                >
-                  <p className="text-gray-400 mb-6 text-lg">
-                    It's time to transform your grocery experience
-                  </p>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-8 py-3 bg-[#00A86B] text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-                  >
-                    Discover the Solution →
-                  </motion.button>
-                </motion.div>
               </div>
             </div>
           </div>

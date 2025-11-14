@@ -180,7 +180,6 @@ const AboutPage = () => {
                         </motion.a>
                       </div>
                     </div>
-
                   </div>
 
                   {/* Image Section */}
@@ -427,9 +426,7 @@ const AboutPage = () => {
                               stroke="currentColor"
                               viewBox="0 0 24 24"
                             >
-                              <path
-                                d="M4.98 3.5C4.98 5 3.9 6 2.5 6S0 5 0 3.5 1.08 1 2.5 1s2.48 1 2.48 2.5zM.24 8h4.52v14H.24V8zM8.75 8h4.33v1.92h.06c.6-1.14 2.06-2.35 4.24-2.35 4.53 0 5.37 2.98 5.37 6.85V22h-4.52v-6.45c0-1.54-.03-3.52-2.15-3.52-2.15 0-2.48 1.67-2.48 3.4V22H8.75V8z"
-                              />
+                              <path d="M4.98 3.5C4.98 5 3.9 6 2.5 6S0 5 0 3.5 1.08 1 2.5 1s2.48 1 2.48 2.5zM.24 8h4.52v14H.24V8zM8.75 8h4.33v1.92h.06c.6-1.14 2.06-2.35 4.24-2.35 4.53 0 5.37 2.98 5.37 6.85V22h-4.52v-6.45c0-1.54-.03-3.52-2.15-3.52-2.15 0-2.48 1.67-2.48 3.4V22H8.75V8z" />
                             </svg>
                           </div>
                           <span className="text-sm sm:text-base">
@@ -438,7 +435,6 @@ const AboutPage = () => {
                         </motion.a>
                       </div>
                     </div>
-
                   </div>
                 </div>
               </motion.div>
@@ -481,7 +477,12 @@ const AboutPage = () => {
                   bgColor: "bg-[#FD8100]/10",
                   borderColor: "border-[#FD8100]/20",
                   icon: "🤔",
-                  content: ` It was 2020, during the Covid lockdown. It was 3 A.M., I was 14, tired, hungry, and stuck at home. My parents couldn’t go out, groceries were running low, and I kept opening the fridge and pantry expecting something to magically appear. There was food, I just didn’t know what to do with any of it. \n\n  That night, I made what I now call a “struggle meal”: two end pieces of bread, ketchup, mayo, and crushed potato chips in the middle. It looked miserable, but that first bite hit. As I ate, one thought kept circling in my head: Why isn’t there something that can just tell me what I can make with what I already have? Something that understands my culture, my tastes, and how I actually eat? \n\n Years later, talking with friends, I realized I wasn’t the only one who felt this way. We all deal with the same thing: grocery shopping and meal planning are way more stressful than they should be. We’re walking through crowded stores, trying to remember what we need, guessing what we’ll actually cook, and still ending up wasting food or defaulting to unhealthy choices. On top of that, studies show we spend over six hours every week just planning, shopping, and prepping meals. Time and energy most of us don’t have.`,
+                  content: `
+It was 2020, during the Covid lockdown. It was 3 A.M., I was 14, tired, hungry, and stuck at home. My parents couldn’t go out, groceries were running low, and I kept opening the fridge and pantry hoping something new would magically appear. There was food, I just didn’t know what to do with any of it.
+
+That night, I made what I now call a “struggle meal”: two end pieces of bread, ketchup, mayo, and crushed potato chips in the middle. It looked miserable, but the first bite hit. And as I ate it, one thought kept circling in my mind: Why isn’t there something that can just tell me what I can make with what I already have? Something that understands culture, personal tastes, and how people actually eat.
+
+Years later, talking with friends, I realized everyone felt the same way. Grocery shopping and meal planning are way more stressful than they should be. We walk through crowded stores trying to remember what we need, guessing what we’ll cook, and still end up wasting food or grabbing unhealthy options. On top of that, studies show we spend over six hours every week just planning, shopping, and prepping meals. Time and energy most of us don’t have!`,
                 },
                 {
                   title: "Idea",
@@ -490,11 +491,11 @@ const AboutPage = () => {
                   bgColor: "bg-[#00A86B]/10",
                   borderColor: "border-[#00A86B]/20",
                   icon: "💡",
-                  content: `After seeing how time-consuming, disorganized, and wasteful the grocery process has become, our idea is to build a single, intelligent system that finally brings the entire experience together. Instead of relying on scattered notes, half-functioning apps, and guesswork, we imagine one unified platform that understands our habits, keeps track of what’s in our kitchen, and helps us make smarter decisions every day.
+                  content: `After seeing how time consuming and disorganized the grocery process has become, our idea is to build one intelligent system that finally brings everything together. Instead of relying on scattered notes, half-functioning apps, and guesswork, we imagine a connected platform that understands our habits, keeps track of what’s in our kitchen, and helps us make smarter decisions every day.
 
-We want to create a tool that eliminates the chaos, something that reduces the hours spent planning meals, prevents duplicate purchases, and helps households stop wasting food each week. Current apps only solve pieces of the journey; none of them address the full cycle of planning, tracking, organizing, and saving. Our idea is to fill that gap with an all-in-one approach that makes grocery shopping feel clear, structured, and effortless instead of stressful and repetitive.
+We want to eliminate the chaos, reduce the hours spent planning meals, stop duplicate purchases, and help households cut down on weekly food waste. Current apps only solve small pieces of the journey; none address the full cycle of planning, tracking, organizing, and saving. Our idea fills that gap with an all-in-one approach that makes grocery shopping feel clear, structured, and effortless instead of stressful and repetitive.
 
-At its core, the idea is simple: a smarter way for households to manage food. A connected system that helps us stay organized, spend less, waste less, and make weekly grocery planning feel modern, efficient, and actually enjoyable. This is the foundation that sets the stage for the solution we’re building. `,
+At its core, the idea is simple: a smarter way for households to manage food. A unified system that helps us stay organized, spend less, waste less, and make grocery planning feel modern, efficient, and actually enjoyable.`,
                 },
                 {
                   title: "Solution",
@@ -502,11 +503,12 @@ At its core, the idea is simple: a smarter way for households to manage food. A 
                   bgColor: "bg-[#FD8100]/10",
                   borderColor: "border-[#FD8100]/20",
                   icon: "🚀",
-                  content: `Freshly solves these everyday challenges through a seamless, easy-to-use app that takes the stress out of planning and shopping. It cuts down decision fatigue by helping users know what meals they can make, what groceries they need, and what they already have at home. Instead of dealing with scattered notes and multiple apps, everything stays organized in one clean, simple interface.
+                  content: `
+Freshly solves these everyday challenges with a simple, seamless app that takes the stress out of planning and shopping. It cuts down decision fatigue by helping users know what meals they can make, what groceries they need, and what they already have at home. All in one clean, easy-to-use interface.
 
-Using smart features like pantry tracking, automatic grocery lists, and price comparison, Freshly brings clarity to a process that usually feels chaotic. The app updates in real time, so users always know what’s running low, what’s about to expire, and where they can save money on their next grocery trip. This reduces waste, prevents duplicate purchases, and helps families stretch their budgets further.
+With smart features like pantry tracking, automatic grocery lists, and price comparison, Freshly brings clarity to a process that usually feels chaotic. The app updates in real time, so users always know what’s running low, what’s about to expire, and where they can save money. This prevents waste, stops duplicate purchases, and helps families stretch their budgets further.
 
-Freshly is especially helpful for anyone with limited time, energy, or a busy schedule. With just a few taps, users can stay on top of meals, find affordable options, and keep their kitchen organized without extra effort. It turns grocery shopping and meal planning into a smoother, simpler part of everyday life, saving time, saving money, and making food choices easier for everyone.`,
+Freshly is especially helpful for anyone with limited time, energy, or a packed schedule. With just a few taps, users can stay on top of meals, find affordable options, and keep their kitchens organized with almost no effort. It turns grocery shopping and meal planning into a smoother, simpler part of everyday life. Freshly helps you save time, save money, and make better food choices feel effortless.`,
                 },
               ].map((section, index) => (
                 <motion.div

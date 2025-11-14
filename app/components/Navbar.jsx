@@ -62,28 +62,30 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-4 lg:space-x-6 xl:space-x-8">
             <Link
-              href="/faqs"
-              className="text-base lg:text-lg font-normal text-white hover:text-white/80 transition-colors duration-200"
-            >
-              FAQs
-            </Link>
-            <Link
               href="/about"
               className="text-base lg:text-lg font-normal text-white hover:text-white/80 transition-colors duration-200"
             >
-              Founders
+              Visionaries
+            </Link>  
+
+            <Link
+              href="/contact"
+              className="text-base lg:text-lg font-normal text-white hover:text-white/80 transition-colors duration-200"
+            >
+              Connect
             </Link>
-                        <Link
+            <Link
               href="/download"
               className="text-base lg:text-lg font-normal text-white hover:text-white/80 transition-colors duration-200"
             >
               Download
             </Link>
+
             <Link
-              href="/contact"
+              href="/faqs"
               className="text-base lg:text-lg font-normal text-white hover:text-white/80 transition-colors duration-200"
             >
-              Contact
+              FAQ
             </Link>
             <a
               href="/#waitlist"
