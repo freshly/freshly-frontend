@@ -536,9 +536,9 @@ At its core, the idea is simple: a smarter way for households to manage food. A 
                 },
                 {
                   title: "Solution",
-                  color: "text-[#00A86B]",
-                  bgColor: "bg-[#00A86B]/10",
-                  borderColor: "border-[#00A86B]/20",
+                  color: "text-[#FD8100]",
+                  bgColor: "bg-[#FD8100]/10",
+                  borderColor: "border-[#FD8100]/20",
                   icon: "🚀",
                   content: `Freshly solves these everyday challenges through a seamless, easy-to-use app that takes the stress out of planning and shopping. It cuts down decision fatigue by helping users know what meals they can make, what groceries they need, and what they already have at home. Instead of dealing with scattered notes and multiple apps, everything stays organized in one clean, simple interface.
 

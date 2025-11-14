@@ -234,10 +234,10 @@ export default function ContactPage() {
                   {
                     icon: Sparkles,
                     text: "Real Solutions",
-                    accent: "#0F172A",
+                    accent: "#00A86B",
                     gradient:
-                      "linear-gradient(135deg, rgba(15,23,42,0.12), rgba(255,255,255,0.95))",
-                    shadow: "0 15px 35px rgba(15,23,42,0.15)",
+                      "linear-gradient(135deg, rgba(0,168,107,0.15), rgba(255,255,255,0.95))",
+                    shadow: "0 15px 35px rgba(0,168,107,0.18)",
                   },
                 ].map((item, index) => (
                   <motion.div
@@ -293,7 +293,7 @@ export default function ContactPage() {
                     <div className="flex-1 min-w-0">
                       <p className="text-sm text-gray-500 mb-1">Email Us</p>
                       <p className="text-[#00A86B] font-medium break-all">
-                        dg@joinfreshly.com
+                        david@joinfreshly.com
                       </p>
                     </div>
                   </div>
@@ -335,31 +335,6 @@ export default function ContactPage() {
                   </div>
                 </motion.div>
 
-                {/* Response Time Card */}
-                <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  className="relative overflow-hidden rounded-2xl border border-[#FD8100]/20 bg-[#FFFBF5] p-6 shadow-lg"
-                >
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#FD8100]/10 via-transparent to-[#00A86B]/10" />
-                  <div className="relative flex items-start gap-4">
-                    <div className="rounded-xl bg-white/80 p-3 shadow-sm">
-                      <Clock className="h-6 w-6 text-[#FD8100]" />
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-sm font-medium text-[#B45309] mb-1">
-                        Response Time
-                      </p>
-                      <p className="text-lg font-semibold text-gray-900">
-                        Within 24 hours
-                      </p>
-                      <p className="text-sm text-gray-600">
-                        We’re quickest Monday through Friday.
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
               </motion.div>
 
               {/* Contact Form */}
