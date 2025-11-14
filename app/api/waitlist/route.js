@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
-import { Resend } from 'resend';
+import Brevo from '@getbrevo/brevo';
 
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -32,10 +32,21 @@ const supabase = createClient(parsedUrl.toString(), supabaseServiceRoleKey, {
   auth: { persistSession: false },
 });
 
-const resendApiKey = process.env.RESEND_API_KEY;
-const resend = resendApiKey ? new Resend(resendApiKey) : null;
-if (!resendApiKey) {
-  logContext('Missing RESEND_API_KEY; confirmation emails disabled');
+const brevoApiKey = process.env.BREVO_API_KEY;
+const brevoSenderEmail = process.env.BREVO_SENDER_EMAIL;
+const brevoSenderName = process.env.BREVO_SENDER_NAME;
+
+let brevoTransactionalApi = null;
+if (brevoApiKey && brevoSenderEmail && brevoSenderName) {
+  const brevoClient = Brevo.ApiClient.instance;
+  brevoClient.authentications['apiKey'].apiKey = brevoApiKey;
+  brevoTransactionalApi = new Brevo.TransactionalEmailsApi();
+} else {
+  logContext('Missing Brevo configuration; confirmation emails disabled', {
+    hasApiKey: Boolean(brevoApiKey),
+    hasSenderEmail: Boolean(brevoSenderEmail),
+    hasSenderName: Boolean(brevoSenderName),
+  });
 }
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -77,18 +88,22 @@ export async function POST(request) {
     return NextResponse.json({ error: 'Unable to add you to the waitlist', details: error.message }, { status: 500 });
   }
 
-  if (resend) {
+  if (brevoTransactionalApi) {
     try {
-      await resend.emails.send({
-        from: 'Freshly <onboarding@resend.dev>',
-        to: email,
+      const emailPayload = new Brevo.SendSmtpEmail({
+        sender: {
+          email: brevoSenderEmail,
+          name: brevoSenderName,
+        },
+        to: [{ email, name }],
         subject: 'You’re on the Freshly waitlist!',
-        html: `<p>Hey ${name}, thanks for joining the Freshly waitlist! 🎉</p>
+        htmlContent: `<p>Hey ${name}, thanks for joining the Freshly waitlist! 🎉</p>
 <p>We'll notify you early when Freshly launches.</p>
 <p>– The Freshly Team</p>`,
       });
+      await brevoTransactionalApi.sendTransacEmail(emailPayload);
     } catch (err) {
-      logContext('Failed to send confirmation email via Resend', {
+      logContext('Failed to send confirmation email via Brevo', {
         email,
         error: err?.message || err,
       });
