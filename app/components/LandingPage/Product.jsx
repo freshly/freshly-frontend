@@ -204,7 +204,7 @@ export default function Product() {
                 <div className="w-full lg:w-1/2">
                   <div className="grid grid-cols-3 gap-3 sm:gap-4">
                     {[
-                      { src: "/pantry.png", ratio: "660 / 1436", alt: "Pantry Management" },
+                      { src: "/pantry2.png", ratio: "660 / 1436", alt: "Pantry Management" },
                       { src: "/p1.png", ratio: "1206 / 2622", alt: "Smart Cart" },
                       { src: "/p2.png", ratio: "1206 / 2622", alt: "Shop Selection" },
                     ].map((img) => (
