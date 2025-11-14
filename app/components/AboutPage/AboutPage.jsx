@@ -181,24 +181,6 @@ const AboutPage = () => {
                       </div>
                     </div>
 
-                    <div className="pt-6 flex justify-center md:justify-start">
-                      <motion.div
-                        animate={{ rotate: [0, 5, -5, 0] }}
-                        transition={{
-                          duration: 4,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                        }}
-                        className="relative w-20 h-20"
-                      >
-                        <Image
-                          src="/freshly-icon-square.png"
-                          alt="Freshly Icon"
-                          fill
-                          style={{ objectFit: "contain" }}
-                        />
-                      </motion.div>
-                    </div>
                   </div>
 
                   {/* Image Section */}
@@ -457,26 +439,6 @@ const AboutPage = () => {
                       </div>
                     </div>
 
-                    <div className="pt-6 flex justify-center md:justify-start">
-                      <motion.div
-                        animate={{ rotate: [0, -5, 5, 0] }}
-                        transition={{
-                          duration: 4,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                          delay: 2,
-                        }}
-                        className="relative w-20 h-20"
-                      >
-                        <Image
-                          src="/freshly-icon-square.png"
-                          alt="Freshly Icon"
-                          fill
-                          style={{ objectFit: "contain" }}
-                          className="opacity-80"
-                        />
-                      </motion.div>
-                    </div>
                   </div>
                 </div>
               </motion.div>
