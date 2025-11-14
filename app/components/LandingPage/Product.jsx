@@ -147,12 +147,6 @@ export default function Product() {
               >
                 Get Started Free
               </Link>
-              <Link
-                href="/#waitlist"
-                className="px-8 py-4 bg-black text-white font-semibold rounded-full hover:bg-gray-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-center"
-              >
-                Watch Demo
-              </Link>
             </div>
           </div>
         </div>

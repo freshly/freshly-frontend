@@ -285,7 +285,7 @@ export default function ContactPage() {
                     <div className="flex-1 min-w-0">
                       <p className="text-sm text-gray-500 mb-1">Email Us</p>
                       <p className="text-[#00A86B] font-medium break-all">
-                        david@joinfreshly.com
+                        support@joinfreshly.com
                       </p>
                     </div>
                   </div>

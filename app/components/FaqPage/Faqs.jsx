@@ -92,7 +92,7 @@ const faqData = [
         id: 10,
         question: "How does the smart inventory management work?",
         answer:
-          "You can update your pantry manually, use barcode scanning, use reciept scanning,or integrate with a smart fridge (if supported) to track inventory in real time.",
+          "You can update your pantry manually, use barcode scanning, use reciept scanning, or integrate with a smart fridge (if supported) to track inventory in real time.",
       },
       {
         id: 11,
@@ -396,7 +396,11 @@ const FaqPage = () => {
               Ready to Transform Your{" "}
               <span className="text-[#FD8100] font-normal">
                 Grocery Shopping
+              </span>{""} and {""}
+                <span className="text-[#00A86B] font-normal">
+                meal planning {""}
               </span>
+              experience
               ?
             </h2>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-center text-neutral-300 mb-6 sm:mb-8 md:mb-10 px-4 sm:px-6 font-light">

@@ -211,7 +211,7 @@ export default function Hero() {
                 transition={{ duration: 2, repeat: Infinity }}
               />
               <span className="text-sm font-medium text-gray-700">
-                AI-Powered Meal Planning
+               AI powered Grocery shopping and meal planning
               </span>
             </div>
           </motion.div>
