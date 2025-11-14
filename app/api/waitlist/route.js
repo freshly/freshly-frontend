@@ -43,10 +43,20 @@ console.log('[waitlist-api] Preparing Brevo client', {
   hasSenderName: Boolean(brevoSenderName),
 });
 if (brevoApiKey && brevoSenderEmail && brevoSenderName) {
-  const brevoClient = Brevo.ApiClient.instance;
-  brevoClient.authentications['apiKey'].apiKey = brevoApiKey;
+  const brevoClient = Brevo?.ApiClient?.instance;
+  if (brevoClient?.authentications?.apiKey) {
+    brevoClient.authentications.apiKey.apiKey = brevoApiKey;
+    console.log('[waitlist-api] Brevo ApiClient authenticated');
+  } else {
+    console.log('[waitlist-api] Brevo ApiClient.instance unavailable; using TransactionalEmailsApi auth setter');
+  }
   brevoTransactionalApi = new Brevo.TransactionalEmailsApi();
-  console.log('[waitlist-api] Brevo client initialized');
+  if (typeof brevoTransactionalApi.setApiKey === 'function') {
+    brevoTransactionalApi.setApiKey('apiKey', brevoApiKey);
+  } else if (brevoTransactionalApi?.authentications?.apiKey) {
+    brevoTransactionalApi.authentications.apiKey.apiKey = brevoApiKey;
+  }
+  console.log('[waitlist-api] Brevo TransactionalEmailsApi initialized');
 } else {
   logContext('Missing Brevo configuration; confirmation emails disabled', {
     hasApiKey: Boolean(brevoApiKey),
