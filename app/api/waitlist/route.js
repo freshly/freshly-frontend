@@ -51,10 +51,10 @@ if (brevoApiKey && brevoSenderEmail && brevoSenderName) {
     console.log('[waitlist-api] Brevo ApiClient.instance unavailable; using TransactionalEmailsApi auth setter');
   }
   brevoTransactionalApi = new Brevo.TransactionalEmailsApi();
-  if (typeof brevoTransactionalApi.setApiKey === 'function') {
-    brevoTransactionalApi.setApiKey('apiKey', brevoApiKey);
-  } else if (brevoTransactionalApi?.authentications?.apiKey) {
+  if (brevoTransactionalApi?.authentications?.apiKey) {
     brevoTransactionalApi.authentications.apiKey.apiKey = brevoApiKey;
+  } else {
+    console.log('[waitlist-api] Brevo TransactionalEmailsApi missing authentications.apiKey');
   }
   console.log('[waitlist-api] Brevo TransactionalEmailsApi initialized');
 } else {
