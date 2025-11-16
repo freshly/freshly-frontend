@@ -115,7 +115,7 @@ const AboutPage = () => {
                         >
                           <div className="w-10 h-10 rounded-full bg-[#00A86B]/10 flex items-center justify-center group-hover:bg-[#00A86B]/20 transition-colors">
                             <svg
-                              className="w-5 h-5 text-[#00A86B]"
+                              className="w-5 h-5 text-[#00A86B] m-2"
                               fill="none"
                               stroke="currentColor"
                               viewBox="0 0 24 24"
@@ -132,32 +132,6 @@ const AboutPage = () => {
                             david@joinfreshly.com
                           </span>
                         </motion.a>
-
-                        <motion.a
-                          href="tel:703-473-5256"
-                          whileHover={{ x: 5 }}
-                          className="flex items-center gap-3 text-gray-600 hover:text-[#00A86B] transition-colors group"
-                        >
-                          <div className="w-10 h-10 rounded-full bg-[#00A86B]/10 flex items-center justify-center group-hover:bg-[#00A86B]/20 transition-colors">
-                            <svg
-                              className="w-5 h-5 text-[#00A86B]"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                              />
-                            </svg>
-                          </div>
-                          <span className="text-sm sm:text-base">
-                            703-473-5256
-                          </span>
-                        </motion.a>
-
                         <motion.a
                           href="https://www.linkedin.com/in/davidgendy/"
                           target="_blank"
@@ -184,16 +158,19 @@ const AboutPage = () => {
 
                   {/* Image Section */}
                   <div
-                    className="relative order-1 md:order-2 overflow-hidden group"
-                    style={{ aspectRatio: "3168 / 4752", minHeight: "400px" }}
+                    className="order-1 md:order-2 flex items-center justify-center bg-white h-full w-full"
+                    style={{ minHeight: "400px" }}
                   >
-                    <Image
-                      src="/Aura .png"
-                      alt="David Gendy - Founder of Freshly"
-                      fill
-                      sizes="(min-width: 1024px) 40vw, 100vw"
-                      className="object-contain transition-transform duration-500 group-hover:scale-105"
-                    />
+                    <div className="w-[400px] h-[400px] sm:w-[440px] sm:h-[440px] md:w-[480px] md:h-[480px] rounded-full overflow-hidden shadow-lg mr-7">
+                      <Image
+                        src="/Aura .png"
+                        alt="David Gendy - Founder of Freshly"
+                        width={1056}
+                        height={1584}
+                        sizes="(min-width: 1024px) 40vw, 100vw"
+                        className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -371,7 +348,7 @@ const AboutPage = () => {
                         >
                           <div className="w-10 h-10 rounded-full bg-[#FD8100]/10 flex items-center justify-center group-hover:bg-[#FD8100]/20 transition-colors">
                             <svg
-                              className="w-5 h-5 text-[#FD8100]"
+                              className="w-5 h-5 text-[#FD8100] m-2"
                               fill="none"
                               stroke="currentColor"
                               viewBox="0 0 24 24"
@@ -389,30 +366,6 @@ const AboutPage = () => {
                           </span>
                         </motion.a>
 
-                        <motion.a
-                          href="tel:703-595-1334"
-                          whileHover={{ x: 5 }}
-                          className="flex items-center gap-3 text-gray-600 hover:text-[#FD8100] transition-colors group"
-                        >
-                          <div className="w-10 h-10 rounded-full bg-[#FD8100]/10 flex items-center justify-center group-hover:bg-[#FD8100]/20 transition-colors">
-                            <svg
-                              className="w-5 h-5 text-[#FD8100]"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                              />
-                            </svg>
-                          </div>
-                          <span className="text-sm sm:text-base">
-                            703-595-1334
-                          </span>
-                        </motion.a>
 
                         <motion.a
                           href="https://www.linkedin.com/in/george-abdallah-226358397/"
@@ -422,7 +375,7 @@ const AboutPage = () => {
                         >
                           <div className="w-10 h-10 rounded-full bg-[#FD8100]/10 flex items-center justify-center group-hover:bg-[#FD8100]/20 transition-colors">
                             <svg
-                              className="w-5 h-5 text-[#FD8100]"
+                              className="w-5 h-5 text-[#FD8100] "
                               fill="currentColor"
                               stroke="currentColor"
                               viewBox="0 0 24 24"
