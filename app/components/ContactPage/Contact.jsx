@@ -192,7 +192,7 @@ export default function ContactPage() {
             >
               <motion.div variants={fadeInUp} className="mb-8">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-black mb-4">
-                  Get in <span className="text-[#00A86B] font-normal">Touch</span>
+                  Get in<span className="text-[#00A86B] font-normal">Touch</span>
                 </h1>
                 <p className="text-gray-600 text-base sm:text-lg md:text-xl max-w-2xl mx-auto">
                   Have questions or feedback? We'd love to hear from you.

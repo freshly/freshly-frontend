@@ -318,7 +318,7 @@ export default function WaitlistForm({
       >
         <div className="flex items-center gap-2">
           <Shield className="w-4 h-4 text-[#00A86B]" />
-          <span>privacy guaranteed</span>
+          <span>Privacy guaranteed</span>
         </div>
         <div className="hidden sm:block w-1 h-1 bg-gray-600 rounded-full" />
         <div className="flex items-center gap-2">

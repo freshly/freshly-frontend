@@ -150,50 +150,10 @@ export default function Product() {
             </div>
           </div>
         </div>
-
-        {/* Stats Bar */}
-        <div className="py-12 px-4 sm:px-6">
-          <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
-            {[
-              {
-                number: "5K+",
-                label: "People in the waitlist",
-                color: "text-[#FD8100]",
-              },
-              {
-                number: "35%",
-                label: "Average Savings",
-                color: "text-[#00A86B]",
-              },
-              {
-                number: "1M+",
-                label: "Recipes Created",
-                color: "text-[#FD8100]",
-              },
-              {
-                number: "Q4 2025",
-                label: "Launching in",
-                color: "text-[#00A86B]",
-              },
-            ].map((stat, index) => (
-              <div
-                key={index}
-                className="text-center p-4 bg-white/80 backdrop-blur rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className={`text-2xl sm:text-3xl font-bold ${stat.color}`}>
-                  {stat.number}
-                </div>
-                <div className="text-sm text-gray-600 mt-1">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Feature Section 1 - AI-Powered Personalization */}
         <div
           ref={(el) => (featuresRef.current[0] = el)}
-          className="feature-card opacity-0 mt-16 mx-4 sm:mx-6 lg:mx-auto max-w-7xl"
+          className="feature-card opacity-0  mx-4 sm:mx-6 lg:mx-auto max-w-7xl"
         >
           <div className="relative rounded-3xl bg-white shadow-2xl overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-[#FD8100]/15 via-transparent to-[#00A86B]/10" />
@@ -547,8 +507,7 @@ export default function Product() {
                 {" "}
                 meal planning{" "}
               </span>
-              experience
-              ?
+              experience?
             </h2>
             <p className="text-lg text-gray-600 mb-8">
               Join thousands of users who save time and money every week.
