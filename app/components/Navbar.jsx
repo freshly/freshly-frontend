@@ -146,7 +146,7 @@ export default function Navbar() {
             className="block px-4 py-3 rounded-md text-base font-light text-white hover:bg-white/10 transition-colors duration-200"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            FAQs
+            FAQ
           </Link>
 
           <a
