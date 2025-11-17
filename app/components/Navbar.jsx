@@ -66,8 +66,8 @@ export default function Navbar() {
               className="text-base lg:text-lg font-normal text-white hover:text-white/80 transition-colors duration-200"
             >
               Visionaries
-            </Link>  
-
+            </Link>
+              
             <Link
               href="/contact"
               className="text-base lg:text-lg font-normal text-white hover:text-white/80 transition-colors duration-200"
@@ -80,7 +80,6 @@ export default function Navbar() {
             >
               Download
             </Link>
-
             <Link
               href="/faqs"
               className="text-base lg:text-lg font-normal text-white hover:text-white/80 transition-colors duration-200"
@@ -125,8 +124,23 @@ export default function Navbar() {
             className="block px-4 py-3 rounded-md text-base font-light text-white hover:bg-white/10 transition-colors duration-200"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            Founders
+            Visionaries
           </Link>
+          <Link
+            href="/contact"
+            className="block px-4 py-3 rounded-md text-base font-light text-white hover:bg-white/10 transition-colors duration-200"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Connect
+          </Link>
+          <Link
+            href="/download"
+            className="block px-4 py-3 rounded-md text-base font-light text-white hover:bg-white/10 transition-colors duration-200"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Download
+          </Link>
+
           <Link
             href="/faqs"
             className="block px-4 py-3 rounded-md text-base font-light text-white hover:bg-white/10 transition-colors duration-200"
@@ -134,13 +148,7 @@ export default function Navbar() {
           >
             FAQs
           </Link>
-          <Link
-            href="/contact"
-            className="block px-4 py-3 rounded-md text-base font-light text-white hover:bg-white/10 transition-colors duration-200"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Contact
-          </Link>
+
           <a
             href="/#waitlist"
             className="block w-full px-4 py-3 mt-2 rounded-md text-base font-medium text-center bg-white text-[rgb(21,128,60)] hover:bg-white/90 transition-colors duration-200"

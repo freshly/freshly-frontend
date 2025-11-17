@@ -322,7 +322,7 @@ export default function ContactPage() {
                     </div>
                     <div className="flex-1">
                       <p className="text-sm text-gray-500 mb-1">Location</p>
-                      <p className="text-black font-medium">Washignton DC</p>
+                      <p className="text-black font-medium">Washington D.C.</p>
                     </div>
                   </div>
                 </motion.div>
