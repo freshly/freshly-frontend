@@ -62,12 +62,11 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-4 lg:space-x-6 xl:space-x-8">
             <Link
-              href="/about"
+              href="/download"
               className="text-base lg:text-lg font-normal text-white hover:text-white/80 transition-colors duration-200"
             >
-              Visionaries
+              Download
             </Link>
-              
             <Link
               href="/contact"
               className="text-base lg:text-lg font-normal text-white hover:text-white/80 transition-colors duration-200"
@@ -75,11 +74,12 @@ export default function Navbar() {
               Connect
             </Link>
             <Link
-              href="/download"
+              href="/about"
               className="text-base lg:text-lg font-normal text-white hover:text-white/80 transition-colors duration-200"
             >
-              Download
+              Visionaries
             </Link>
+              
             <Link
               href="/faqs"
               className="text-base lg:text-lg font-normal text-white hover:text-white/80 transition-colors duration-200"
@@ -120,11 +120,11 @@ export default function Navbar() {
       >
         <div className="px-4 pt-2 pb-4 space-y-2 bg-neutral-950 border-t border-white/10">
           <Link
-            href="/about"
+            href="/download"
             className="block px-4 py-3 rounded-md text-base font-light text-white hover:bg-white/10 transition-colors duration-200"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            Visionaries
+            Download
           </Link>
           <Link
             href="/contact"
@@ -134,11 +134,11 @@ export default function Navbar() {
             Connect
           </Link>
           <Link
-            href="/download"
+            href="/about"
             className="block px-4 py-3 rounded-md text-base font-light text-white hover:bg-white/10 transition-colors duration-200"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            Download
+            Visionaries
           </Link>
 
           <Link
