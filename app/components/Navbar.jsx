@@ -54,7 +54,7 @@ export default function Navbar() {
               <img
                 className="h-12 sm:h-14 md:h-16 lg:h-15 w-auto"
                 src="/rl.png"
-                alt="Savr Logo"
+                alt="SAVR Logo"
               />
             </Link>
           </div>

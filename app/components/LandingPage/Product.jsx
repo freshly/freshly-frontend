@@ -268,7 +268,7 @@ export default function Product() {
                 <div className="w-full lg:w-1/2">
                   <div className="grid grid-cols-3 gap-3 sm:gap-4">
                     {[
-                      { src: "/home.png", alt: "Savr Home", ratio: "750 / 1624" },
+                      { src: "/home.png", alt: "SAVR Home", ratio: "750 / 1624" },
                       { src: "/quick.png", alt: "Quick Recipes", ratio: "750 / 1624" },
                       { src: "/cart.png", alt: "Smart Cart", ratio: "750 / 1624" },
                     ].map((img) => (

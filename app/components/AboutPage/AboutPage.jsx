@@ -109,7 +109,7 @@ const AboutPage = () => {
 
                       <div className="space-y-4">
                         <motion.a
-                          href="mailto:david@joinsavr.com"
+                          href="mailto:david@joinfreshly.com"
                           whileHover={{ x: 5 }}
                           className="flex items-center gap-3 text-gray-600 hover:text-[#00A86B] transition-colors group"
                         >
@@ -129,7 +129,7 @@ const AboutPage = () => {
                             </svg>
                           </div>
                           <span className="text-sm sm:text-base">
-                            david@joinsavr.com
+                            david@joinfreshly.com
                           </span>
                         </motion.a>
                         <motion.a
@@ -164,7 +164,7 @@ const AboutPage = () => {
                     <div className="w-[400px] h-[400px] sm:w-[440px] sm:h-[440px] md:w-[480px] md:h-[480px] rounded-full overflow-hidden shadow-lg mr-7">
                       <Image
                         src="/Aura .png"
-                        alt="David Gendy - Founder of Savr"
+                        alt="David Gendy - Founder of SAVR"
                         width={1056}
                         height={1584}
                         sizes="(min-width: 1024px) 40vw, 100vw"
@@ -261,7 +261,7 @@ const AboutPage = () => {
                   my identity and background, with my faith being one of the
                   dominant components of my life. As a devout Christian, my
                   work, leadership, and decision-making all reflect the ethos of
-                  my belief system. As the CTO and Co-Founder of Savr, I'm
+                  my belief system. As the CTO and Co-Founder of SAVR, I'm
                   the technical visionary with a creative and leadership
                   background to help manifest a platform designed to change the
                   grocery shopping experience through AI. I'm inspired by
@@ -342,7 +342,7 @@ const AboutPage = () => {
 
                       <div className="space-y-4">
                         <motion.a
-                          href="mailto:george@joinsavr.com"
+                          href="mailto:george@joinfreshly.com"
                           whileHover={{ x: 5 }}
                           className="flex items-center gap-3 text-gray-600 hover:text-[#FD8100] transition-colors group"
                         >
@@ -362,7 +362,7 @@ const AboutPage = () => {
                             </svg>
                           </div>
                           <span className="text-sm sm:text-base">
-                            george@joinsavr.com
+                            george@joinfreshly.com
                           </span>
                         </motion.a>
 
@@ -458,11 +458,11 @@ At its core, the idea is simple: a smarter way for households to manage food. A 
                   borderColor: "border-[#FD8100]/20",
                   icon: "🚀",
                   content: `
-Savr solves these everyday challenges with a simple, seamless app that takes the stress out of planning and shopping. It cuts down decision fatigue by helping users know what meals they can make, what groceries they need, and what they already have at home. All in one clean, easy-to-use interface.
+SAVR solves these everyday challenges with a simple, seamless app that takes the stress out of planning and shopping. It cuts down decision fatigue by helping users know what meals they can make, what groceries they need, and what they already have at home. All in one clean, easy-to-use interface.
 
-With smart features like pantry tracking, automatic grocery lists, and price comparison, Savr brings clarity to a process that usually feels chaotic. The app updates in real time, so users always know what’s running low, what’s about to expire, and where they can save money. This prevents waste, stops duplicate purchases, and helps families stretch their budgets further.
+With smart features like pantry tracking, automatic grocery lists, and price comparison, SAVR brings clarity to a process that usually feels chaotic. The app updates in real time, so users always know what’s running low, what’s about to expire, and where they can save money. This prevents waste, stops duplicate purchases, and helps families stretch their budgets further.
 
-Savr is especially helpful for anyone with limited time, energy, or a packed schedule. With just a few taps, users can stay on top of meals, find affordable options, and keep their kitchens organized with almost no effort. It turns grocery shopping and meal planning into a smoother, simpler part of everyday life. Savr helps you save time, save money, and make better food choices feel effortless.`,
+SAVR is especially helpful for anyone with limited time, energy, or a packed schedule. With just a few taps, users can stay on top of meals, find affordable options, and keep their kitchens organized with almost no effort. It turns grocery shopping and meal planning into a smoother, simpler part of everyday life. SAVR helps you save time, save money, and make better food choices feel effortless.`,
                 },
               ].map((section, index) => (
                 <motion.div
@@ -505,7 +505,7 @@ Savr is especially helpful for anyone with limited time, energy, or a packed sch
                   whileTap={{ scale: 0.95 }}
                   className="px-8 py-3 bg-[#00A86B] text-white font-medium rounded-full hover:bg-[#00A86B]/90 transition-colors duration-300"
                 >
-                  Get Started with Savr
+                  Get Started with SAVR
                 </motion.button>
               </Link>
             </motion.div>

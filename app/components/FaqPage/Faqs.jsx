@@ -14,7 +14,7 @@ const inter = Inter({
 
 const faqData = [
   {
-    category: "Basics Of Savr",
+    category: "Basics Of SAVR",
     questions: [
       {
         id: 1,
@@ -197,7 +197,7 @@ const faqData = [
         id: 24,
         question: "Does the app help reduce food waste?",
         answer:
-          "Absolutely. Savr reminds you when items are about to expire and recommends recipes that use up what you already have.",
+          "Absolutely. SAVR reminds you when items are about to expire and recommends recipes that use up what you already have.",
       },
     ],
   },
@@ -357,7 +357,7 @@ const FaqPage = () => {
               </span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-neutral-600 max-w-3xl mx-auto px-4 sm:px-6 font-light">
-              Find answers to common questions about Savr's smart grocery
+              Find answers to common questions about SAVR's smart grocery
               shopping assistant.
             </p>
 
@@ -404,7 +404,7 @@ const FaqPage = () => {
               ?
             </h2>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-center text-neutral-300 mb-6 sm:mb-8 md:mb-10 px-4 sm:px-6 font-light">
-              Join Savr today and experience a smarter way to shop, cook, and
+              Join SAVR today and experience a smarter way to shop, cook, and
               save.
             </p>
             <div className="flex justify-center px-4">

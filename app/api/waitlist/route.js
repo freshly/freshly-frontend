@@ -126,10 +126,10 @@ export async function POST(request) {
           name: brevoSenderName,
         },
         to: [{ email, name }],
-        subject: 'You’re on the Savr waitlist!',
-        htmlContent: `<p>Hey ${name}, thanks for joining the Savr waitlist! 🎉</p>
-<p>We'll notify you early when Savr launches.</p>
-<p>– The Savr Team</p>`,
+        subject: 'You’re on the SAVR waitlist!',
+        htmlContent: `<p>Hey ${name}, thanks for joining the SAVR waitlist! 🎉</p>
+<p>We'll notify you early when SAVR launches.</p>
+<p>– The SAVR Team</p>`,
       });
       console.log('[waitlist-api] Brevo SendSmtpEmail payload constructed');
       console.log('[waitlist-api] Sending Brevo transactional email');

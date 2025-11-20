@@ -25,7 +25,7 @@ export default function Footer() {
 
         <div className="flex justify-center items-center space-x-4 sm:space-x-5 text-white/70">
           <a
-            href="https://www.instagram.com/joinsavr?igsh=b2RnNjUwMGhncXZr"
+            href="https://www.instagram.com/joinfreshly?igsh=b2RnNjUwMGhncXZr"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-white transition-colors duration-200"
@@ -43,7 +43,7 @@ export default function Footer() {
             <Facebook size={22} />
           </a>
           <a
-            href="https://x.com/joinsavr"
+            href="https://x.com/joinfreshly"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-white transition-colors duration-200"
@@ -61,7 +61,7 @@ export default function Footer() {
         </div>
 
         <div className="text-xs sm:text-sm text-white/60">
-          © {currentYear} Savr. All rights reserved.
+          © {currentYear} SAVR. All rights reserved.
         </div>
       </div>
     </footer>
