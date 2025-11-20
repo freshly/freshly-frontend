@@ -161,22 +161,9 @@ export default function Hero() {
           animate={controls}
           className="flex w-full flex-col items-center justify-center px-4 sm:px-6 pt-20 sm:pt-28 lg:pt-32"
         >
-          <motion.div
-            variants={itemVariants}
-            whileHover={{ scale: 1.05, rotate: 5 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <Image
-              src={rl}
-              alt="Savr Icon"
-              className="h-32 w-32 sm:h-40 sm:w-40 md:h-44 md:w-44 object-contain drop-shadow-2xl"
-              priority
-            />
-          </motion.div>
-
           <motion.div variants={itemVariants} className="mt-3 sm:mt-4 relative">
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold bg-[#00A86B] bg-clip-text text-transparent">
-              Savr
+              SAVR
             </h1>
             {/* Animated underline */}
           </motion.div>
@@ -211,7 +198,7 @@ export default function Hero() {
                 transition={{ duration: 2, repeat: Infinity }}
               />
               <span className="text-sm font-medium text-gray-700">
-               AI powered Grocery Shopping & Meal Planning
+                AI powered Grocery Shopping & Meal Planning
               </span>
             </div>
           </motion.div>
@@ -270,68 +257,6 @@ export default function Hero() {
                 {/* Enhanced Two Column Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mt-8 sm:mt-10">
                   {/* Time Consuming Card */}
-                  <motion.div
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 1, duration: 0.6 }}
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    className="group relative"
-                  >
-                    {/* Gradient Border */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#00A86B]/50 to-[#00A86B]/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                    <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 sm:p-8 hover:bg-white/10 transition-all duration-300">
-                      {/* Icon Container */}
-                      <div className="flex justify-center mb-4">
-                        <motion.div
-                          animate={{ rotate: 360 }}
-                          transition={{
-                            duration: 20,
-                            repeat: Infinity,
-                            ease: "linear",
-                          }}
-                          className="relative"
-                        >
-                          <div className="absolute inset-0 bg-[#00A86B]/20 rounded-full blur-xl" />
-                          <div className="relative bg-black/50 p-4 rounded-full border border-[#00A86B]/30">
-                            <FiClock className="w-8 h-8 sm:w-10 sm:h-10 text-[#00A86B]" />
-                          </div>
-                        </motion.div>
-                      </div>
-
-                      {/* Title */}
-                      <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white text-center mb-3">
-                        Time Consuming & Disorganized
-                      </h3>
-
-                      {/* Description */}
-                      <p className="text-gray-400 text-sm sm:text-base md:text-lg text-center leading-relaxed">
-                        Hours wasted deciding what to cook and what to buy.
-                        Forgotten items, duplicate purchases, and messy lists.
-                        Constantly juggling recipes, preferences, and pantry
-                        leftovers.
-                      </p>
-
-                      {/* Stats */}
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 1.2, duration: 0.6 }}
-                        className="mt-4 pt-4 border-t border-white/10"
-                      >
-                        <div className="flex items-center justify-center gap-2">
-                          <FiTrendingDown className="w-4 h-4 text-red-400" />
-                          <span className="text-sm text-gray-400">
-                            Average:{" "}
-                            <span className="text-red-400 font-semibold">
-                              3+ hours/week
-                            </span>{" "}
-                            wasted
-                          </span>
-                        </div>
-                      </motion.div>
-                    </div>
-                  </motion.div>
 
                   {/* Wasteful Card */}
                   <motion.div
@@ -389,6 +314,68 @@ export default function Hero() {
                             Average:{" "}
                             <span className="text-orange-400 font-semibold">
                               $1,500/year
+                            </span>{" "}
+                            wasted
+                          </span>
+                        </div>
+                      </motion.div>
+                    </div>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 1, duration: 0.6 }}
+                    whileHover={{ scale: 1.05, y: -5 }}
+                    className="group relative"
+                  >
+                    {/* Gradient Border */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#00A86B]/50 to-[#00A86B]/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                    <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 sm:p-8 hover:bg-white/10 transition-all duration-300">
+                      {/* Icon Container */}
+                      <div className="flex justify-center mb-4">
+                        <motion.div
+                          animate={{ rotate: 360 }}
+                          transition={{
+                            duration: 20,
+                            repeat: Infinity,
+                            ease: "linear",
+                          }}
+                          className="relative"
+                        >
+                          <div className="absolute inset-0 bg-[#00A86B]/20 rounded-full blur-xl" />
+                          <div className="relative bg-black/50 p-4 rounded-full border border-[#00A86B]/30">
+                            <FiClock className="w-8 h-8 sm:w-10 sm:h-10 text-[#00A86B]" />
+                          </div>
+                        </motion.div>
+                      </div>
+
+                      {/* Title */}
+                      <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white text-center mb-3">
+                        Time Consuming & Disorganized
+                      </h3>
+
+                      {/* Description */}
+                      <p className="text-gray-400 text-sm sm:text-base md:text-lg text-center leading-relaxed">
+                        Hours wasted deciding what to cook and what to buy.
+                        Forgotten items, duplicate purchases, and messy lists.
+                        Constantly juggling recipes, preferences, and pantry
+                        leftovers.
+                      </p>
+
+                      {/* Stats */}
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 1.2, duration: 0.6 }}
+                        className="mt-4 pt-4 border-t border-white/10"
+                      >
+                        <div className="flex items-center justify-center gap-2">
+                          <FiTrendingDown className="w-4 h-4 text-red-400" />
+                          <span className="text-sm text-gray-400">
+                            Average:{" "}
+                            <span className="text-red-400 font-semibold">
+                              3+ hours/week
                             </span>{" "}
                             wasted
                           </span>
