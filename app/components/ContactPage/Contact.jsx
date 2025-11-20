@@ -273,7 +273,7 @@ export default function ContactPage() {
               >
                 {/* Email Card */}
                 <motion.a
-                  href="mailto:support@freshly.com"
+                  href="mailto:support@savr.com"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="block bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group"
@@ -285,7 +285,7 @@ export default function ContactPage() {
                     <div className="flex-1 min-w-0">
                       <p className="text-sm text-gray-500 mb-1">Email Us</p>
                       <p className="text-[#00A86B] font-medium break-all">
-                        support@joinfreshly.com
+                        support@joinsavr.com
                       </p>
                     </div>
                   </div>

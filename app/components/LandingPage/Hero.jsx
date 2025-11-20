@@ -168,7 +168,7 @@ export default function Hero() {
           >
             <Image
               src={rl}
-              alt="Freshly Icon"
+              alt="Savr Icon"
               className="h-32 w-32 sm:h-40 sm:w-40 md:h-44 md:w-44 object-contain drop-shadow-2xl"
               priority
             />
@@ -176,7 +176,7 @@ export default function Hero() {
 
           <motion.div variants={itemVariants} className="mt-3 sm:mt-4 relative">
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold bg-[#00A86B] bg-clip-text text-transparent">
-              Freshly
+              Savr
             </h1>
             {/* Animated underline */}
           </motion.div>

@@ -114,7 +114,7 @@ const DownloadPage = () => {
     {
       icon: Bell,
       title: "Get Notified First",
-      description: "Join our waitlist & be among the first to know when Freshly launches on your platform.",
+      description: "Join our waitlist & be among the first to know when Savr launches on your platform.",
     },
     {
       icon: CheckCircle2,
@@ -155,7 +155,7 @@ const DownloadPage = () => {
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-neutral-950 mb-4 sm:mb-6 px-4 tracking-tight leading-tight">
               Download{" "}
               <span className="text-transparent bg-clip-text bg-[#00A86B] font-normal">
-                Freshly
+                Savr
               </span>
             </h1>
             
@@ -202,7 +202,7 @@ const DownloadPage = () => {
                 </span>
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-neutral-600 max-w-3xl mx-auto px-4 font-light">
-                Be part of the Freshly community from day one
+                Be part of the Savr community from day one
               </p>
             </div>
 
@@ -228,7 +228,7 @@ const DownloadPage = () => {
                 </h3>
                 
                 <p className="text-base sm:text-lg md:text-xl text-gray-600 font-light leading-relaxed max-w-2xl mx-auto">
-                  We're putting the finishing touches on Freshly to ensure you get the best AI powered grocery shopping & meal planning experience. Both iOS &Android apps will launch simultaneously later this year.
+                  We're putting the finishing touches on Savr to ensure you get the best AI powered grocery shopping & meal planning experience. Both iOS &Android apps will launch simultaneously later this year.
                 </p>
                 
                 <div className="pt-4 sm:pt-6 flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -292,7 +292,7 @@ const DownloadPage = () => {
             </h2>
             
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-neutral-300 mb-6 sm:mb-8 md:mb-10 px-4 sm:px-6 font-light">
-              Join thousands of others waiting for Freshly. Get notified the moment we launch on your platform.
+              Join thousands of others waiting for Savr. Get notified the moment we launch on your platform.
             </p>
             
             <Button
