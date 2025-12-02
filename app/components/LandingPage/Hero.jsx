@@ -83,72 +83,15 @@ export default function Hero() {
 
   return (
     <div className={`${inter.className} relative overflow-hidden`}>
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 -z-10">
-        {/* Gradient Mesh Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white via-orange-50/30 to-emerald-50/30" />
+      {/* Animated Gradient Background - Matching Product Section */}
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-white via-orange-50 to-emerald-50 opacity-50" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-tr from-transparent via-[#FD8100]/5 to-[#00A86B]/5" />
 
-        {/* Animated Gradient Orbs */}
-        <motion.div
-          className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-[#FD8100]/20 to-[#FD8100]/5 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-tr from-[#00A86B]/20 to-[#00A86B]/5 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-        />
-
-        {/* Floating Particles */}
-        <div className="absolute inset-0">
-          {PARTICLE_CONFIGS.map(({ left, top, duration, delay }, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-1 h-1 bg-[#00A86B]/40 rounded-full"
-              style={{ left, top }}
-              animate={{
-                y: [0, -30, 0],
-                opacity: [0, 1, 0],
-              }}
-              transition={{
-                duration,
-                repeat: Infinity,
-                delay,
-                ease: "easeInOut",
-              }}
-            />
-          ))}
-        </div>
-
-        {/* Interactive Gradient that follows mouse */}
-        <motion.div
-          className="absolute w-96 h-96 bg-gradient-radial from-[#FD8100]/10 to-transparent rounded-full blur-3xl pointer-events-none"
-          style={{
-            x: mousePosition.x - 192,
-            y: mousePosition.y - 192,
-          }}
-          transition={{ type: "spring", damping: 30, stiffness: 200 }}
-        />
+      {/* Floating Orbs Animation - Matching Product Section */}
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#FD8100]/10 rounded-full blur-3xl animate-float" />
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#00A86B]/10 rounded-full blur-3xl animate-float-delayed" />
       </div>
-
-      {/* Soft blur overlay to give the hero a frosted-glass effect */}
-      <div className="absolute inset-0 z-0 bg-white/20 backdrop-blur-3xl pointer-events-none" />
 
       <motion.div
         style={{ y, opacity }}
@@ -214,14 +157,14 @@ export default function Hero() {
           {/* Gradient Border Container */}
           <div className="relative p-[2px] rounded-[20px] bg-gradient-to-r from-[#00A86B] via-[#FD8100] to-[#00A86B] animate-gradient-x">
             {/* Inner Card */}
-            <div className="relative bg-black rounded-[18px] overflow-hidden">
+            <div className="relative bg-white rounded-[18px] overflow-hidden shadow-2xl">
               {/* Animated Background Pattern */}
               <div className="absolute inset-0 opacity-10">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#00A86B]/20 via-transparent to-[#FD8100]/20" />
                 {ORBITAL_CIRCLES.map(({ left, top }, i) => (
                   <motion.div
                     key={i}
-                    className="absolute w-32 h-32 border border-white/5 rounded-full"
+                    className="absolute w-32 h-32 border border-gray-200/30 rounded-full"
                     style={{
                       left,
                       top,
@@ -247,7 +190,7 @@ export default function Hero() {
                   transition={{ delay: 0.6, duration: 0.8 }}
                   className="text-center"
                 >
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
                     Grocery shopping & meal planning today is...{" "}
                   </h2>
                 </motion.div>
@@ -263,38 +206,38 @@ export default function Hero() {
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 1.1, duration: 0.6 }}
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    className="group relative"
+                    whileHover={{ scale: 1.02, y: -8 }}
+                    className="group relative h-full"
                   >
                     {/* Gradient Border */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#FD8100]/0 to-[#FD8100]/50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#FD8100]/30 to-[#FD8100]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
 
-                    <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 sm:p-8 hover:bg-white/10 transition-all duration-300">
+                    <div className="relative bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8 hover:bg-gray-100 hover:shadow-lg transition-all duration-300 h-full flex flex-col">
                       {/* Icon Container */}
                       <div className="flex justify-center mb-4">
                         <motion.div
                           animate={{ y: [0, -5, 0] }}
                           transition={{
-                            duration: 2,
+                            duration: 3,
                             repeat: Infinity,
                             ease: "easeInOut",
                           }}
                           className="relative"
                         >
                           <div className="absolute inset-0 bg-[#FD8100]/20 rounded-full blur-xl" />
-                          <div className="relative bg-black/50 p-4 rounded-full border border-[#FD8100]/30">
+                          <div className="relative bg-orange-100 p-4 rounded-full border border-[#FD8100]/30">
                             <FiShoppingCart className="w-8 h-8 sm:w-10 sm:h-10 text-[#FD8100]" />
                           </div>
                         </motion.div>
                       </div>
 
                       {/* Title */}
-                      <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white text-center mb-3">
+                      <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-900 text-center mb-3">
                         Wasteful & Stressful
                       </h3>
 
                       {/* Description */}
-                      <p className="text-gray-400 text-sm sm:text-base md:text-lg text-center leading-relaxed">
+                      <p className="text-gray-700 text-sm sm:text-base md:text-lg text-center leading-relaxed">
                         Up to 30% of groceries end up in the trash each week.
                         Overbuying and unused ingredients drain your budget. The
                         entire process feels repetitive, tiring, and
@@ -306,13 +249,13 @@ export default function Hero() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 1.3, duration: 0.6 }}
-                        className="mt-4 pt-4 border-t border-white/10"
+                        className="mt-4 pt-4 border-t border-gray-200"
                       >
                         <div className="flex items-center justify-center gap-2">
-                          <FiAlertCircle className="w-4 h-4 text-orange-400" />
-                          <span className="text-sm text-gray-400">
+                          <FiAlertCircle className="w-4 h-4 text-[#FD8100]" />
+                          <span className="text-sm text-gray-700">
                             Average:{" "}
-                            <span className="text-orange-400 font-semibold">
+                            <span className="text-[#FD8100] font-semibold">
                               $1,500/year
                             </span>{" "}
                             wasted
@@ -325,38 +268,38 @@ export default function Hero() {
                     initial={{ opacity: 0, x: -30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 1, duration: 0.6 }}
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    className="group relative"
+                    whileHover={{ scale: 1.02, y: -8 }}
+                    className="group relative h-full"
                   >
                     {/* Gradient Border */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#00A86B]/50 to-[#00A86B]/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#00A86B]/30 to-[#00A86B]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
 
-                    <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 sm:p-8 hover:bg-white/10 transition-all duration-300">
+                    <div className="relative bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8 hover:bg-gray-100 hover:shadow-lg transition-all duration-300 h-full flex flex-col">
                       {/* Icon Container */}
                       <div className="flex justify-center mb-4">
                         <motion.div
-                          animate={{ rotate: 360 }}
+                          animate={{ y: [0, -5, 0] }}
                           transition={{
-                            duration: 20,
+                            duration: 3,
                             repeat: Infinity,
-                            ease: "linear",
+                            ease: "easeInOut",
                           }}
                           className="relative"
                         >
                           <div className="absolute inset-0 bg-[#00A86B]/20 rounded-full blur-xl" />
-                          <div className="relative bg-black/50 p-4 rounded-full border border-[#00A86B]/30">
+                          <div className="relative bg-emerald-100 p-4 rounded-full border border-[#00A86B]/30">
                             <FiClock className="w-8 h-8 sm:w-10 sm:h-10 text-[#00A86B]" />
                           </div>
                         </motion.div>
                       </div>
 
                       {/* Title */}
-                      <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white text-center mb-3">
+                      <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-900 text-center mb-3">
                         Time Consuming & Disorganized
                       </h3>
 
                       {/* Description */}
-                      <p className="text-gray-400 text-sm sm:text-base md:text-lg text-center leading-relaxed">
+                      <p className="text-gray-700 text-sm sm:text-base md:text-lg text-center leading-relaxed">
                         Hours wasted deciding what to cook and what to buy.
                         Forgotten items, duplicate purchases, and messy lists.
                         Constantly juggling recipes, preferences, and pantry
@@ -368,13 +311,13 @@ export default function Hero() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 1.2, duration: 0.6 }}
-                        className="mt-4 pt-4 border-t border-white/10"
+                        className="mt-4 pt-4 border-t border-gray-200"
                       >
                         <div className="flex items-center justify-center gap-2">
-                          <FiTrendingDown className="w-4 h-4 text-red-400" />
-                          <span className="text-sm text-gray-400">
+                          <FiTrendingDown className="w-4 h-4 text-[#00A86B]" />
+                          <span className="text-sm text-gray-700">
                             Average:{" "}
-                            <span className="text-red-400 font-semibold">
+                            <span className="text-[#00A86B] font-semibold">
                               3+ hours/week
                             </span>{" "}
                             wasted
@@ -433,6 +376,31 @@ export default function Hero() {
         .animate-gradient-x {
           background-size: 200% 200%;
           animation: gradient-x 3s ease infinite;
+        }
+        @keyframes float {
+          0%,
+          100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-20px);
+          }
+        }
+        @keyframes float-delayed {
+          0%,
+          100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(20px);
+          }
+        }
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+        .animate-float-delayed {
+          animation: float-delayed 6s ease-in-out infinite;
+          animation-delay: 3s;
         }
       `}</style>
     </div>
