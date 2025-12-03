@@ -253,20 +253,13 @@ const AboutPage = () => {
                   </h2>
                 </div>
                 <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
-                  I'm a 17-year-old Coptic Orthodox Egyptian. I’m currently a
-                  junior at Oakton High School with a passion for technology,
-                  problem-solving and product building. My love for mathematics,
-                  programming and AI translated into the ambition of creating
-                  inventions that would help people. I've always been stable in
-                  my identity and background, with my faith being one of the
-                  dominant components of my life. As a devout Christian, my
-                  work, leadership, and decision-making all reflect the ethos of
-                  my belief system. As the CTO and Co-Founder of SAVR, I'm
-                  the technical visionary with a creative and leadership
-                  background to help manifest a platform designed to change the
-                  grocery shopping experience through AI. I'm inspired by
-                  ambition, faith, intention, and a lifelong goal to develop a
-                  career based on innovation, integrity and positive impact.
+                  I’m a 17-year-old Coptic Orthodox Egyptian and junior at
+                  Oakton High School with a passion for technology, AI, and
+                  building products that help people. As CTO and Co-Founder of
+                  SAVR, I lead the technical vision and architecture of our
+                  platform, combining engineering, creativity, and purpose. My
+                  faith and values guide my work, and I’m driven to build
+                  innovations that create lasting impact.
                 </p>
 
                 {/* Placeholder Stats */}
@@ -365,7 +358,6 @@ const AboutPage = () => {
                             george@joinfreshly.com
                           </span>
                         </motion.a>
-
 
                         <motion.a
                           href="https://www.linkedin.com/in/george-abdallah-226358397/"
