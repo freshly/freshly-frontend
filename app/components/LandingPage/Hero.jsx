@@ -83,16 +83,6 @@ export default function Hero() {
 
   return (
     <div className={`${inter.className} relative overflow-hidden`}>
-      {/* Animated Gradient Background - Matching Product Section */}
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-white via-orange-50 to-emerald-50 opacity-50" />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-tr from-transparent via-[#FD8100]/5 to-[#00A86B]/5" />
-
-      {/* Floating Orbs Animation - Matching Product Section */}
-      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#FD8100]/10 rounded-full blur-3xl animate-float" />
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#00A86B]/10 rounded-full blur-3xl animate-float-delayed" />
-      </div>
-
       <motion.div
         style={{ y, opacity }}
         className="relative z-10 mb-12 sm:mb-16 lg:mb-20"
@@ -376,31 +366,6 @@ export default function Hero() {
         .animate-gradient-x {
           background-size: 200% 200%;
           animation: gradient-x 3s ease infinite;
-        }
-        @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-20px);
-          }
-        }
-        @keyframes float-delayed {
-          0%,
-          100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(20px);
-          }
-        }
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-        .animate-float-delayed {
-          animation: float-delayed 6s ease-in-out infinite;
-          animation-delay: 3s;
         }
       `}</style>
     </div>
