@@ -110,7 +110,6 @@ export default function Hero() {
           className="pt-6 px-4 text-center"
         >
           <motion.span
-            animate={floatingAnimation}
             className="inline-block text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold"
           >
             <span className="text-[#00A86B]">Smarter Shopping.</span>{" "}

@@ -292,7 +292,7 @@ export default function Product() {
                       <div className="flex items-start gap-3 group/item">
                         <div className="mt-1 w-6 h-6 rounded-full bg-[#00A86B]/15 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#00A86B] transition-colors duration-300">
                           <span className="text-[#00A86B] group-hover/item:text-white text-sm">
-                            ✨
+                             ✓
                           </span>
                         </div>
                         <p className="text-gray-700 text-base sm:text-lg">
@@ -302,7 +302,7 @@ export default function Product() {
                       <div className="flex items-start gap-3 group/item">
                         <div className="mt-1 w-6 h-6 rounded-full bg-[#00A86B]/15 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#00A86B] transition-colors duration-300">
                           <span className="text-[#00A86B] group-hover/item:text-white text-sm">
-                            💡
+                            ✓
                           </span>
                         </div>
                         <p className="text-gray-700 text-base sm:text-lg">
@@ -323,7 +323,7 @@ export default function Product() {
                       <div className="flex items-start gap-3 group/item">
                         <div className="mt-1 w-6 h-6 rounded-full bg-[#00A86B]/15 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#00A86B] transition-colors duration-300">
                           <span className="text-[#00A86B] group-hover/item:text-white text-sm">
-                            📊
+                            ✓
                           </span>
                         </div>
                         <p className="text-gray-700 text-base sm:text-lg">
@@ -333,7 +333,7 @@ export default function Product() {
                       <div className="flex items-start gap-3 group/item">
                         <div className="mt-1 w-6 h-6 rounded-full bg-[#00A86B]/15 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#00A86B] transition-colors duration-300">
                           <span className="text-[#00A86B] group-hover/item:text-white text-sm">
-                            🌱
+                             ✓
                           </span>
                         </div>
                         <p className="text-gray-700 text-base sm:text-lg">
@@ -413,7 +413,7 @@ export default function Product() {
                       <div className="flex items-start gap-3 group/item">
                         <div className="mt-1 w-6 h-6 rounded-full bg-white/70 border border-[#FD8100]/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#FD8100] transition-colors duration-300">
                           <span className="text-[#B45309] group-hover/item:text-white text-sm">
-                            💰
+                             ✓
                           </span>
                         </div>
                         <p className="text-gray-700 text-base sm:text-lg">
@@ -424,7 +424,7 @@ export default function Product() {
                       <div className="flex items-start gap-3 group/item">
                         <div className="mt-1 w-6 h-6 rounded-full bg-white/70 border border-[#FD8100]/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#FD8100] transition-colors duration-300">
                           <span className="text-[#B45309] group-hover/item:text-white text-sm">
-                            🛒
+                             ✓
                           </span>
                         </div>
                         <p className="text-gray-700 text-base sm:text-lg">
@@ -445,7 +445,7 @@ export default function Product() {
                       <div className="flex items-start gap-3 group/item">
                         <div className="mt-1 w-6 h-6 rounded-full bg-white/70 border border-[#00A86B]/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#00A86B] transition-colors duration-300">
                           <span className="text-[#007A4E] group-hover/item:text-white text-sm">
-                            🚚
+                             ✓
                           </span>
                         </div>
                         <p className="text-gray-700 text-base sm:text-lg">
@@ -456,7 +456,7 @@ export default function Product() {
                       <div className="flex items-start gap-3 group/item">
                         <div className="mt-1 w-6 h-6 rounded-full bg-white/70 border border-[#00A86B]/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#00A86B] transition-colors duration-300">
                           <span className="text-[#007A4E] group-hover/item:text-white text-sm">
-                            📱
+                             ✓
                           </span>
                         </div>
                         <p className="text-gray-700 text-base sm:text-lg">
@@ -467,7 +467,7 @@ export default function Product() {
                       <div className="flex items-start gap-3 group/item">
                         <div className="mt-1 w-6 h-6 rounded-full bg-white/70 border border-[#00A86B]/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#00A86B] transition-colors duration-300">
                           <span className="text-[#007A4E] group-hover/item:text-white text-sm">
-                            ⭐
+                             ✓
                           </span>
                         </div>
                         <p className="text-gray-700 text-base sm:text-lg">
