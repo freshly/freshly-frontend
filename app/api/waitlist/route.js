@@ -32,17 +32,29 @@ const supabase = createClient(parsedUrl.toString(), supabaseServiceRoleKey, {
   auth: { persistSession: false },
 });
 
-const brevoApiKey = process.env.BREVO_API_KEY;
-const brevoSenderEmail = process.env.BREVO_SENDER_EMAIL;
-const brevoSenderName = process.env.BREVO_SENDER_NAME;
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-let brevoTransactionalApi = null;
-console.log('[waitlist-api] Preparing Brevo client', {
-  hasApiKey: Boolean(brevoApiKey),
-  hasSenderEmail: Boolean(brevoSenderEmail),
-  hasSenderName: Boolean(brevoSenderName),
-});
-if (brevoApiKey && brevoSenderEmail && brevoSenderName) {
+// Helper function to lazily create Brevo client at runtime
+function getBrevoTransactionalApi() {
+  const brevoApiKey = process.env.BREVO_API_KEY;
+  const brevoSenderEmail = process.env.BREVO_SENDER_EMAIL;
+  const brevoSenderName = process.env.BREVO_SENDER_NAME;
+
+  console.log('[waitlist-api] Preparing Brevo client', {
+    hasApiKey: Boolean(brevoApiKey),
+    hasSenderEmail: Boolean(brevoSenderEmail),
+    hasSenderName: Boolean(brevoSenderName),
+  });
+
+  if (!brevoApiKey || !brevoSenderEmail || !brevoSenderName) {
+    logContext('Missing Brevo configuration; confirmation emails disabled', {
+      hasApiKey: Boolean(brevoApiKey),
+      hasSenderEmail: Boolean(brevoSenderEmail),
+      hasSenderName: Boolean(brevoSenderName),
+    });
+    return null;
+  }
+
   const brevoClient = Brevo?.ApiClient?.instance;
   if (brevoClient?.authentications?.apiKey) {
     brevoClient.authentications.apiKey.apiKey = brevoApiKey;
@@ -50,22 +62,17 @@ if (brevoApiKey && brevoSenderEmail && brevoSenderName) {
   } else {
     console.log('[waitlist-api] Brevo ApiClient.instance unavailable; using TransactionalEmailsApi auth setter');
   }
-  brevoTransactionalApi = new Brevo.TransactionalEmailsApi();
+
+  const brevoTransactionalApi = new Brevo.TransactionalEmailsApi();
   if (brevoTransactionalApi?.authentications?.apiKey) {
     brevoTransactionalApi.authentications.apiKey.apiKey = brevoApiKey;
   } else {
     console.log('[waitlist-api] Brevo TransactionalEmailsApi missing authentications.apiKey');
   }
   console.log('[waitlist-api] Brevo TransactionalEmailsApi initialized');
-} else {
-  logContext('Missing Brevo configuration; confirmation emails disabled', {
-    hasApiKey: Boolean(brevoApiKey),
-    hasSenderEmail: Boolean(brevoSenderEmail),
-    hasSenderName: Boolean(brevoSenderName),
-  });
-}
 
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return { api: brevoTransactionalApi, senderEmail: brevoSenderEmail, senderName: brevoSenderName };
+}
 
 export async function POST(request) {
   console.log('[waitlist-api] POST /api/waitlist route hit');
@@ -117,7 +124,10 @@ export async function POST(request) {
     return NextResponse.json({ error: 'Unable to add you to the waitlist', details: error.message }, { status: 500 });
   }
 
-  if (brevoTransactionalApi) {
+  // Lazily initialize Brevo client at runtime
+  const brevoConfig = getBrevoTransactionalApi();
+  if (brevoConfig) {
+    const { api: brevoTransactionalApi, senderEmail: brevoSenderEmail, senderName: brevoSenderName } = brevoConfig;
     try {
       console.log('[waitlist-api] Constructing Brevo SendSmtpEmail payload');
       const emailPayload = new Brevo.SendSmtpEmail({
@@ -126,7 +136,7 @@ export async function POST(request) {
           name: brevoSenderName,
         },
         to: [{ email, name }],
-        subject: 'You’re on the SAVR waitlist!',
+        subject: "You're on the SAVR waitlist!",
         htmlContent: `<p>Hey ${name}, thanks for joining the SAVR waitlist! 🎉</p>
 <p>We'll notify you early when SAVR launches.</p>
 <p>– The SAVR Team</p>`,
