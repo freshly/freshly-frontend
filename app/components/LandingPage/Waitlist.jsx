@@ -123,7 +123,7 @@ export default function Waitlist() {
     },
     {
       icon: Calendar,
-      number: "Q4 2025",
+      number: "Q1 2026",
       label: "Expected launch",
       color: "from-[#00A86B] to-[#FD8100]",
       delay: 0.1,
