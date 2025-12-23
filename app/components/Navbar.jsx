@@ -73,13 +73,7 @@ export default function Navbar() {
             >
               Connect
             </Link>
-            <Link
-              href="/about"
-              className="text-base lg:text-lg font-normal text-white hover:text-white/80 transition-colors duration-200"
-            >
-              Visionaries
-            </Link>
-              
+
             <Link
               href="/faqs"
               className="text-base lg:text-lg font-normal text-white hover:text-white/80 transition-colors duration-200"
@@ -132,13 +126,6 @@ export default function Navbar() {
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Connect
-          </Link>
-          <Link
-            href="/about"
-            className="block px-4 py-3 rounded-md text-base font-light text-white hover:bg-white/10 transition-colors duration-200"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Visionaries
           </Link>
 
           <Link
