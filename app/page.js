@@ -1,6 +1,8 @@
-import Hero from "./components/LandingPage/Hero";
-import Sponsors from "./components/LandingPage/Sponsors";
+import ProductHero from "./components/LandingPage/ProductHero";
 import Product from "./components/LandingPage/Product";
+import Problem from "./components/LandingPage/Problem";
+import DownloadCTA from "./components/LandingPage/DownloadCTA";
+import Sponsors from "./components/LandingPage/Sponsors";
 import Phone from "./components/LandingPage/Phone";
 import Waitlist from "./components/LandingPage/Waitlist";
 import Reviews from "./components/LandingPage/Reviews";
@@ -18,9 +20,9 @@ export default function Home() {
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#00A86B]/10 rounded-full blur-3xl animate-float-delayed" />
       </div>
 
-      {/* Hero section */}
+      {/* Product Hero section */}
       <section className="relative z-10">
-        <Hero />
+        <ProductHero />
       </section>
 
       {/*<section className="relative z-20 pt-24 lg:block hidden">
@@ -31,6 +33,8 @@ export default function Home() {
       <section className="relative z-10">
         {/*<Sponsors />*/}
         <Product />
+        <Problem />
+        <DownloadCTA />
         <Waitlist />
         {/*<Reviews />*/}
       </section>

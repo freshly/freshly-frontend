@@ -26,7 +26,6 @@ export default function Navbar() {
   const handleWaitlistClick = useCallback(
     (e) => {
       if (e) e.preventDefault();
-      setIsMobileMenuOpen(false);
 
       if (pathname === "/") {
         scrollToWaitlist();
@@ -50,12 +49,15 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16 sm:h-18 md:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center">
+            <Link href="/" className="flex items-center gap-2">
               <img
                 className="h-12 sm:h-14 md:h-16 lg:h-15 w-auto"
                 src="/rl.png"
                 alt="SAVR Logo"
               />
+              <span className="text-xl sm:text-2xl md:text-3xl font-bold text-[#00A86B]">
+                SAVR
+              </span>
             </Link>
           </div>
 

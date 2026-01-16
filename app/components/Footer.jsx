@@ -61,7 +61,7 @@ export default function Footer() {
         </div>
 
         <div className="text-xs sm:text-sm text-white/60">
-          © {currentYear} SAVR. All rights reserved.
+          © {currentYear} SAVR. All Rights Reserved.
         </div>
       </div>
     </footer>

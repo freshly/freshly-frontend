@@ -25,7 +25,7 @@ npm run lint
 ## Architecture & Stack
 
 ### Core Technologies
-- **Framework**: Next.js 15.3.5 (App Router)
+- **Framework**: Next.js 15.3.6 (App Router)
 - **React**: 19.0.0
 - **Styling**: Tailwind CSS v4 with custom utilities
 - **Animations**: Framer Motion for component animations
@@ -86,12 +86,13 @@ BREVO_SENDER_NAME=
 ## Styling System
 
 ### Tailwind CSS v4
-- Uses Tailwind v4 with `@tailwindcss/postcss`
+- Uses Tailwind v4 with `@tailwindcss/postcss` and `tw-animate-css` for animation utilities
 - Custom utilities defined in `app/globals.css`:
   - `.perspective-1000` - 3D perspective
   - `.transform-style-3d` - 3D transform preservation
   - `.backface-hidden` - Hide element backface
   - `.rotate-180` - 180° rotation
+  - `.animate-float` / `.animate-float-delayed` - Floating animations for decorative elements
 
 ### Design Tokens
 - Uses CSS variables defined in `:root` with OKLCH color space
