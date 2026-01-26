@@ -1,36 +1,9 @@
 import { NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
 import * as Brevo from '@getbrevo/brevo';
 
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-
 const logContext = (message, extra = {}) => {
-  console.error(`[waitlist-api] ${message}`, extra);
+  console.log(`[waitlist-api] ${message}`, extra);
 };
-
-if (!supabaseUrl || !supabaseServiceRoleKey) {
-  logContext('Missing Supabase environment variables', {
-    hasUrl: Boolean(supabaseUrl),
-    hasServiceRoleKey: Boolean(supabaseServiceRoleKey),
-  });
-  throw new Error('SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY must be set');
-}
-
-let parsedUrl;
-try {
-  parsedUrl = new URL(supabaseUrl);
-  if (!['http:', 'https:'].includes(parsedUrl.protocol)) {
-    throw new Error('Supabase URL must use http or https');
-  }
-} catch (err) {
-  logContext('Invalid SUPABASE_URL provided', { supabaseUrl });
-  throw err;
-}
-
-const supabase = createClient(parsedUrl.toString(), supabaseServiceRoleKey, {
-  auth: { persistSession: false },
-});
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -39,12 +12,6 @@ function getBrevoTransactionalApi() {
   const brevoApiKey = process.env.BREVO_API_KEY;
   const brevoSenderEmail = process.env.BREVO_SENDER_EMAIL;
   const brevoSenderName = process.env.BREVO_SENDER_NAME;
-
-  console.log('[waitlist-api] Preparing Brevo client', {
-    hasApiKey: Boolean(brevoApiKey),
-    hasSenderEmail: Boolean(brevoSenderEmail),
-    hasSenderName: Boolean(brevoSenderName),
-  });
 
   if (!brevoApiKey || !brevoSenderEmail || !brevoSenderName) {
     logContext('Missing Brevo configuration; confirmation emails disabled', {
@@ -58,24 +25,18 @@ function getBrevoTransactionalApi() {
   const brevoClient = Brevo?.ApiClient?.instance;
   if (brevoClient?.authentications?.apiKey) {
     brevoClient.authentications.apiKey.apiKey = brevoApiKey;
-    console.log('[waitlist-api] Brevo ApiClient authenticated');
-  } else {
-    console.log('[waitlist-api] Brevo ApiClient.instance unavailable; using TransactionalEmailsApi auth setter');
   }
 
   const brevoTransactionalApi = new Brevo.TransactionalEmailsApi();
   if (brevoTransactionalApi?.authentications?.apiKey) {
     brevoTransactionalApi.authentications.apiKey.apiKey = brevoApiKey;
-  } else {
-    console.log('[waitlist-api] Brevo TransactionalEmailsApi missing authentications.apiKey');
   }
-  console.log('[waitlist-api] Brevo TransactionalEmailsApi initialized');
 
   return { api: brevoTransactionalApi, senderEmail: brevoSenderEmail, senderName: brevoSenderName };
 }
 
 export async function POST(request) {
-  console.log('[waitlist-api] POST /api/waitlist route hit');
+  logContext('POST /api/waitlist route hit');
   const payload = await request.json().catch(() => null);
 
   if (!payload) {
@@ -83,19 +44,10 @@ export async function POST(request) {
     return NextResponse.json({ error: 'Invalid JSON body' }, { status: 400 });
   }
 
-  console.log('[waitlist-api] Raw payload received', {
-    hasName: typeof payload.name === 'string',
-    hasEmail: typeof payload.email === 'string',
-  });
-
   const name = typeof payload.name === 'string' ? payload.name.trim() : '';
   const email = typeof payload.email === 'string' ? payload.email.trim().toLowerCase() : '';
 
-  console.log('[waitlist-api] Parsed payload', {
-    nameLength: name.length,
-    emailPreview: email ? `${email.slice(0, 3)}***` : null,
-  });
-
+  // Validate input
   if (!name || name.length > 120) {
     logContext('Rejected payload: invalid name', { nameLength: name.length });
     return NextResponse.json({ error: 'Name is required and must be under 120 characters' }, { status: 400 });
@@ -106,30 +58,18 @@ export async function POST(request) {
     return NextResponse.json({ error: 'A valid email is required' }, { status: 400 });
   }
 
-  console.log('[waitlist-api] Validation passed');
+  // Demo mode: Always succeed (just log the signup)
+  logContext('Demo mode: Waitlist signup successful', {
+    name,
+    email: `${email.slice(0, 3)}***`,
+    timestamp: new Date().toISOString(),
+  });
 
-  const { error } = await supabase.from('users').insert({ name, email });
-
-  if (error) {
-    if (error.code === '23505') {
-      logContext('Duplicate email submission', { email });
-      return NextResponse.json({ error: 'This email is already on the waitlist' }, { status: 409 });
-    }
-
-    logContext('Unexpected Supabase insert error', {
-      email,
-      code: error.code,
-      details: error.message,
-    });
-    return NextResponse.json({ error: 'Unable to add you to the waitlist', details: error.message }, { status: 500 });
-  }
-
-  // Lazily initialize Brevo client at runtime
+  // Optionally send confirmation email via Brevo if configured
   const brevoConfig = getBrevoTransactionalApi();
   if (brevoConfig) {
     const { api: brevoTransactionalApi, senderEmail: brevoSenderEmail, senderName: brevoSenderName } = brevoConfig;
     try {
-      console.log('[waitlist-api] Constructing Brevo SendSmtpEmail payload');
       const emailPayload = new Brevo.SendSmtpEmail({
         sender: {
           email: brevoSenderEmail,
@@ -141,19 +81,14 @@ export async function POST(request) {
 <p>We'll notify you early when SAVR launches.</p>
 <p>– The SAVR Team</p>`,
       });
-      console.log('[waitlist-api] Brevo SendSmtpEmail payload constructed');
-      console.log('[waitlist-api] Sending Brevo transactional email');
-      const result = await brevoTransactionalApi.sendTransacEmail(emailPayload);
-      console.log('[waitlist-api] Brevo email send result', {
-        messageId: result?.messageId,
-        data: result,
-      });
+      await brevoTransactionalApi.sendTransacEmail(emailPayload);
+      logContext('Confirmation email sent via Brevo', { email: `${email.slice(0, 3)}***` });
     } catch (err) {
       logContext('Failed to send confirmation email via Brevo', {
-        email,
+        email: `${email.slice(0, 3)}***`,
         error: err?.message || err,
-        stack: err?.stack,
       });
+      // Don't fail the request if email fails
     }
   }
 
